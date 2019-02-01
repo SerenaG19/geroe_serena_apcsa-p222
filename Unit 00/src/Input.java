@@ -1,10 +1,10 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Name - Serena Geroe
+//Date - 1/31/19
+//Class - APCSA
+//Lab  - Ascii Art
 
 import static java.lang.System.*;
 import java.util.Scanner;
