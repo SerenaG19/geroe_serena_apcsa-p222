@@ -14,7 +14,6 @@ public class AsciiArt
 		System.out.println("What type of ANIMAL YOU WILL DRAW" );
 		System.out.println("\n\n\n\n" );
 
-		System.out.println("              /    \\              " );
 		System.out.println("      (\\_/)" );
 		System.out.println("     (=^.^=)" );
 		System.out.println("    (\\\")_(\\\")" );
