@@ -1,10 +1,10 @@
 //© A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Name - Serena
+//Date - 02/01/19
+//Class - APCSA 
+//Lab  - Stars and Stripes
 
 import static java.lang.System.*;
 
