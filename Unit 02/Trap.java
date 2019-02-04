@@ -8,8 +8,7 @@ public class Trap
 {
 	public static double area( int base1, int base2, int height )
 	{
-		
-		return 1/2*(base1+base2)*(double)height;
+		return (double)1/2*(base1+base2)*height;
 		
 		//The following code is an alternative to the code above that uses
 		//object instantiation instead of using just the method
