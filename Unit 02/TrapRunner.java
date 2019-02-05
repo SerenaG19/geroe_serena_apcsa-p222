@@ -1,13 +1,14 @@
 //© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  - 
+//Name - Serena Geroe
+//Date - 02/04/19
+//Class - APCSP
+//Lab  - Trapezoid Area
 
 public class TrapRunner
 {
 	public static void main( String[] args )
 	{
+		//Prints each area using given parameters and the method defined in Trap.java
 		System.out.println( Trap.area( 3, 3, 3) );
 		System.out.println( Trap.area( 5, 6, 7) );
 		System.out.println( Trap.area( 7, 10, 6) );
