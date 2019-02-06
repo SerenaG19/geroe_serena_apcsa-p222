@@ -1,7 +1,7 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
 
-//Name -
+//Name - Serena Geroe
 //Date -
 //Class -
 //Lab  -

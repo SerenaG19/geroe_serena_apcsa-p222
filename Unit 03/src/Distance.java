@@ -17,18 +17,27 @@ public class Distance
 
 	public Distance()
 	{
+		
 	}
 
+	
+	//This is an initialization constructor
 	public Distance(int x1, int y1, int x2, int y2)
 	{
+		xOne=x1;
+		yOne=y1;
+		xTwo=x2;
+		yTwo=y2;
 	}
 
 	public void setCoordinates(int x1, int y1, int x2, int y2)
 	{
+		
 	}
 
 	public void calcDistance()
 	{
+		distance = sqrt((double)((xTwo-xOne)*(xTwo-xOne) + (yTwo-yOne)*(yTwo-yOne)));
 	}
 	
 	public double getDistance()
@@ -38,12 +47,13 @@ public class Distance
 	
 	public void print()
 	{
+		out.println(distance);
 	}
 	
 	//complete print or the toString
 
 	public String toString()
 	{
-		return "";
+		return "distance == " +distance+;
 	}
 }
