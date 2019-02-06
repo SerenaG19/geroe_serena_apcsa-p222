@@ -17,8 +17,7 @@ public class Distance
 
 	//this is the default constructor (no parameters)
 	public Distance()
-	{
-	//set vars to 0	
+	{	//set vars to 0	
 		setCoordinates(0,0,0,0);
 	}
 
@@ -29,7 +28,7 @@ public class Distance
 		setCoordinates(x1, y1, x2, y2);
 	}
 
-	//this is a modifier / setter method
+	//this is a modifier / setter method; set global vars to local vars
 	public void setCoordinates(int x1, int y1, int x2, int y2)
 	{
 		xOne=x1;
@@ -38,7 +37,7 @@ public class Distance
 		yTwo=y2;
 	}
 
-	//this is a method
+	//this is a method; uses the global vars
 	public void calcDistance()
 	{
 		distance = sqrt((double)((xTwo-xOne)*(xTwo-xOne) + (yTwo-yOne)*(yTwo-yOne)));
