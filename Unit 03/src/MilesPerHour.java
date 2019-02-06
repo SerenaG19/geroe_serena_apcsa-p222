@@ -22,27 +22,32 @@ public class MilesPerHour
 		mph=0.0;
 	}
 
-	public MilesPerHour(int dist, int hrs, int mins)
-	{
-	}
+//	public MilesPerHour(int dist, int hrs, int mins)
+//	{
+//
+//	}
 
 	public void setNums(int dist, int hrs, int mins)
 	{
-		
+		int dist = distance;
+		int hrs = hours;
+		int mins = minutes;
 	}
 
 	public void calcMPH()
 	{
+		double mph = distance / (double)(hours);
 	}
 
 	public void print()
 	{
+		System.out.println(mph);
 	}
 	
 	//create a print or toString or both
 	
-	public String toString()
-	{
-		return "";
-	}
-}
+//	public String toString()
+//	{
+//		return "";
+//	}
+//}
