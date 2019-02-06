@@ -1,10 +1,10 @@
 //(c) A+ Computer Science 
 //www.apluscompsci.com
 
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Name - Serena Geroe
+//Date - 02/06/19
+//Class - APCSA
+//Lab  - Distance Formula
 
 import java.util.Scanner; 
 import static java.lang.System.*;
@@ -20,7 +20,6 @@ public class Distance
 	{
 	//set vars to 0	
 		setCoordinates(0,0,0,0);
-
 	}
 
 	
@@ -39,6 +38,7 @@ public class Distance
 		yTwo=y2;
 	}
 
+	//this is a method
 	public void calcDistance()
 	{
 		distance = sqrt((double)((xTwo-xOne)*(xTwo-xOne) + (yTwo-yOne)*(yTwo-yOne)));
@@ -50,13 +50,13 @@ public class Distance
 		return distance;
 	}
 	
+	//this is not essential
 	public void print()
 	{
 		out.println(distance);
 	}
 	
-	//complete print or the toString
-
+	//complete print or the toString; Java looks for this when given an overall Distance object
 	public String toString()
 	{
 		return "distance == " + distance;
