@@ -46,7 +46,7 @@ public class DistanceRunner
 		
 		//test case5
 		myDistance.setCoordinates(1,1,-2,2);
-		myDistance.calcDistance();
+		myDistance.calcDistance();																																																														
 		System.out.println("My distance is: " + myDistance.getDistance());	
 		
 		//test case6

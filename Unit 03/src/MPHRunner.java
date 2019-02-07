@@ -26,13 +26,11 @@ public class MPHRunner
 		out.print("Enter the minutes :: ");
 		int mins = keyboard.nextInt();
 
-//		MilesPerHour test = new MilesPerHour(dist, hrs, mins);
-//		test.calcMPH();
-//		test.print();
 		
-		//add more test cases
-		
+		//Question: Why do I need to run test.calcMPH(); before System.out.println(test); ?
 		MilesPerHour test = new MilesPerHour(dist, hrs, mins);
+		test.calcMPH();
 		System.out.println(test);
+		
 	}
 }

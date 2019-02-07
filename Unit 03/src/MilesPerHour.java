@@ -21,11 +21,11 @@ public class MilesPerHour
 	public MilesPerHour()
 	{
 		setNums(0,0,0);
-		mph=0.0;
+		mph=0;
 	}
 
 	//Non-default / initializing constructor
-	//uses private vars, is still defined as a public method
+	//uses local vars, is still defined as a public method
 	public MilesPerHour(int dist, int hrs, int mins)
 	{
 		setNums(dist,hrs,mins);
@@ -42,21 +42,26 @@ public class MilesPerHour
 	//Calculating method, calculates local var mph here using global vars distance and hours
 	public void calcMPH()
 	{
-		//Fix this, then probably done w this lab.
-		int timeInMin = 60*hours + minutes;
-		int timeInHr = timeInMin / 60;
-		double mph = distance / (double)(timeInHr);
+		mph = (double)distance/(hours+(minutes/60.0));
+		
+	  //Incorrect attempts:
+		//double timeInMin = 60.0*(double)hours + (double)minutes;
+		//double timeInHr = (double)timeInMin / 60.0;
+		//mph = (double)distance / (double)timeInHr;
+		
+		//mph = (distance)/(hours + (minutes/60.0));
 	}
 
 	public void print()
 	{
-		System.out.println("The speed in mph is " + mph);
+		//System.out.println("The speed in mph is " + mph);
+		System.out.printf("%.0f\n", mph);
 	}
 	
 	//create a print or toString or both
 	
 	public String toString()
-	{
-		return distance + " miles in " + hours + " hours and " + minutes + " = " + mph + " MPH.";
+	{			
+		return distance + " miles in " + hours + " hours and " + minutes + " minutes = " + String.format("%.0f", mph) + " MPH.";
 	}
 }
