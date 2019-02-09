@@ -1,7 +1,7 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
-//Date -
+//Name - Serena Geroe
+//Date - 02/09/19
 
 public class AvgLenRunner
 {
