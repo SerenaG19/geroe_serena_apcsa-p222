@@ -17,15 +17,26 @@ public class AddSubMult
 	
 	//initializing constructor
 	public AddSubMult(double a, double b){
-		setVars(varA,varB;)
+		setVars(varA,varB);
 	}
 	
+	//modifying method
 	public void setVars(double a, double b) {
-		
+		varA = a;
+		varB = b;
 	}
 	
+	//return / accessor method
 	public static double check( double a, double b )
 	{
-		return 0;
+		if(a>b) {
+			return a-b;
+		}
+		else if(b>a) {
+			return b-a;
+		}
+		else {
+			return a*b;
+		}
 	}
 }
