@@ -17,24 +17,29 @@ public class StringRunner
 		
 		StringOddOrEven test = new StringOddOrEven();
 		
-		for(int i = 0; i <=10; i++)
-		{
-			System.out.println("Enter a word to have its length analyzed. Enter Q to quit. \n");
-			String input = keyboard.next();
+		//First time		
+		System.out.println("Enter a word to have its length analyzed. \n");
+		String input = keyboard.nextLine();
 			
-			if(input == "Q")
-			{
-				System.out.println("Have a nice day");
-				i = 10;
-			}	
-			
-			else
-			{				
-				test.setString(input);
-				test.isEven();		
-				System.out.println(test);
-			}
+		test.setString(input);
+		test.isEven();		
+		System.out.println(test);
 		
-		}
+		//Second time
+		System.out.println("Enter a word to have its length analyzed. \n");
+		input = keyboard.nextLine();
+			
+		test.setString(input);
+		test.isEven();		
+		System.out.println(test);
+		
+		//Third time
+		System.out.println("Enter a word to have its length analyzed. \n");
+		input = keyboard.nextLine();
+			
+		test.setString(input);
+		test.isEven();		
+		System.out.println(test);
+		
 	}
 }
