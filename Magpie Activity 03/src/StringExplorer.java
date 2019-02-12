@@ -9,9 +9,14 @@ public class StringExplorer
 
 	public static void main(String[] args)
 	{
+		/*.indexOf(int ch) returns index of specified character
+		 * .indexOf(int ch, int fromIndex() returns index of specified character
+		 * starting from fromIndex 
+		 */
+		
 		String sample = "The quick brown fox jumped over the lazy dog.";
 		
-		//  Demonstrate the indexOf method.
+		//  Demonstrate the indexOf method. Returns -1 if not found
 		int position = sample.indexOf("quick");
 		System.out.println ("sample.indexOf(\"quick\") = " + position);
 		
@@ -21,6 +26,9 @@ public class StringExplorer
 		System.out.println ("After toLowerCase(), sample = " + sample);
 		
 		//  Try other methods here:
+		
+		int notFoundPsn = sample.indexOf("slow");
+		System.out.println("sample.indexOf(\"slow\") = " + notFoundPsn);
 		
 		int pos = sample.indexOf("slow");
 		if(pos != -1)
