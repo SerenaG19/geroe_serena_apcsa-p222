@@ -34,40 +34,40 @@ public class Magpie3
 		{
 			response = "Say something, please.";
 		}
-		else if (statement.indexOf("mother") >= 0
-				|| statement.indexOf("father") >= 0
-				|| statement.indexOf("sister") >= 0
-				|| statement.indexOf("brother") >= 0)
+		else if (findKeyword(statement, "mother") >= 0
+				|| findKeyword(statement, "father") >= 0
+				|| findKeyword(statement, "sister") >= 0
+				|| findKeyword(statement, "brother") >= 0)
 		{
 			response = "Tell me more about your family.";
 		}
-		else if (statement.indexOf("dog") >= 0
-				|| statement.indexOf("cat") >= 0)
+		else if (findKeyword(statement, "dog") >= 0
+				|| findKeyword(statement, "cat") >= 0)
 		{
 			response = "Tell me more about your pets.";
 		}
-		else if (statement.indexOf("rain") >= 0)
+		else if (findKeyword(statement, "rain") >= 0)
 		{
 			response = "Rain is good for the Earth.";
 		}
-		else if (statement.indexOf("surf") >= 0)
+		else if (findKeyword(statement, "surf") >= 0)
 		{
 			response = "Cowabunga!";
 		}
-		else if (statement.indexOf("Knock knock") >= 0)
+		else if (findKeyword(statement, "Knock knock") >= 0)
 		{
 			response = "Who's there?";
 		}
-		else if (statement.indexOf("Mr.") >= 0)
+		else if (findKeyword(statement, "Mr.") >= 0)
 		{
 			response = "He sounds like a great teacher.";
 		}
-		else if (statement.indexOf("Ms.") >= 0
-				|| statement.indexOf("Mrs.") >= 0)
+		else if (findKeyword(statement, "Ms.") >= 0
+				|| findKeyword(statement, "Mrs.") >= 0)
 		{
 			response = "She sounds like a great teacher.";
 		}
-		else if (statement.indexOf("no") >= 0)
+		else if (findKeyword(statement, "no") >= 0)
 		{
 			response = "Why so negative?";
 		}
