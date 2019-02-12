@@ -27,10 +27,20 @@ public class Magpie2
 	 * @param statement
 	 *            the user statement
 	 * @return a response based on the rules given
+	 *
+	 *Hierarchy of responses: the topmost if statements in the code, and the
+	 *first keywords to appear in the response have highest priority.
+	 *E.g. if both "mother" and "cat" are in the same sentence,
+	 *Magpie answers with "Tell me more about your family." since it is higher up
+	 *in the conditional statement code structure.
+	 *
+	 *
 	 */
 	public String getResponse(String statement)
 	{
 		String response = "";
+		String trimmedResponse = response.trim();
+		
 		if (statement.indexOf("no") >= 0)
 		{
 			response = "Why so negative?";
@@ -49,12 +59,15 @@ public class Magpie2
 		}
 		else if (statement.indexOf("Mr.") >= 0)
 		{
-			response = "He sounds like a great teacher!";
+			response = "He sounds like a great teacher.";
 		}
 		else if (statement.indexOf("Ms.") >= 0
 				|| statement.indexOf("Mrs.") >= 0)
 		{
-			response = "She sounds like a great teacher!";
+			response = "She sounds like a great teacher.";
+		}
+		else if ( trimmedResponse.length() < 1 ) {
+			response = "Say something, please.";
 		}
 		else
 		{
@@ -69,7 +82,7 @@ public class Magpie2
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 6;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -90,7 +103,14 @@ public class Magpie2
 		{
 			response = "You don't say.";
 		}
-
+		else if (whichResponse == 4)
+		{
+			response = "Fascinating!";
+		}
+		else if (whichResponse == 5)
+		{
+			response = "That's so cool!";
+		}
 		return response;
 	}
 }
