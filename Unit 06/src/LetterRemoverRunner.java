@@ -17,13 +17,17 @@ public class LetterRemoverRunner
 		//add test cases		
 		
 		String inputSent;
-		char inputR;
+		String inputR;
 				
 		System.out.println("Enter a string");
-		inputSent = keyboard.next();
+		inputSent = keyboard.nextLine();
 		System.out.println("Enter a char to remove");
-		//inputR = (char)(keyboard.next());
+		inputR = keyboard.next();
+		char inputChar = inputR.charAt(0);
 		
-		LetterRemover test = new LetterRemover( );
+		LetterRemover test = new LetterRemover(inputSent, inputChar);
+		
+		//System.out.println(test);
+		test.removeLetters();
 	}
 }
