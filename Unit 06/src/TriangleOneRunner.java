@@ -15,7 +15,7 @@ public class TriangleOneRunner //Decreasing Word lab
 		
 		String input="";
 		
-		while(input != "Q" || input !="q")
+		while(input.equals("Q") == false && input.equals("q") == false )
 		{
 			System.out.println("Enter a word");
 			input = keyboard.nextLine();
