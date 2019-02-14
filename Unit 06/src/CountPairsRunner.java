@@ -9,7 +9,8 @@ public class CountPairsRunner
 	public static void main( String[] args )
 	{
 		System.out.println("test_cases:\n");
-		//add in all of the provided test cases from the lab handout
+		//add in all of the provided test cases from the lab hand-out
+		
 		
 		System.out.println( CountPairs.pairCounter("ddogccatppig") );
 		System.out.println( CountPairs.pairCounter("dogcatpig") );
