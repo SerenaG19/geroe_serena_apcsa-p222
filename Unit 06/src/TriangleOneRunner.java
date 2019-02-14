@@ -1,13 +1,28 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name
+//Name - Serena Geroe
 
 import static java.lang.System.*;
+import java.util.Scanner;
 
-public class TriangleOneRunner
+
+public class TriangleOneRunner //Decreasing Word lab
 {
 	public static void main ( String[] args )
 	{
-		//add test cases		
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("Enter Q to quit");
+		
+		String input="";
+		
+		while(input != "Q" || input !="q")
+		{
+			System.out.println("Enter a word");
+			input = keyboard.nextLine();
+		
+			//add test cases
+			TriangleOne test = new TriangleOne(input);
+			System.out.println(test);
+		} 
 	}
 }

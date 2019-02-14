@@ -27,7 +27,7 @@ public class LetterRemover
 		sentence = s;
 		lookFor = rem;
 	}
-
+	//Try asking other strategies
 	public String removeLetters()
 	{
 		char sentArray[] = sentence.toCharArray();

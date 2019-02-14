@@ -27,6 +27,8 @@ public class LetterRemoverRunner
 		
 		LetterRemover test = new LetterRemover(inputSent, inputChar);
 		
+		//Try asking other strategies
+		
 		//System.out.println(test);
 		test.removeLetters();
 	}

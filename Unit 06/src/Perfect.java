@@ -25,12 +25,47 @@ public class Perfect
 	   number = num;
    }
    
-	public boolean isPerfect()
+	public boolean isPerfect()//REDO AND USE DO AND WHILE LOOPS
 	{
-		if()
-		return false;
+		int arCount = 0;
+		int[] divisor= {arCount};
+		int sum=0;
+		for(int i = 2; i < number/2; i++)
+		{
+			if(number % i == 0)
+			{
+				divisor[arCount] = i;
+				System.out.println("divisor[" + arCount + "] = " + divisor[arCount] + " and i = " + i);
+				arCount++;
+			}
+			
+		}
+		for(int counter = 0; counter < divisor.length; counter++)
+		{
+			sum =+ divisor[counter];
+		}
+		if(sum == number)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
-	//add a toString	
+	//add a toString
+	public String toString()
+	{
+		if(isPerfect())
+		{
+			return number + " is perfect";
+		}
+		else
+		{
+			return number + " is not perfect";
+		}
+		
+	}
 	
 }
