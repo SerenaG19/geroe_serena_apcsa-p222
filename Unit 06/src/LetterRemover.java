@@ -31,10 +31,10 @@ public class LetterRemover
 	public String removeLetters()
 	{
 		char sentArray[] = sentence.toCharArray();
-		for(int i = 0; i<sentArray.length-2; i++)
+		for(int i = 0; i<sentArray.length; i++)
 		{
 			char tryNext = sentArray[i+1];
-			for(int counter = 0; counter < sentArray.length-2; counter++)
+			for(int counter = 0; counter < sentArray.length; counter++)
 			{
 				if(sentArray[i] == lookFor && sentArray[i] != sentArray[i+1])
 				{
