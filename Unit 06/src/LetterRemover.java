@@ -27,27 +27,26 @@ public class LetterRemover
 		sentence = s;
 		lookFor = rem;
 	}
-	//Try asking other strategies
+
+
 	public String removeLetters()
 	{
-		char sentArray[] = sentence.toCharArray();
-		for(int i = 0; i<sentArray.length; i++)
+		int loc = sentence.indexOf(lookFor);
+		String front = sentence.substring(0,loc);
+		String end = sentence.substring(loc+1);
+		String cleaned = front+end;
+		
+		while (loc != -1)
 		{
-			char tryNext = sentArray[i+1];
-			for(int counter = 0; counter < sentArray.length; counter++)
-			{
-				if(sentArray[i] == lookFor && sentArray[i] != sentArray[i+1])
-				{
-					sentArray[i] = tryNext;
-				}
-				else
-				{
-					tryNext = sentArray[i++];
-				}
-			}
+			cleaned = front+end;
+			
+			loc = cleaned.indexOf(lookFor);
+			front = cleaned.substring(0,loc);		
+			end = cleaned.substring(loc+1);		
 		}
-	
-		String cleaned = new String(sentArray);
+		
+		
+
 		return cleaned;
 	}
 
@@ -56,6 +55,25 @@ public class LetterRemover
 		return sentence + " - letter to remove " + lookFor;
 	}
 }
+
+//char sentArray[] = sentence.toCharArray();
+//for(int i = 0; i<sentArray.length; i++)
+//{
+//	char tryNext = sentArray[i+1];
+//	for(int counter = 0; counter < sentArray.length; counter++)
+//	{
+//		if(sentArray[i] == lookFor && sentArray[i] != sentArray[i+1])
+//		{
+//			sentArray[i] = tryNext;
+//		}
+//		else
+//		{
+//			tryNext = sentArray[i++];
+//		}
+//	}
+//}
+
+//String cleaned = new String(sentArray);
 
 //if(sentArray[i] == lookFor)
 //{
