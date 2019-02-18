@@ -25,9 +25,10 @@ public class Perfect
 	   number = num;
    }
    
-	public boolean isPerfect()//REDO AND USE DO AND WHILE LOOPS
+	public boolean isPerfect()//REDO AND USE DO AND WHILE LOOPS ***********
 	{
 		int arCount = 0;
+		//use a look in this method
 		int[] divisor= {arCount};
 		int sum=0;
 		for(int i = 2; i < number/2; i++)
