@@ -35,7 +35,7 @@ public class LetterRemoverRunner
 		test.removeLetters();
 		System.out.println(test);
 		
-//		Try to use user input in a loop--------------------------		
+//******Try to use user input in a loop--------------------------		
 //		String inputSent="";
 //		String inputR="";
 //		
