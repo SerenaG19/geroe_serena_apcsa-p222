@@ -30,7 +30,7 @@ public class BiggestDouble
 	{
 		if(one > two && one > three && one > four) return one;
 		if(two > one && two > three && two > four) return two;
-		if(three > one && three > two && three > four) return two;
+		if(three > one && three > two && three > four) return three;
 		if(four > one && four > two && four > three) return four;
 		else return 0;
 	}
