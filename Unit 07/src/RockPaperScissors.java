@@ -14,14 +14,19 @@ public class RockPaperScissors
 
 	public RockPaperScissors()
 	{
+		setPlayers("");
 	}
 
 	public RockPaperScissors(String player)
 	{
+		setPlayers(player);
 	}
 
 	public void setPlayers(String player)
 	{
+		//assigns person player
+		int num = 10*(int)Math.random();
+		
 	}
 
 	public String determineWinner()
