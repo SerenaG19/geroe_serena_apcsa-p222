@@ -9,9 +9,36 @@ public class PerfectRunner
 	public static void main( String args[] )
 	{
 		//add test cases
-		Perfect test = new Perfect(6);
+		Perfect test = new Perfect(496);
 		test.isPerfect();
-		System.out.println(test);
-																
+		System.out.println(test + "\n");
+		
+		test.setNum(45);
+		System.out.println(test + "\n");
+		
+		test.setNum(6);
+		System.out.println(test + "\n");
+		
+		test.setNum(14);
+		System.out.println(test + "\n");
+		
+		test.setNum(8128);
+		System.out.println(test + "\n");
+		
+		test.setNum(8128);
+		System.out.println(test + "\n");
+		
+		test.setNum(8128);
+		System.out.println(test + "\n");
+		
+		test.setNum(8128);
+		System.out.println(test + "\n");
+		
+		test.setNum(8128);
+		System.out.println(test + "\n");
+		
+		test.setNum(8128);
+		System.out.println(test + "\n");
+		
 	}
 }
