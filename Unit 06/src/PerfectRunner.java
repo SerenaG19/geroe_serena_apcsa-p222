@@ -8,7 +8,7 @@ public class PerfectRunner
 {
 	public static void main( String args[] )
 	{
-		//add test cases
+		//add test cases		
 		Perfect test = new Perfect(496);
 		test.isPerfect();
 		System.out.println(test + "\n");
@@ -25,19 +25,19 @@ public class PerfectRunner
 		test.setNum(8128);
 		System.out.println(test + "\n");
 		
-		test.setNum(8128);
+		test.setNum(1245);
 		System.out.println(test + "\n");
 		
-		test.setNum(8128);
+		test.setNum(33);
 		System.out.println(test + "\n");
 		
-		test.setNum(8128);
+		test.setNum(28);
 		System.out.println(test + "\n");
 		
-		test.setNum(8128);
+		test.setNum(27);
 		System.out.println(test + "\n");
 		
-		test.setNum(8128);
+		test.setNum(33550336);
 		System.out.println(test + "\n");
 		
 	}

@@ -27,28 +27,17 @@ public class Perfect
    
 	public boolean isPerfect()
 	{
-		int div = number;
-		int counter = 0;
-		//sum starts as 1 bc all numbers are divisible by 2 
-		int sum = 1;
-		
-		//now check if number is divisible by two
-		if(number % 2 == 0)
+		int counter = 1;
+		int sum = 0;
+				
+		while(counter < number)
 		{
-			sum =+2;
-		}
-		
-		while(counter <= number/2)
-		{
-			if(div % 2 == 0)
+			if(number % counter == 0)
 			{
-				div = number / 2;
-				sum =+ div;
+				sum += counter;
 			}
-			counter++;
+			counter++;			
 		}
-		
-		sum *= 2;
 		
 		if(sum == number)
 		{
