@@ -25,33 +25,38 @@ public class Perfect
 	   number = num;
    }
    
-	public boolean isPerfect()//REDO AND USE DO AND WHILE LOOPS ***********
+	public boolean isPerfect()
 	{
-		int arCount = 0;
-		//use a look in this method
-		int[] divisor= {arCount};
-		int sum=0;
-		for(int i = 2; i < number/2; i++)
+		int div = number;
+		int counter = 0;
+		//sum starts as 1 bc all numbers are divisible by 2 
+		int sum = 1;
+		
+		//now check if number is divisible by two
+		if(number % 2 == 0)
 		{
-			if(number % i == 0)
+			sum =+2;
+		}
+		
+		while(counter <= number/2)
+		{
+			if(div % 2 == 0)
 			{
-				divisor[arCount] = i;
-				System.out.println("divisor[" + arCount + "] = " + divisor[arCount] + " and i = " + i);
-				arCount++;
+				div = number / 2;
+				sum =+ div;
 			}
-			
+			counter++;
 		}
-		for(int counter = 0; counter < divisor.length; counter++)
-		{
-			sum =+ divisor[counter];
-		}
+		
+		sum *= 2;
+		
 		if(sum == number)
 		{
 			return true;
 		}
 		else
 		{
-			return false;
+			return false;	
 		}
 	}
 
