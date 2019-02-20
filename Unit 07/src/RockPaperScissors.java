@@ -14,12 +14,19 @@ public class RockPaperScissors
 
 	public RockPaperScissors()
 	{
-		setPlayers("");
+		playChoice = compChoice = "";
 	}
 
 	public RockPaperScissors(String player)
 	{
-		setPlayers(player);
+		int choice = (int)(Math.random()*3);
+		switch(choice)
+		{
+		case 0 : compChoice="R";break;
+		case 1 : compChoice="P";break;
+		case 2 : compChoice="S";break;
+		}
+		playChoice = player;
 	}
 
 	public void setPlayers(String player)
