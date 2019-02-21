@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 // www.apluscompsci.com
-//Name -  
+//Name - Serena Geroe
 
 import java.util.Scanner;
 import static java.lang.System.*;
@@ -24,7 +24,7 @@ public class RPSRunner
 			RockPaperScissors game = new RockPaperScissors(player);
 			game.determineWinner();
 			
-			System.out.println("\n\nDo you want to play again?\n\n");
+		//	System.out.println("\n\nDo you want to play again?\n\n");
 		//}while(response == 'Y' || response == 'y')
 			
 			
