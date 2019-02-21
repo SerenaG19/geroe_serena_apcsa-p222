@@ -1,4 +1,7 @@
 import java.util.List;
+
+import activity1.Card;
+
 import java.util.ArrayList;
 
 
@@ -10,6 +13,17 @@ import java.util.ArrayList;
 //Activity two: use an array not a list!!
 
 
+//SERENA: SEE NOTE ON GOOGLE CLASSROOM ABOUT ARRAYS / LISTS
+//really for activity two, and all that the note says
+//Activity two: use an array not a list!!
+
+//SERENA: SEE NOTE ON GOOGLE CLASSROOM ABOUT ARRAYS / LISTS
+//really for activity two, and all that the note says
+//Activity two: use an array not a list!!
+
+//SERENA: SEE NOTE ON GOOGLE CLASSROOM ABOUT ARRAYS / LISTS
+//really for activity two, and all that the note says
+//Activity two: use an array not a list!!
 
 
 
@@ -24,7 +38,10 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private List<Card> cards;
+	//private List<Card> cards;
+	
+	
+	//USE THIS --> private Cards[] ;
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -44,6 +61,14 @@ public class Deck {
 	 */
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		
+		//MAKE SURE YOU UNDERSTAND THIS; fair game for assessments, and lots of assignments
+		//be able to do this quickly
+		
+		//instantiate new array of cards
+		//loop over ranks then suits (nested loop)
+		//add new card object to the array
+		//call shuffle method in Act 4	
 	}
 
 
@@ -53,6 +78,8 @@ public class Deck {
 	 */
 	public boolean isEmpty() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		
+		//check size to see if deck is empty
 	}
 
 	/**
@@ -78,6 +105,10 @@ public class Deck {
 	 */
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		
+		//check if deck is empty
+		//decrement deck size (pull a card off top one at a time)
+		//return card object from array
 	}
 
 	/**

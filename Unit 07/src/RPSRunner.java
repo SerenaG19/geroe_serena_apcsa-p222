@@ -10,22 +10,28 @@ public class RPSRunner
 	public static void main(String args[])
 	{
 		Scanner keyboard = new Scanner(System.in);
-		//char response;
+		char response = ' ';
+		
+		RockPaperScissors game = new RockPaperScissors();
 		
 		//add in a do while loop after you get the basics up and running
-		//do
-		//{	
-			String player = "";
+		do
+		{	
+			
 		
 			System.out.println("Rock-Paper-Scissors - pick your weapon[R,P,S]:: ");
-			
+			String player = "";
 			//read in the player value
-			player = keyboard.nextLine();
-			RockPaperScissors game = new RockPaperScissors(player);
-			game.determineWinner();
+			player = keyboard.nextLine().toUpperCase();
+			game.setPlayers(player);
+			System.out.println(game.determineWinner() );
 			
-		//	System.out.println("\n\nDo you want to play again?\n\n");
-		//}while(response == 'Y' || response == 'y')
+			System.out.println("\n\nDo you want to play again?\n\n");
+			response = keyboard.nextLine().charAt(0);
+			
+			System.out.println("\n\n");
+			
+		}while(response == 'Y' || response == 'y');
 			
 			
 

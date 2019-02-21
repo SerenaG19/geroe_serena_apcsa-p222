@@ -1,3 +1,4 @@
+package activity1;
 /**
  * Card.java
  *
@@ -68,6 +69,8 @@ public class Card {
 	 */
 	public boolean matches(Card otherCard) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
+	//compare suit, rank, and point value; if same --> true
+	
 	}
 
 	/**
