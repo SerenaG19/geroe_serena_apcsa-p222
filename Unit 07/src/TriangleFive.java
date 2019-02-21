@@ -23,7 +23,7 @@ public class TriangleFive
 
 	public void setLetter(char c)
 	{
-		c = letter;
+		letter = c;
 	}
 
 	public void setAmount(int amt)
@@ -32,17 +32,48 @@ public class TriangleFive
 	}
 
 	public String toString()
-	{
+	{		
 		String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		String output="";
-		for(int i = 1; i <= amount; i++)
+		
+		for(int i = amount; i > 0; i--)
 		{
-			for(int n = 1; n <= amount; n++)
+			for(int n = amount; n > 0; n--)
 			{
-				output += alpha.substring(n, n+1);
+				//output += "n = " + n + " i = " + i + "\n";
+			
+				output += alpha.substring(indexOf(letter), indexOf(letter) +1 );
+			
+			
 			}
+			
 		}
 		
+		
 		return output;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+//		for(int i = amount; i > 0; i--)
+//		{
+//			for(int n = amount; n > 0; n--)
+//			{
+//				output += letter + " " + ;
+//			}
+//			
+//			output += "\n";
+//			
+//		}
+		
+
 	}
 }
