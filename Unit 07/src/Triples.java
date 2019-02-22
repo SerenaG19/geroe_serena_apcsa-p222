@@ -15,7 +15,8 @@ import static java.lang.System.*;
 
 public class Triples
 {
-   private int number, one, two, three;
+   private int number;
+   private int one, two, three;
 
 	public Triples()
 	{
@@ -32,15 +33,18 @@ public class Triples
 		number = num;
 	}
 	
-//	private int greatestCommonFactor(int a, int b, int c)
-//	{
-//		int max = 0;
-//
-//
-//
-//		return 1;
-//	}
-//	
+	private int greatestCommonFactor(int a, int b, int c)
+	{
+		int max = 0;
+		for(int i = 2; i < number; i++)
+		{
+			//if()
+		}
+
+
+		return 1;
+	}
+	
 
 	public String toString()
 	{
