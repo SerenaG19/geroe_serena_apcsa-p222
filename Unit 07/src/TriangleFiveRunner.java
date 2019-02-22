@@ -20,8 +20,7 @@ public class TriangleFiveRunner
 	   TriangleFive test3 = new TriangleFive('X', 6);
 	   System.out.println(test3);
 	   
-	   TriangleFive test4 = new TriangleFive('X', 8);
+	   TriangleFive test4 = new TriangleFive('Z', 8);
 	   System.out.println(test4);
-	  
    }
 }

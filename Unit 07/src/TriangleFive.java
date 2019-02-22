@@ -39,10 +39,6 @@ public class TriangleFive
 		//Looks through each letter in alpha
 		for(int q = 0; q < alpha.length; q++)
 		{
-			if(q + amount > alpha.length)
-			{
-				alpha[q] = alpha[q-alpha.length-1];
-			}
 			//makes sure letter is found
 			if(alpha[q] == letter)
 			{	
@@ -56,12 +52,15 @@ public class TriangleFive
 						for(int w = amount; w > n; w--)
 						{
 							//prints elements from alpha array starting at letter
-							output += alpha[q+n];
+							//also implements the wrap-around							
+							if(q+n < alpha.length) output += alpha[q+n];
+							else output += alpha[Math.abs(alpha.length-q-n)];
 						}
 						output += " ";
 					}
 					output += "\n";
 				}
+				
 			}
 		}
 
