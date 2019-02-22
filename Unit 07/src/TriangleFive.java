@@ -60,7 +60,6 @@ public class TriangleFive
 					}
 					output += "\n";
 				}
-				
 			}
 		}
 
