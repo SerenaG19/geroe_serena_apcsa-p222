@@ -17,8 +17,6 @@ public class RPSRunner
 		//add in a do while loop after you get the basics up and running
 		do
 		{	
-			
-		
 			System.out.println("Rock-Paper-Scissors - pick your weapon[R,P,S]:: ");
 			String player = "";
 			//read in the player value

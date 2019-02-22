@@ -61,6 +61,9 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		//every other card you're accessing for the array, put it in the array --> inc by two
+		
+		//Understand this to prep for future tests!
 	}
 
 	/**
@@ -76,5 +79,7 @@ public class Shuffler {
 	 */
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+		
+		//generate random num, access an index in array based on num; that is card you move to front of the deck
 	}
 }
