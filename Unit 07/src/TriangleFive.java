@@ -17,7 +17,7 @@ public class TriangleFive
 
 	public TriangleFive(char c, int amt)
 	{
-		setLetter('c');
+		setLetter(c);
 		setAmount(amt);
 	}
 
@@ -33,47 +33,38 @@ public class TriangleFive
 
 	public String toString()
 	{		
-		String alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		char[] alpha = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
 		String output="";
 		
-		for(int i = amount; i > 0; i--)
+		//Looks through each letter in alpha
+		for(int q = 0; q < alpha.length; q++)
 		{
-			for(int n = amount; n > 0; n--)
+			if(q + amount > alpha.length)
 			{
-				//output += "n = " + n + " i = " + i + "\n";
-			
-				output += alpha.substring(indexOf(letter), indexOf(letter) +1 );
-			
-			
+				alpha[q] = alpha[q-alpha.length-1];
 			}
-			
+			//makes sure letter is found
+			if(alpha[q] == letter)
+			{	
+				//ensures things are printed in amount number of lines
+				for(int i = amount; i > 0; i--)
+				{
+					//prints letter and letters following letter in a decreasing fashion
+					for(int n = 0; n < i; n++)
+					{						
+						//makes each char print amount of times - 1 per time
+						for(int w = amount; w > n; w--)
+						{
+							//prints elements from alpha array starting at letter
+							output += alpha[q+n];
+						}
+						output += " ";
+					}
+					output += "\n";
+				}
+			}
 		}
-		
-		
-		return output;
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-//		for(int i = amount; i > 0; i--)
-//		{
-//			for(int n = amount; n > 0; n--)
-//			{
-//				output += letter + " " + ;
-//			}
-//			
-//			output += "\n";
-//			
-//		}
-		
 
+		return output;
 	}
 }
