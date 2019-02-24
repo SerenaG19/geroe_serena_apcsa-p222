@@ -16,11 +16,11 @@ import static java.lang.System.*;
 public class Triples
 {
    private int number;
-   private int one, two, three;
 
 	public Triples()
 	{
-		setNum(0);
+		//setNum(0);
+		this(0);
 	}
 
 	public Triples(int num)
@@ -35,34 +35,34 @@ public class Triples
 		
 	public int greatestCommonFactor(int a, int b, int c)
 	{
-		int max = 0;
-		for(a = 1; a < number/2; a++)
+		int max = Math.max(a, Math.max(b, c));
+		for(int i = 2; i <= max/2; i++)
 		{
-			
-			for(b = 1; b<=a; b++)
+			if(a%i ==0 && b%i ==0 && c% i ==0)
 			{
-				
-				for(c = 1; c<=b; c++)
-				{
-					if(a%c == 0 && b%c == 0 && c%c == 0) max = c;
-				}
+				return i;
 			}
 		}
-		return max;		
+		
+		return 1;		
 	}
-
+	
 	public String toString()
 	{
 		String output = "";
-		for(one = 1; one < number; one ++)
+		for(int a = 1; a <= number; a ++)
 		{
-			for(two = 1; two < number; two++)
+			for(int b = 1; b <= number; b++)
 			{
-				for(three = 1; three < number; three++)
+				for(int c = 1; c <= number; c++)
 				{
-					if((one*one + two*two == three*three) && (one%2 != two%2) && greatestCommonFactor(one,two,three) == 1 )
+					if((a*a + b*b == c*c) && 
+							(a%2 != b%2) && 
+							greatestCommonFactor(a,b,c) == 1 && 
+							c%2 ==1 && 
+							( !output.contains(a+"") || !output.contains(b+"") || !output.contains(c+"")  )	 )
 						{
-							output += one + " " + two + " " + three + "\n";
+							output += a + " " + b + " " + c + "\n";
 						}
 				}
 			}
