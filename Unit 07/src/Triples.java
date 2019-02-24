@@ -44,25 +44,24 @@ public class Triples
 
 		return 1;
 	}
-	
 
 	public String toString()
 	{
-		String output="";
-
-		for(int i = 1; i < number; i++)
+		String output = "";
+		for(one = 1; one < number; one ++)
 		{
-			for(int j = 1; j < i; j++)
+			for(two = 1; two < number; two++)
 			{
-				for(int k = 1; k < j; k++)
+				for(three = 1; three < number; three++)
 				{
-					if((one*one + two*two == three*three) && (one%2 != two%2) )
-					{
-						output += one + " " + two + " " + three;
-					}
+					if((one*one + two*two == three*three) && (one%2 != two%2) && greatestCommonFactor(one,two,three) == 1 )
+						{
+							output += one + " " + two + " " + three + "\n";
+						}
 				}
 			}
 		}
 		return output+"\n";
 	}
+	
 }
