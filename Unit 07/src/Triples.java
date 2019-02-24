@@ -32,17 +32,23 @@ public class Triples
 	{
 		number = num;
 	}
-	
-	private int greatestCommonFactor(int a, int b, int c)
+		
+	public int greatestCommonFactor(int a, int b, int c)
 	{
 		int max = 0;
-		for(int i = 2; i < number; i++)
+		for(a = 1; a < number/2; a++)
 		{
-			//if()
+			
+			for(b = 1; b<=a; b++)
+			{
+				
+				for(c = 1; c<=b; c++)
+				{
+					if(a%c == 0 && b%c == 0 && c%c == 0) max = c;
+				}
+			}
 		}
-
-
-		return 1;
+		return max;		
 	}
 
 	public String toString()
