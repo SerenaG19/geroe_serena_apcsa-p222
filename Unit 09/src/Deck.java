@@ -96,6 +96,10 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		
+		//this should work for just arrays for now, will be asked later to make it work with array lists
+		
+		
 	}
 
 	/**

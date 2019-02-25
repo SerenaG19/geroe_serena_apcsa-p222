@@ -1,20 +1,21 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
 //Name - Serena Geroe
-//Date - 02/24/19
+//Date - 02/25/19
 
 public class RaySumLast
 {	
 	private int array[];
+	private int len;
 	
 	public RaySumLast()
 	{
-		
+		array = new int[len];
 	}
 	
 	public RaySumLast(int[] ray)
 	{
-		
+		setRay(ray);
 	}
 	
 	public void setRay(int[] ray)
