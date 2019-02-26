@@ -19,15 +19,22 @@ public class RayDown
 	
 	public static boolean go(int[] numArray)
 	{	
-		int len = numArray.length;
-		boolean dec = false;
-		numArray = new int[len];
-		for(int i = 0; i<numArray.length-1; i++)
-		{
-			if(numArray[i] > numArray[i+1]) dec = true;
-			System.out.println(numArray[i] + "i: " + i + " . dec : " + dec);
-		}
+		boolean dec = true;
+//		for(int i = 0; i < numArray.length-1; i++)
+//		{
+//			if(numArray[i] > numArray[i+1]) dec = true;
+//			System.out.println(numArray[i] + "i: " + i + " . dec : " + dec);
+//		}
 		
+		int i = 0;
+		while(dec == true && i < numArray.length-1)
+		{
+			if(numArray[i] < numArray[i+1]) dec = false;
+			if(numArray[i] == numArray[i+1]) dec = false;
+			//System.out.println(numArray[i] + "i: " + i + " . dec : " + dec);
+			i++;
+		}
+		if(i != numArray.length-1) dec = false;
 		return dec;
 	}	
 }
