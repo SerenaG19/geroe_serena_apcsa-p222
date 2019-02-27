@@ -1,3 +1,4 @@
+package activity2;
 import java.util.List;
 
 import activity1.Card;
@@ -38,10 +39,7 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	//private List<Card> cards;
-	
-	
-	//USE THIS --> private Cards[] ;
+	//private List<Card> cards; // Don't use this yet!
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -49,8 +47,9 @@ public class Deck {
 	 * The next card to be dealt is at size - 1.
 	 */
 	private int size;
+	
 
-
+	private Card[] cards;
 	/**
 	 * Creates a new <code>Deck</code> instance.<BR>
 	 * It pairs each element of ranks with each element of suits,
@@ -68,7 +67,29 @@ public class Deck {
 		//instantiate new array of cards
 		//loop over ranks then suits (nested loop)
 		//add new card object to the array
-		//call shuffle method in Act 4	
+		//later on, call shuffle method in Act 4
+		
+		cards = new Card[suits.length*ranks.length];
+		
+		for(int i = 0; i < cards.length; i=i)
+		{
+			for(int j = 0; j < ranks.length; j++) 
+			{
+				for (int k = 0; k < suits.length; k++)
+				{
+					cards[i] = new Card(ranks[j], suits[k], values[j]);
+					size++;
+					i++;
+				}
+			}
+		}
+		shuffle();
+		
+		
+		
+		
+		
+		
 	}
 
 

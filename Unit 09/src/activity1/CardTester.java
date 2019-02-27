@@ -13,11 +13,24 @@ public class CardTester {
 		
 		//See Mr. M's examples for how to test
 		
-//		Card aceClubs1 = new Card("ace", "clubs", 1);
-//		Card aceClubs2 = new Card("ace", "clubs", 1);
-//		Card sixHearts = new Card("6", "hearts", 6);
-//		
-//		Systems.out.println("**** ace of clubs #1 Tests ****");
+		
+		System.out.println("**** ace of clubs #1 Test ****");
+		Card aceClubs = new Card("ace", "clubs", 1);
+		System.out.println(aceClubs);
+		
+		System.out.println();
+		
+		System.out.println("**** 3 of diamonds #1 Test ****");
+		Card threeDiamonds = new Card("3", "diamonds", 3);
+		System.out.println(threeDiamonds);
+		
+		System.out.println();
+		
+		System.out.println("**** 6 of hearts #1 Test ****");
+		Card sixHearts = new Card("6", "hearts", 6);
+		System.out.println(sixHearts);
+		
+
 		
 	}
 }
