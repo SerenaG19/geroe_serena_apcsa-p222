@@ -5,30 +5,6 @@ import activity1.Card;
 
 import java.util.ArrayList;
 
-
-
-
-
-//SERENA: SEE NOTE ON GOOGLE CLASSROOM ABOUT ARRAYS / LISTS
-//really for activity two, and all that the note says
-//Activity two: use an array not a list!!
-
-
-//SERENA: SEE NOTE ON GOOGLE CLASSROOM ABOUT ARRAYS / LISTS
-//really for activity two, and all that the note says
-//Activity two: use an array not a list!!
-
-//SERENA: SEE NOTE ON GOOGLE CLASSROOM ABOUT ARRAYS / LISTS
-//really for activity two, and all that the note says
-//Activity two: use an array not a list!!
-
-//SERENA: SEE NOTE ON GOOGLE CLASSROOM ABOUT ARRAYS / LISTS
-//really for activity two, and all that the note says
-//Activity two: use an array not a list!!
-
-
-
-
 /**
  * The Deck class represents a shuffled deck of cards.
  * It provides several operations including
@@ -83,13 +59,7 @@ public class Deck {
 				}
 			}
 		}
-		shuffle();
-		
-		
-		
-		
-		
-		
+		shuffle();		
 	}
 
 
@@ -131,10 +101,11 @@ public class Deck {
 	 */
 	public Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
-		
 		//check if deck is empty
 		//decrement deck size (pull a card off top one at a time)
 		//return card object from array
+		size--;
+		return cards[size];		
 	}
 
 	/**
