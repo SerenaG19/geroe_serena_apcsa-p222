@@ -102,6 +102,9 @@ public class Shuffler {
 	 * searching for an as-yet-unselected card.
 	 * @param values is an array of integers simulating cards to be shuffled.
 	 */
+	
+	//selected cards are stored in shuffled; not-yet-selected cards are stored in values
+	
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
 		
@@ -109,13 +112,17 @@ public class Shuffler {
 		
 		//this array will hold the shuffled cards
 		int[] shuffled = new int[values.length];
+	
+		int r;
 		
 		//selection shuffle
-		int r;
 		for(int i = values.length-1; i > 0; i--)
 		{
 			r = (int) ( Math.random() *(i+1) ); // use random # times (i+1) to make calculation inclusive
 			shuffled[i] = values[r];
+			
+			//prevent duplicates by actually removing values[r] from values
+			values[r] = values[i];
 		}
 		
 		//copy shuffled deck back to values deck
