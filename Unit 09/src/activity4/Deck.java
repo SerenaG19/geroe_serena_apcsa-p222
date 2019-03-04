@@ -1,4 +1,4 @@
-package activity2;
+package activity4;
 import java.util.List;
 
 import activity1.Card;
@@ -47,19 +47,19 @@ public class Deck {
 		
 		cards = new Card[suits.length*ranks.length];
 		
-		for(int i = 0; i < cards.length; i=i)   //for each card:
+		for(int i = 0; i < cards.length; i=i)
 		{
-			for(int j = 0; j < ranks.length; j++) // loop within each rank
+			for(int j = 0; j < ranks.length; j++) 
 			{
-				for (int k = 0; k < suits.length; k++) // within each rank, loop through each suit
+				for (int k = 0; k < suits.length; k++)
 				{
-					cards[i] = new Card(ranks[j], suits[k], values[j]); // set a card to 
+					cards[i] = new Card(ranks[j], suits[k], values[j]);
 					size++;
 					i++;
 				}
 			}
 		}
-		//shuffle();		
+		shuffle();		
 	}
 
 
@@ -90,10 +90,19 @@ public class Deck {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
 		
 		//this should work for just arrays for now, will be asked later to make it work with array lists
+		//use the efficient selectionShuffle
 		
+		Card[] shuffled = new Card[cards.length];
+		int r;
 		
+		for(int i = cards.length-1; i >= 0; i--)
+		{
+			r = (int) ( Math.random() * (i+1) );
+			shuffled[i] = cards[r];
+			cards[r] = cards[i];
+		}
 		
-		
+		for(int q = 0; q < cards.length; q++) cards[q] = shuffled[q];
 	}
 
 	/**
