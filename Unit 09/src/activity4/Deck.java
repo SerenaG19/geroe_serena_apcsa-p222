@@ -115,6 +115,7 @@ public class Deck {
 		//check if deck is empty
 		//decrement deck size (pull a card off top one at a time)
 		//return card object from array
+		if(isEmpty()) return null;
 		size--;
 		return cards[size];		
 	}
