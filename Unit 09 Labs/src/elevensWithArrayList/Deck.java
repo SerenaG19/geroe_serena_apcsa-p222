@@ -1,5 +1,6 @@
 package elevensWithArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 //import activity1.Card;
 
@@ -15,7 +16,6 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	//private List<Card> cards; // Don't use this yet!
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -25,7 +25,7 @@ public class Deck {
 	private int size;
 	
 
-	private Card[] cards;
+	private List<Card> cards;
 	/**
 	 * Creates a new <code>Deck</code> instance.<BR>
 	 * It pairs each element of ranks with each element of suits,
@@ -45,21 +45,21 @@ public class Deck {
 		//add new card object to the array
 		//later on, call shuffle method in Act 4
 		
-		cards = new Card[suits.length*ranks.length];
+		ArrayList<Card>cards = new ArrayList<Card>();
 		
-		for(int i = 0; i < cards.length; i=i)
+		for(int i = 0; i < ranks.length * suits.length; i=i) //for each card
 		{
-			for(int j = 0; j < ranks.length; j++) 
+			for(int j = 0; j < ranks.length; j++) 			 //for each rank
 			{
-				for (int k = 0; k < suits.length; k++)
+				for (int k = 0; k < suits.length; k++)		 //for each suit within each rank
 				{
-					cards[i] = new Card(ranks[j], suits[k], values[j]);
+					cards.add(i, new Card(ranks[j], suits[k], values[j]));
 					size++;
 					i++;
 				}
 			}
 		}
-		shuffle();		
+		shuffle();
 	}
 
 
@@ -91,18 +91,17 @@ public class Deck {
 		
 		//this should work for just arrays for now, will be asked later to make it work with array lists
 		//use the efficient selectionShuffle
-		
-		Card[] shuffled = new Card[cards.length];
+		System.out.println(cards.size());
+		ArrayList<Card> shuffled = new ArrayList<Card>();
 		int r;
-		
-		for(int i = cards.length-1; i >= 0; i--)
+		for(int i = cards.size()-1; i >= 0; i--)
 		{
 			r = (int) ( Math.random() * (i+1) );
-			shuffled[i] = cards[r];
-			cards[r] = cards[i];
+			shuffled.add(i, cards.get(r));
+			cards.set(r, cards.get(i));
 		}
 		
-		for(int q = 0; q < cards.length; q++) cards[q] = shuffled[q];
+		for(int q = 0; q < cards.size(); q++) cards.add(q,shuffled.get(q));
 	}
 
 	/**
@@ -117,7 +116,7 @@ public class Deck {
 		//return card object from array
 		if(isEmpty()) return null;
 		size--;
-		return cards[size];		
+		return cards.get(size);		
 	}
 
 	/**
