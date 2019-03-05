@@ -14,12 +14,15 @@ public class ListSumFirst
 		ray = new ArrayList<Integer>();
 		if(ray.size() == 0) return -1;
 		
-		int count = 0;
-		for(int i = 0; i < ray.size(); i++)
-			if(ray.get(i) > ray.get(0)) count += ray.get(i);
-
-		if(count == 0) return -1;
+		int sum = 0;
+		for(int i = 0; i < 100; i++)
+		{
+//			System.out.println("first val: " + ray.get(0) + " and val[i]:" + ray.get(i) );
+			if(ray.get(i) > ray.get(0)) sum += ray.get(i);		
+		}
+	
+		if(sum == 0) return -1;
 		
-		return count;
+		return sum;
 	}
 }

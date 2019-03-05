@@ -7,17 +7,16 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class SumFirstRunner
+public class OddToEvenRunner
 {
 	public static void main( String args[] )
-	{						
+	{
 		ArrayList<Integer>test;
 		test = new ArrayList<Integer>();
-
-		int[] loadTest = new int[] {-99,1,2,3,4,5,6,7,8,9,10,5};
-		for(int i = 0; i < loadTest.length; i++) test.add(i, loadTest[i]);		
-			
-//		System.out.println(test);
-		System.out.println( ListSumFirst.go(test) );
+		
+		int[] loadList = new int[] {7,1,5,3,11,5,6,7,8,9,10,12345,11};
+		for(int n = 0; n < loadList.length; n++) test.add(loadList[n]);
+		System.out.println(ListOddToEven.go(test));
+		
 	}
 }
