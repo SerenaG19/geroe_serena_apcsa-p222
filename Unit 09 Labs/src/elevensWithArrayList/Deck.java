@@ -26,6 +26,7 @@ public class Deck {
 	
 
 	private List<Card> cards;
+
 	/**
 	 * Creates a new <code>Deck</code> instance.<BR>
 	 * It pairs each element of ranks with each element of suits,
@@ -45,7 +46,10 @@ public class Deck {
 		//add new card object to the array
 		//later on, call shuffle method in Act 4
 		
-		ArrayList<Card>cards = new ArrayList<Card>();
+//		ArrayList<Card>cards = new ArrayList<Card>();
+		
+		//cards = new ArrayList<Cards>();
+
 		
 		for(int i = 0; i < ranks.length * suits.length; i=i) //for each card
 		{
@@ -53,7 +57,8 @@ public class Deck {
 			{
 				for (int k = 0; k < suits.length; k++)		 //for each suit within each rank
 				{
-					cards.add(i, new Card(ranks[j], suits[k], values[j]));
+					Card c = new Card(ranks[j], suits[k], values[j]);
+					cards.add(c);
 					size++;
 					i++;
 				}
@@ -61,8 +66,7 @@ public class Deck {
 		}
 		shuffle();
 	}
-
-
+	
 	/**
 	 * Determines if this deck is empty (no undealt cards).
 	 * @return true if this deck is empty, false otherwise.
@@ -91,17 +95,34 @@ public class Deck {
 		
 		//this should work for just arrays for now, will be asked later to make it work with array lists
 		//use the efficient selectionShuffle
-		System.out.println(cards.size());
 		ArrayList<Card> shuffled = new ArrayList<Card>();
 		int r;
-		for(int i = cards.size()-1; i >= 0; i--)
-		{
-			r = (int) ( Math.random() * (i+1) );
-			shuffled.add(i, cards.get(r));
-			cards.set(r, cards.get(i));
-		}
 		
-		for(int q = 0; q < cards.size(); q++) cards.add(q,shuffled.get(q));
+//	Attempt One --------------------------------------------------------------------------------------------------------------	
+//		int i = size()-1;
+//		do
+//		{
+//			r = (int) ( Math.random() * (i+1) );		//r is a random number greater than 0 and less than or equal to 1
+//			shuffled.add(cards.get(r));					//add the card from cards at the random index r to the shuffled List
+//			cards.remove(r);							//remove the card from cards List
+//			i--;
+//		} while(i >= 0 );
+//	Attempt One --------------------------------------------------------------------------------------------------------------		
+		
+		int i = 0;
+
+		do
+		{
+			r = (int) ( Math.random() * size() );		//r is a random number greater than 0 and less than or equal to i
+			shuffled.add(cards.get(r));					//add the card from cards at the random index r to the shuffled List
+//			cards.remove(r);							//remove the card from cards List
+			i++;
+		} while(i < size() );
+		
+		
+		
+		for(int q = 0; q < cards.size(); q++) cards.set(q,shuffled.get(q));
+		
 	}
 
 	/**
