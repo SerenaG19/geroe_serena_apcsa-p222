@@ -14,17 +14,13 @@ public class TriangleWord
 	public static String printTriangle(String word)
 	{
 		String output = "";
-		
-		for(int i = 0; i < word.length()-1; i++)
+		int i = 2;
+		do
 		{
-			System.out.println("i: " + i);
-			for(int j = 0; j <= i; j++)
-			{
-				System.out.println("j: " + j);
-				output += word.substring(0, i+1) + "\n";
-			}
-		}
-		
+			for(int j = i - 1; j > 1; j --) output += word.substring(0,i);			
+			i++;
+		}while(output.length() < word.length() * word.length() );
+				
 		return output;
 	}
 }
