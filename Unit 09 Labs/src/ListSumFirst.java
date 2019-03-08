@@ -11,15 +11,11 @@ public class ListSumFirst
 {
 	public static int go(List<Integer>ray)
 	{
-		ray = new ArrayList<Integer>();
 		if(ray.size() == 0 || ray.size() == 1) return -1;
-		
-		System.out.println("size: " + ray.size());
-		
+				
 		int sum = 0;
 		for(int i = 0; i < ray.size(); i++)
 		{
-			System.out.println("first val: " + ray.get(0) + " and val[i]:" + ray.get(i) );
 			if(ray.get(i) > ray.get(0)) sum += ray.get(i);		
 		}
 	
