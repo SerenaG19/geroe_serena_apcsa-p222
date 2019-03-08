@@ -48,9 +48,8 @@ public class Deck {
 		
 //		ArrayList<Card>cards = new ArrayList<Card>();
 		
-		//cards = new ArrayList<Cards>();
+		cards = new ArrayList<Card>();
 
-		
 		for(int i = 0; i < ranks.length * suits.length; i=i) //for each card
 		{
 			for(int j = 0; j < ranks.length; j++) 			 //for each rank
