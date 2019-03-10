@@ -26,9 +26,9 @@ public class TriangleWord
 				
 				output += word.substring(0, i+1);
 				
-				System.out.print("i+1 = ");
-				System.out.print(i+1);
-				System.out.println(";   i:: " + i);
+//				System.out.print("i+1 = ");
+//				System.out.print(i+1);
+//				System.out.println(";   i:: " + i);
 				
 				j--;
 			}
