@@ -7,8 +7,13 @@ import static java.lang.System.*;
 class Rational implements Comparable<Rational>
 {
 	//add two instance variables
+	private int num, den;
 
 	//write two constructors
+	public Rational()
+	{
+		
+	}
 
 
 	//write a setRational method

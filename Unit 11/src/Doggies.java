@@ -4,7 +4,7 @@
 
 import java.util.Arrays;
 
-public class Doggies
+public class Doggies			//LOOK FOR THIS IN THE MIDTERM
 {
 	//pups is an array of references to Dog objects
 	private Dog[] pups;
@@ -12,6 +12,9 @@ public class Doggies
 	public Doggies(int size)
 	{
 		//point pups at a new array of Dog
+		
+		
+		//KNOW THIS -- LOOK FOR ON EXAM
 		pups = new Dog[size];
 		
 	}

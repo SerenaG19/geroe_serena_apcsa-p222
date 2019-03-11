@@ -2,7 +2,7 @@
 //www.apluscompsci.com
 //Name - Serena Geroe
 
-public class Dog 
+public class Dog //LOOK FOR THIS IN THE MIDTERM
 {
     private int age;
     private String name;

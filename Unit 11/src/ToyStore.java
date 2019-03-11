@@ -14,13 +14,16 @@ public class ToyStore
 
 	public ToyStore()
 	{
-		toyList = toyList;
+		toyList = new ArrayList<Toy>();		//this tells the computer to allocate memory
 	}
 
 	public void loadToys( String toyName )
 	{
+		toyList = new ArrayList<Toy>();
 		Toy load = new Toy(toyName);
 		toyList.add(load);
+		
+//  		System.out.println("loadToys:: toyList.size() = " + toyList.size());
 	}
   
   	public Toy getThatToy( String nm )
@@ -81,15 +84,40 @@ public class ToyStore
   	public void sortToysByCount()
   	{
   		Toy temp = new Toy();
-  		for(int i = 0; i < toyList.size(); i++)
+
+  		
+  		//IMPLEMENT SWAP...
+  		int currentCnt = 0;
+  		
+  		for(int i = 0; i < toyList.size(); i++)		//for each element in toyList
   		{
-  			if(toyList.get(i).getCount() > toyList.get(i+1).getCount() )
+  			for(int j = 1; j < toyList.size(); j++)
   			{
-  				temp = toyList.get(i);
-  				toyList.set(i, toyList.get(i+1));
-  				toyList.set(i+1, temp);
+  				if(toyList.get(i).getName().equals(toyList.get(j)) )
+  	  			{
+  	  				currentCnt++;
+  	  			}
   			}
+  			
   		}
+  		
+
+//----------ATTEMPT ONE*****************************************************************************
+//			System.out.println("toyList.size() = " + toyList.size());
+//  		for(int i = 0; i < toyList.size(); i++)
+//  		{
+//  			
+//  			System.out.println("toyList.get(i).getCount() = " + toyList.get(i).getCount());
+//  			System.out.println("i:: " + i);
+//  			
+//  			if(toyList.get(i).getCount() > toyList.get(i+1).getCount() )
+//  			{
+//  				temp = toyList.get(i);
+//  				toyList.set(i, toyList.get(i+1));
+//  				toyList.set(i+1, temp);
+//  			}
+//  		}
+//----------ATTEMPT ONE***************************************************************************** 		
   	}  
   	  
 	public String toString()

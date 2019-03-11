@@ -9,6 +9,8 @@ public class DoggiesRunner
 {
    public static void main( String[] args )
    {
+	   //LOOK FOR THIS IN THE MIDTERM
+	   
 		Scanner keyboard = new Scanner(System.in);
 		
 		System.out.print("How many Dogs are in the pack? :: ");
