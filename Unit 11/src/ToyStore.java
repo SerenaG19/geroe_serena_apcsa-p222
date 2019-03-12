@@ -66,58 +66,49 @@ public class ToyStore
   	public void sortToysByCount()
   	{
 		ArrayList<Toy>cleaned = new ArrayList<Toy>();				//this List will hold the updated and cleaned Toys
-		boolean alreadyHere = false;								//this will check that the Toy has not already been added to the cleaned List later on
-
-  		String currentNm = toyList.get(0).getName();  		
+//  		boolean alreadyHere = false;								//this will later check if the Toy has already been added to the list
+		String currentNm = toyList.get(0).getName();  		
   		int cnt = 0;
   		
   		for(int i = 0; i < toyList.size(); i++)						//loop thru all Toys in list
-  		{
-//  			System.out.println("loop sort ind :: " + i + "; sort, CURRENTNAME :: " + currentNm);
-  			
+  		{ 			
   			currentNm = toyList.get(i).getName();
   			cnt = 0;												//restart count
-  			alreadyHere = false;									//reset alreadyHere
+  			
   			for(int j = 0; j < toyList.size(); j++)					//loop thru all Toys within first loop to update count
   			{
   				if( currentNm.equals(toyList.get(j).getName()) )	//check if toy at i has same name as target
   	  			{
-  					cnt++;
+  					cnt++;											//update Toy's count
   	  			}
   			}
-  			
-  			
-  			for(int n = 0; n < i; n ++)
+  			toyList.get(i).setCount(cnt);							//set new count to count in actual list
+   		}
+  		
+  		for(int outer = 0; outer < toyList.size(); outer++)						//update toyList to cleaned list
+  		{
+  			for(int inner = 0; inner < toyList.size(); inner++)
   			{
-//  				System.out.println("n :: " + n + " ; toyList.get(n) :: " + toyList.get(n) + " ; alreadyHere :: " + alreadyHere);
-  				
-  				if(toyList.get(n).getName().equals(currentNm))
+//  				if( toyList.get(outer).getName().equals( toyList.get(inner).getName() ) )
+//  	  			{
+//  	  				alreadyHere = true;
+//  	  			}
+  				if( !toyList.get(outer).getName().equals( toyList.get(inner).getName() ) )
   				{
-  					alreadyHere = true;								//check that this Toy has not been added yet to cleaned
-//  					System.out.print("  Here!");
+  					cleaned.add(toyList.get(inner));
   				}
   			}
-  			
-  			if(alreadyHere == false)
-  			{
-  				
-  				System.out.println("toyList.get(i) :: " + toyList.get(i));
-  				cleaned.add(toyList.get(i));						//add Toy at i to cleaned list
-  	  			cleaned.get(i).setCount(cnt);						//update Toy's count
-  			}
   		}
-  		
+
   		toyList.clear();
   		for(int n = 0; n < cleaned.size(); n++)						//update toyList to cleaned list
   		{
   			toyList.add(cleaned.get(n));
-  		}
+  		}   } 		  		
   		
   		
   		
-  		
-  		
-  		//TO DO: FIX CLEANED METHOD, IMPLEMENT SWAP BASED ON COUNT, THEN DO RATIONAL LAB
+  		//TO DO: FIX CLEANED METHOD (LOOPS), IMPLEMENT SWAP BASED ON COUNT, THEN DO RATIONAL LAB
   		
   		
   		
@@ -156,7 +147,7 @@ public class ToyStore
 //  			}
 //  		}
 //----------ATTEMPT ONE***************************************************************************** 		
-  	}  
+    
   	  
 	public String toString()
 	{
