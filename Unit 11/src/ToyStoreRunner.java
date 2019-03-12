@@ -16,21 +16,20 @@ public class ToyStoreRunner
 		String response = keyboard.nextLine();
 		Scanner chop = new Scanner(response);
 		
-		ToyStore test = new ToyStore(); 	//must instantiate first!
-		
-//		int cnt = 0;
+		ToyStore test = new ToyStore(); 					//must instantiate first!
 		
 		String currentNm = "";
 		while(chop.hasNext())
 		{
 			currentNm = chop.next();
 			test.loadToys(currentNm);
-			
-//			cnt++;
-//			System.out.println("runner iterations:: " + cnt);
 		}
-
+		
+		System.out.println(test.getThatToy("sorry"));		//Test getThatToy()
+		System.out.println(test.getMostFrequentToy());		//Test getMostFrequentToy()
 		test.sortToysByCount();
+		System.out.println(test);							//Test toString()
+
 		
 	
 	

@@ -19,59 +19,39 @@ public class ToyStore
 
 	public void loadToys( String toyName )
 	{
-		toyList = new ArrayList<Toy>();
 		Toy load = new Toy(toyName);
 		toyList.add(load);
 		
-//  		System.out.println("loadToys:: toyList.size() = " + toyList.size());
+		//see String method split (makes an array)
 	}
-  
+  	
   	public Toy getThatToy( String nm )
-  	{    		
-  		Toy getThis = toyList.get(0);
+  	{   
+  		int cnt = 0;
+  		int toyInd = 0;
+  		
   		for(int i = 0; i < toyList.size(); i++)
   		{
-  			if(toyList.get(i).getName().equals("nm"))
+  			if(toyList.get(i).getName().equals(nm))
   			{
-  				getThis = toyList.get(i);
+  				toyInd = i;
+  				cnt++;
   			}
   		}
-  		return getThis;
+  		
+  		toyList.get(toyInd).setCount(cnt);
+  		return toyList.get(toyInd);  		
   	}
   
+  	
+  	
   	public String getMostFrequentToy()
-  	{
-  		ArrayList<Toy>cleaned = new ArrayList<Toy>();
-  		
-  		String currentNm = toyList.get(0).getName();
-  		int cnt = 0;
-  		
-  		for(int i = 0; i < toyList.size(); i++)						//loop thru all Toys in list
-  		{
-  			currentNm = toyList.get(i).getName();
-  			cnt = 0;												//restart count
-  			for(int j = 0; j < toyList.size(); j++)					//loop thru all Toys within first loop
-  			{
-  				if( currentNm.equals(toyList.get(j).getName()) )	//check if toy at i is the same as the target
-  	  			{
-  	  				cnt++;
-  	  			}
-  			}
-  			cleaned.add(toyList.get(i));							//add Toy at i to cleaned list
-  			cleaned.get(i).setCount(cnt);							//update Toy's count
-  		}
-  		
-  		toyList.clear();
-  		for(int n = 0; n < cleaned.size(); n++)						//update toyList to cleaned list
-  		{
-  			toyList.add(cleaned.get(n));
-  		}
-  		
-  		int maxCnt = toyList.get(0).getCount();						//NOW loop thru to find most frequent
+  	{  		
+  		int maxCnt = toyList.get(0).getCount();			//set max count to count of first object
   		int maxInd = 0;
-  		for(int k = 0; k < toyList.size(); k++)
+  		for(int k = 0; k < toyList.size(); k++)			//loop through each toy in toyList
   		{
-  			if(toyList.get(k).getCount() > maxCnt)
+  			if(toyList.get(k).getCount() > maxCnt)		//Check if that toy has a greater count, then update vars
   			{
   				maxCnt = toyList.get(k).getCount();
   				maxInd = k;
@@ -81,26 +61,84 @@ public class ToyStore
   		return "max == " + toyList.get(maxInd).getName();
   	}  
   
+  	
+  	
   	public void sortToysByCount()
   	{
-  		Toy temp = new Toy();
+		ArrayList<Toy>cleaned = new ArrayList<Toy>();				//this List will hold the updated and cleaned Toys
+		boolean alreadyHere = false;								//this will check that the Toy has not already been added to the cleaned List later on
 
+  		String currentNm = toyList.get(0).getName();  		
+  		int cnt = 0;
   		
-  		//IMPLEMENT SWAP...
-  		int currentCnt = 0;
-  		
-  		for(int i = 0; i < toyList.size(); i++)		//for each element in toyList
+  		for(int i = 0; i < toyList.size(); i++)						//loop thru all Toys in list
   		{
-  			for(int j = 1; j < toyList.size(); j++)
+//  			System.out.println("loop sort ind :: " + i + "; sort, CURRENTNAME :: " + currentNm);
+  			
+  			currentNm = toyList.get(i).getName();
+  			cnt = 0;												//restart count
+  			alreadyHere = false;									//reset alreadyHere
+  			for(int j = 0; j < toyList.size(); j++)					//loop thru all Toys within first loop to update count
   			{
-  				if(toyList.get(i).getName().equals(toyList.get(j)) )
+  				if( currentNm.equals(toyList.get(j).getName()) )	//check if toy at i has same name as target
   	  			{
-  	  				currentCnt++;
+  					cnt++;
   	  			}
   			}
   			
+  			
+  			for(int n = 0; n < i; n ++)
+  			{
+//  				System.out.println("n :: " + n + " ; toyList.get(n) :: " + toyList.get(n) + " ; alreadyHere :: " + alreadyHere);
+  				
+  				if(toyList.get(n).getName().equals(currentNm))
+  				{
+  					alreadyHere = true;								//check that this Toy has not been added yet to cleaned
+//  					System.out.print("  Here!");
+  				}
+  			}
+  			
+  			if(alreadyHere == false)
+  			{
+  				
+  				System.out.println("toyList.get(i) :: " + toyList.get(i));
+  				cleaned.add(toyList.get(i));						//add Toy at i to cleaned list
+  	  			cleaned.get(i).setCount(cnt);						//update Toy's count
+  			}
   		}
   		
+  		toyList.clear();
+  		for(int n = 0; n < cleaned.size(); n++)						//update toyList to cleaned list
+  		{
+  			toyList.add(cleaned.get(n));
+  		}
+  		
+  		
+  		
+  		
+  		
+  		//TO DO: FIX CLEANED METHOD, IMPLEMENT SWAP BASED ON COUNT, THEN DO RATIONAL LAB
+  		
+  		
+  		
+//  		Toy temp = new Toy();
+//
+//  		
+//  		//IMPLEMENT SWAP...
+//  		int currentCnt = 0;
+//  		
+//  		for(int i = 0; i < toyList.size(); i++)		//for each element in toyList
+//  		{
+//  			for(int j = 1; j < toyList.size(); j++)
+//  			{
+//  				if(toyList.get(i).getName().equals(toyList.get(j)) )
+//  	  			{
+//  	  				currentCnt++;
+//  	  			}
+//  			}
+//  			
+//  		}
+//  		
 
 //----------ATTEMPT ONE*****************************************************************************
 //			System.out.println("toyList.size() = " + toyList.size());
@@ -122,9 +160,6 @@ public class ToyStore
   	  
 	public String toString()
 	{
-		String output = "[";
-		for(int i = 0; i<toyList.size();i++) output += toyList.get(i).getName() + " " + toyList.get(i).getCount() + ", ";
-		output+="]";
-		return output;
+		return "" + toyList;
 	}
 }
