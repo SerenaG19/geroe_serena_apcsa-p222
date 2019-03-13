@@ -19,28 +19,42 @@ public class ToyStore
 
 	public void loadToys( String toyName )
 	{
-		Toy load = new Toy(toyName);
-		toyList.add(load);
-		
+		boolean alreadyHere = false;
+		if(toyList.isEmpty()) {
+			Toy load = new Toy(toyName);
+			toyList.add(load);
+		}
+		else
+			for(Toy item : toyList)
+			{
+				if(item.getName().equals(toyName))
+				{
+					alreadyHere = true;
+					int cnt = item.getCount();
+					cnt++;
+					item.setCount(cnt);
+	//				item.setCount(item.getCount()+=1);
+				}
+			
+			}
+		if(alreadyHere == false)
+		{
+			Toy load = new Toy(toyName);
+			toyList.add(load);
+		}
 		//see String method split (makes an array)
 	}
   	
   	public Toy getThatToy( String nm )
   	{   
-  		int cnt = 0;
-  		int toyInd = 0;
-  		
   		for(int i = 0; i < toyList.size(); i++)
   		{
   			if(toyList.get(i).getName().equals(nm))
   			{
-  				toyInd = i;
-  				cnt++;
+  				return toyList.get(i);
   			}
   		}
-  		
-  		toyList.get(toyInd).setCount(cnt);
-  		return toyList.get(toyInd);  		
+  		return null;		
   	}
   
   	
@@ -66,7 +80,7 @@ public class ToyStore
   	public void sortToysByCount()
   	{
 		ArrayList<Toy>cleaned = new ArrayList<Toy>();				//this List will hold the updated and cleaned Toys
-//  		boolean alreadyHere = false;								//this will later check if the Toy has already been added to the list
+		boolean alreadyHere = false;								//this will later check if the Toy has already been added to the list
 		String currentNm = toyList.get(0).getName();  		
   		int cnt = 0;
   		
@@ -85,21 +99,21 @@ public class ToyStore
   			toyList.get(i).setCount(cnt);							//set new count to count in actual list
    		}
   		
-  		for(int outer = 0; outer < toyList.size(); outer++)						//update toyList to cleaned list
+  		int inner = 0;
+  		for(int outer = 1; outer < toyList.size(); outer++)			//update toyList to cleaned list
   		{
-  			for(int inner = 0; inner < outer; inner++)
-  			{
-//  				if( toyList.get(outer).getName().equals( toyList.get(inner).getName() ) )
-//  	  			{
-//  	  				alreadyHere = true;
-//  	  			}
-
-  			}
+  			alreadyHere = false;									//restart alreadyHere for each iteration
+  			inner = 0;
+  			while(alreadyHere == false && inner < outer )
+  			{  				
+  				if( toyList.get(outer).getName().equals( toyList.get(inner).getName() ) ); // || toyList.get(0).equals( toyList.get(inner) ) )
+  				{
+  					alreadyHere = true;
+  	  			}
+  				inner++;
+   			}
+  			if(alreadyHere == false) cleaned.add(toyList.get(outer));
   		}
-  		
-  		System.out.println("cleaned" + cleaned);
-  		System.out.println("toyList" + toyList);
-
   		
   		toyList.clear();
   		for(int n = 0; n < cleaned.size(); n++)						//update toyList to cleaned list
