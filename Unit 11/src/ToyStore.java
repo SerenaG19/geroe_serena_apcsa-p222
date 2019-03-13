@@ -87,19 +87,20 @@ public class ToyStore
   		
   		for(int outer = 0; outer < toyList.size(); outer++)						//update toyList to cleaned list
   		{
-  			for(int inner = 0; inner < toyList.size(); inner++)
+  			for(int inner = 0; inner < outer; inner++)
   			{
 //  				if( toyList.get(outer).getName().equals( toyList.get(inner).getName() ) )
 //  	  			{
 //  	  				alreadyHere = true;
 //  	  			}
-  				if( !toyList.get(outer).getName().equals( toyList.get(inner).getName() ) )
-  				{
-  					cleaned.add(toyList.get(inner));
-  				}
+
   			}
   		}
+  		
+  		System.out.println("cleaned" + cleaned);
+  		System.out.println("toyList" + toyList);
 
+  		
   		toyList.clear();
   		for(int n = 0; n < cleaned.size(); n++)						//update toyList to cleaned list
   		{
