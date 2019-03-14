@@ -52,19 +52,19 @@ public class RationalRunner
 		rOne.add(rTwo);
 		out.println("\n\n2/10.add(3/6) = "+ rOne);		
 
-//		//1/4 + 2/8 = 1/2
-//		rOne.setRational(1,4);
-//		rTwo.setRational(2,8);
-//		out.println("\n\n1/4.equals(2/8) = "+rOne.equals(rTwo));		
-//		rOne.add(rTwo);
-//		out.println("\n\n1/4.add(2/8) = "+ rOne);	
-//		
-//		//1/6 + 2/8 = 5/12
-//		rOne.setRational(1,6);
-//		rTwo.setRational(2,8);
-//		out.println("\n\n1/6.equals(2/8) = "+rOne.equals(rTwo));				
-//		rOne.add(rTwo);
-//		out.println("\n\n1/6.add(2/8) = "+ rOne);		
+		//1/4 + 2/8 = 1/2
+		rOne.setRational(1,4);
+		rTwo.setRational(2,8);
+		out.println("\n\n1/4.equals(2/8) = "+rOne.equals(rTwo));		
+		rOne.add(rTwo);
+		out.println("\n\n1/4.add(2/8) = "+ rOne);	
+		
+		//1/6 + 2/8 = 5/12
+		rOne.setRational(1,6);
+		rTwo.setRational(2,8);
+		out.println("\n\n1/6.equals(2/8) = "+rOne.equals(rTwo));				
+		rOne.add(rTwo);
+		out.println("\n\n1/6.add(2/8) = "+ rOne);		
 			
 	}
 }

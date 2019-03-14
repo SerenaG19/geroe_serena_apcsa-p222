@@ -23,8 +23,8 @@ class Rational implements Comparable<Rational>
 	//write a setRational method
 	public void setRational(int top, int bot)
 	{
-		num = top;
-		den = bot;
+		setNum(top);
+		setDen(bot);
 	}
 
 	//write  a set method for numerator and denominator
@@ -40,9 +40,9 @@ class Rational implements Comparable<Rational>
 	
 	public void add(Rational  other)
 	{
-//		System.out.println("\n\nadd() before reduce --> num :: " + num + " and den :: " + den);
-		other.reduce();
-		reduce();
+//		System.out.println("\n\nadd() before add --> num :: " + num + " and den :: " + den);
+//		other.reduce();
+//		reduce();
 		//num1/den1 + num2/den2 
 		//new numerator = (num1 * den2 + num2 * den1)
 		//new denominator = (den1 * den2)
@@ -50,23 +50,28 @@ class Rational implements Comparable<Rational>
 		den = den * other.getDen();
 		reduce();
 		
-//		System.out.println("add() after reduce --> num :: " + num + " and den :: " + den);
+//		System.out.println("add() after add --> num :: " + num + " and den :: " + den);
+
+		
+		
 
 	}
 
 	private void reduce()
 	{
 //		System.out.println("reduce() before --> num :: " + num + " and den :: " + den);
-		if(num == den)
-		{
-			num = 1;
-			den = 1;
-		}
-		else
-		{
-			num /= gcd(num,den);
-			den /= gcd(num,den);
-		}
+//		System.out.println("Reduce : "+num+"/"+den);
+//		if(num == den)
+//		{
+//			num = 1;
+//			den = 1;
+//		}
+//		else
+//		{
+			int comDen = gcd(num,den);
+			num /= comDen;
+			den /= comDen;
+//		}
 		
 //		System.out.println("reduce() after --> num :: " + num + " and den :: " + den);
 
@@ -74,27 +79,9 @@ class Rational implements Comparable<Rational>
 
 	private int gcd(int numOne, int numTwo)
 	{
-		int smaller, larger;
-		if(numOne == 1 || numTwo == 1) return 1;
-		else if(numOne <= numTwo)
-		{
-			smaller = numOne;
-			larger = numTwo;
-		}
-		else
-		{
-			smaller = numTwo;
-			larger = numOne;
-		}
-		
-		int factor = 1;
-		for(int i = 2; i < (smaller+1)/2; i++)
-		{
-			if(smaller % i == 0 && larger % i == 0 && i > factor) factor = i;
-		}
-
-//		System.out.println("factor :: " + factor);
-		return factor;
+		for(int i = numOne; i > 1; i--)
+			if(numOne%i == 0 && numTwo%i == 0) return i;
+		return 1;
 	}
 
 	public Object clone ()
