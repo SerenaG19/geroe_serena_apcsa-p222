@@ -40,34 +40,60 @@ class Rational implements Comparable<Rational>
 	
 	public void add(Rational  other)
 	{
+//		System.out.println("\n\nadd() before reduce --> num :: " + num + " and den :: " + den);
+		other.reduce();
+		reduce();
 		//num1/den1 + num2/den2 
 		//new numerator = (num1 * den2 + num2 * den1)
 		//new denominator = (den1 * den2)
 		num = (num * other.getDen()) + (other.getNum() * den);
 		den = den * other.getDen();
 		reduce();
+		
+//		System.out.println("add() after reduce --> num :: " + num + " and den :: " + den);
+
 	}
 
 	private void reduce()
 	{
-//		System.out.println("num :: " + num + " and den :: " + den);
-		num /= gcd(num,den);
-		den /= gcd(num,den);
+//		System.out.println("reduce() before --> num :: " + num + " and den :: " + den);
+		if(num == den)
+		{
+			num = 1;
+			den = 1;
+		}
+		else
+		{
+			num /= gcd(num,den);
+			den /= gcd(num,den);
+		}
+		
+//		System.out.println("reduce() after --> num :: " + num + " and den :: " + den);
+
 	}
 
 	private int gcd(int numOne, int numTwo)
 	{
-		int smaller;
+		int smaller, larger;
 		if(numOne == 1 || numTwo == 1) return 1;
-		else if(numOne <= numTwo) smaller = numOne;
-		else smaller = numTwo;
+		else if(numOne <= numTwo)
+		{
+			smaller = numOne;
+			larger = numTwo;
+		}
+		else
+		{
+			smaller = numTwo;
+			larger = numOne;
+		}
 		
 		int factor = 1;
 		for(int i = 2; i < (smaller+1)/2; i++)
 		{
-			if(smaller % i == 0 && i > factor) factor = i;
+			if(smaller % i == 0 && larger % i == 0 && i > factor) factor = i;
 		}
 
+//		System.out.println("factor :: " + factor);
 		return factor;
 	}
 
@@ -94,8 +120,10 @@ class Rational implements Comparable<Rational>
 	public boolean equals( Object obj )
 	{
 		Rational myObj = (Rational) obj;
-		reduce();
-		return myObj.getNum() == num && myObj.getDen() == den;
+		
+		return compareTo(myObj) == 0;
+	//	reduce();
+//		return myObj.getNum() == num && myObj.getDen() == den;
 	}
 
 	public int compareTo(Rational other)
@@ -110,7 +138,7 @@ class Rational implements Comparable<Rational>
 	//write  toString() method
 	public String toString()
 	{
-		return "Current number :: " + num + "/" + den;
+		return num + "/" + den;
 	}
 	
 	
