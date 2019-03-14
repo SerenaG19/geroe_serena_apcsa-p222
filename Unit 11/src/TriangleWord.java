@@ -10,7 +10,6 @@ public class TriangleWord
 	//instance variables and constructors could be present, but are not necessary
 		
 //	public static void printTriangle(String word)
-	
 	public static String printTriangle(String word)
 	{
 		String output = "";

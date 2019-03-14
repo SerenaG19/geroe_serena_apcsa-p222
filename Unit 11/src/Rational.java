@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Serena Geroe
 
 import static java.lang.System.*; 
 
@@ -50,6 +50,7 @@ class Rational implements Comparable<Rational>
 
 	private void reduce()
 	{
+//		System.out.println("num :: " + num + " and den :: " + den);
 		num /= gcd(num,den);
 		den /= gcd(num,den);
 	}
@@ -57,11 +58,12 @@ class Rational implements Comparable<Rational>
 	private int gcd(int numOne, int numTwo)
 	{
 		int smaller;
-		if(numOne <= numTwo) smaller = numOne;
+		if(numOne == 1 || numTwo == 1) return 1;
+		else if(numOne <= numTwo) smaller = numOne;
 		else smaller = numTwo;
 		
-		int factor = 0;
-		for(int i = 1; i < (smaller+1)/2; i++)
+		int factor = 1;
+		for(int i = 2; i < (smaller+1)/2; i++)
 		{
 			if(smaller % i == 0 && i > factor) factor = i;
 		}
@@ -71,7 +73,9 @@ class Rational implements Comparable<Rational>
 
 	public Object clone ()
 	{
-		return num + "/" + den;
+		//return new rational object
+		Rational clone = new Rational(num,den);
+		return clone;
 	}
 
 	//ACCESSORS
@@ -89,24 +93,25 @@ class Rational implements Comparable<Rational>
 	
 	public boolean equals( Object obj )
 	{
-		return obj.equals(Rational);
-		return false;
+		Rational myObj = (Rational) obj;
+		reduce();
+		return myObj.getNum() == num && myObj.getDen() == den;
 	}
 
 	public int compareTo(Rational other)
 	{
-		if()
-		return -1;
+		double init = (double) num/den;
+		double given = (double) other.getNum()/other.getDen();
+		if(given > init) return -1;
+		else if(given == init) return 0;
+		else return 1;
 	}
 
-
-
-	
 	//write  toString() method
-//	public String toString()
-//	{
-//		
-//	}
+	public String toString()
+	{
+		return "Current number :: " + num + "/" + den;
+	}
 	
 	
 }
