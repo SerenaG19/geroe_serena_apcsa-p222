@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Serena Geroe
 
 import java.io.File; 
 import java.io.IOException;
@@ -16,6 +16,11 @@ public class WordRunner
 
 		int size = file.nextInt();
 		file.nextLine();
+		
+		while(file.hasNext())
+		{
+			
+		}
 		
 
 
