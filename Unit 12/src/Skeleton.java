@@ -44,7 +44,15 @@ public class Skeleton implements Monster //Don't forget to IMPLEMENT!
 		return howBig>other.getHowBig();
 	}
 	
-	//finish...
+	public boolean namesTheSame(Monster other)
+	{
+		
+	}
 
 	//add a toString
+	public String toString()
+	{
+		return name+" "+howBig;
+	}
+	
 }
