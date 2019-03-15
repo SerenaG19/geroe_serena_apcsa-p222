@@ -17,11 +17,12 @@ public class Skeleton implements Monster //Don't forget to IMPLEMENT!
 		howBig = 0;
 	}
 	
-	public Skeleton(String nm; int size)
+	public Skeleton(String nm, int size)
 	{
 		name = nm;
 		howBig = size;
 	}
+
 
 	//add code to implement the Monster interface
 	public String getName()
@@ -36,17 +37,17 @@ public class Skeleton implements Monster //Don't forget to IMPLEMENT!
 	
 	public boolean isBigger(Monster other)
 	{
-		return howBig<other.getHowBig();
+		return howBig>other.getHowBig();
 	}
 	
 	public boolean isSmaller(Monster other)
 	{
-		return howBig>other.getHowBig();
+		return howBig<other.getHowBig();
 	}
 	
 	public boolean namesTheSame(Monster other)
 	{
-		
+		return name.equals(other.getName());
 	}
 
 	//add a toString
