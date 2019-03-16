@@ -17,10 +17,15 @@ public class WordRunner
 		int size = file.nextInt();
 		file.nextLine();
 		
-		while(file.hasNext())
+		Comparable[] myWords = new Comparable[size];
+		for(int i = 0; i < size; i++)
 		{
-			
+			myWords[i] = file.next();
+			file.nextLine();
 		}
+		
+		Arrays.sort(myWords);
+		System.out.println(Arrays.toString(myWords));
 		
 
 
