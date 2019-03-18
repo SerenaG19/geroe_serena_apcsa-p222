@@ -26,44 +26,34 @@ public class WordRunner
 		
 		String first = "";
 		String second = "";
-		
-//		for(int i = 0; i < size-1; i++)
+		for(int i = 0; i < size; i++)
 		{
 			for(int j = 0; j < (size+1)/2; j++) // bc loading two words at once
 			{
-//				for(int k = 0; k < (size+1)/2; k++)
+				first = file.next();
+				file.nextLine();
+				second = file.next();
+				file.nextLine();
+			
+				if(first.compareTo(second) < 0 || first.compareTo(second) == 0)
 				{
-//					if(k < size - 9)
-					{
-						first = file.next();
-						file.nextLine();
-						second = file.next();
-						file.nextLine();
-					}
-//					else break;
-
-
-					if(first.compareTo(second) == 1 || first.compareTo(second) == 0)
-					{
-						myWords.add(j,first);
-						myWords.add(j+1,second);
-					}
-					else
-					{
-						myWords.add(j,second);
-						myWords.add(j+1,first);
-					}
-					
-					System.out.println("\nj :: "+j);
-					System.out.println("First :: " + first + "\t Second :: " + second);
-					System.out.println("first.compareTo(second) :: "+first.compareTo(second));				
-					System.out.println("Current myWords list :: " + myWords + "\n");
+					myWords.add(Math.abs(size - j),first);
+					myWords.add(Math.abs(size - j+1),second);
 				}
-				
-				
+				else
+				{
+					myWords.add(Math.abs(,second);
+					myWords.add(Math.abs(size - j+1),first);
+				}
+			
+				System.out.println("\nj :: "+j);
+				System.out.println("First :: " + first + "\t Second :: " + second);
+				System.out.println("first.compareTo(second) :: "+first.compareTo(second));				
+				System.out.println("Current myWords list :: " + myWords + "\n");
 			}
+			
 		}
-		
+	
 		for(int n = 0; n < myWords.size(); n++)
 		{
 			System.out.println(myWords.get(n));
