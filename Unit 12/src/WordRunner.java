@@ -15,7 +15,8 @@ public class WordRunner
 {
 	public static void main( String args[] ) throws IOException
 	{
-		Scanner file = new Scanner(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 12\\src\\words.dat")); 
+//		Scanner file = new Scanner(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 12\\src\\words.dat")); //COMPUTER AT SCHOOL
+		Scanner file = new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 12\\src\\words.dat")); //COMPUTER AT HOME
 		// make sure to have two slashes
 
 		int size = file.nextInt();
@@ -23,26 +24,43 @@ public class WordRunner
 		
 		ArrayList<String>myWords = new ArrayList();
 		
+		String first = "";
+		String second = "";
 		
 //		for(int i = 0; i < size-1; i++)
 		{
-			for(int j = 0; j < size; j++)
+			for(int j = 0; j < (size+1)/2; j++) // bc loading two words at once
 			{
-				String first = new String(file.next());
-				file.nextLine();
-				String second = new String(file.next());
-				file.nextLine();
+//				for(int k = 0; k < (size+1)/2; k++)
+				{
+//					if(k < size - 9)
+					{
+						first = file.next();
+						file.nextLine();
+						second = file.next();
+						file.nextLine();
+					}
+//					else break;
+
+
+					if(first.compareTo(second) == 1 || first.compareTo(second) == 0)
+					{
+						myWords.add(j,first);
+						myWords.add(j+1,second);
+					}
+					else
+					{
+						myWords.add(j,second);
+						myWords.add(j+1,first);
+					}
+					
+					System.out.println("\nj :: "+j);
+					System.out.println("First :: " + first + "\t Second :: " + second);
+					System.out.println("first.compareTo(second) :: "+first.compareTo(second));				
+					System.out.println("Current myWords list :: " + myWords + "\n");
+				}
 				
-				if(first.compareTo(second) == 1 || first.compareTo(second) == 0)
-				{
-					myWords.add(j,first);
-					myWords.add(j+1,second);
-				}
-				else
-				{
-					myWords.add(j,second);
-					myWords.add(j+1,first);
-				}
+				
 			}
 		}
 		
