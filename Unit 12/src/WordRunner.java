@@ -29,49 +29,44 @@ public class WordRunner
 		{
 			String load = file.next();
 			myWords.add(load);
+//			System.out.println(i + ":: " +load);
 		}
-		
+				
 		//put list into order
-		for(int i = 0; i < size-1; i++)
-		{
-			for(int j = 0; j < size-1; j++)
-			{
-				
-				System.out.println("\ni :: "+i+";\tj :: "+j);
-				
-				
-				if(myWords.get(i).length() > myWords.get(i+1).length())
-				{
-					String temp = myWords.get(i);
-					myWords.set(i, myWords.get(i+1));
-					myWords.set(i+1, temp);
-					System.out.println("myWords.get(i).length() > myWords.get(i+1).length()");
-				}
-				
-				else if(myWords.get(i).length() < myWords.get(i+1).length())
-				{
-					i++;
-					System.out.println("myWords.get(i).length() < myWords.get(i+1).length()");
-
-				}
-				else
-				{
-					if(myWords.get(i).compareTo(myWords.get(i+1)) > 0)
-					{
-						String temp = myWords.get(i);
-						myWords.set(i, myWords.get(i+1));
-						myWords.set(i+1, temp);
-					}
-					else i++;
-				}
+//		for(int k = 0; k < size - 1; k++)
+//		{
+//			for(int i = 0; i < myWords.size() - 1; i++)
+//			{
+//				System.out.println("i :: "+ i);
+//				
+//				System.out.println("myWords.get(i):: "+myWords.get(i)+" vs myWords.get(i+1):: "+myWords.get(i+1));
+//				if(myWords.get(i).compareTo(myWords.get(i+1)) > 0)
+//				{
+//					String temp = myWords.get(i);
+//					myWords.set(i, myWords.get(i+1));
+//					myWords.set(i+1, temp);
+//					System.out.println("myWords.get(i).length() > myWords.get(i+1).length() since "+myWords.get(i).length()+" > "+myWords.get(i+1).length());
+//				}
+//				else i++;
+//				
+//				System.out.println("Current myWords list :: " + myWords + "\n");
+//
+//			}
+//		}
 		
-				System.out.println("myWords.get(i) :: " + myWords.get(i) + "\t myWords.get(i+1) :: " + myWords.get(i+1));
-				System.out.println("myWords.get(i).compareTo(myWords.get(i+1)) :: "+myWords.get(i).compareTo(myWords.get(i+1)));				
-				System.out.println("Current myWords list :: " + myWords + "\n");
+		for(int i = 0; i < size - 1; i++)
+		{
+			if(myWords.get(i).compareTo(myWords.get(i+1)) > 0)
+			{
+				String temp = myWords.get(i);
+				myWords.set(i, myWords.get(i+1));
+				myWords.set(i+1, temp);
+				System.out.println("myWords.get(i).length() > myWords.get(i+1).length() since "+myWords.get(i).length()+" > "+myWords.get(i+1).length());
 			}
-			
 		}
-	
+		
+
+		//print
 		for(int n = 0; n < myWords.size(); n++)
 		{
 			System.out.println(myWords.get(n));
@@ -79,3 +74,50 @@ public class WordRunner
 
 	}
 }
+
+
+//for(int i = 0, j = 0; i < size-1; i++)
+//{
+//	for(int j = 0; j < size-1; j++)
+//	{
+//		
+//		System.out.println("\ni :: "+i+";\tj :: "+j);
+//		
+//		
+//		if(myWords.get(j).length() < myWords.get(j+1).length())
+//		{
+//			j++;
+//			System.out.println("myWords.get(j).length() < myWords.get(j+1).length() since "+myWords.get(j).length()+" < "+myWords.get(j+1).length());
+//		}
+//		
+//		else if(myWords.get(j).length() > myWords.get(j+1).length())
+//		{					
+//			String temp = myWords.get(j);
+//			myWords.set(j, myWords.get(j+1));
+//			myWords.set(j+1, temp);
+//			System.out.println("myWords.get(i).length() > myWords.get(i+1).length() since "+myWords.get(j).length()+" > "+myWords.get(j+1).length());
+//
+//		}
+//		else
+//		{System.out.println("myWords.get(j).length() = myWords.get(j+1).length() since "+myWords.get(j).length()+" = "+myWords.get(j+1).length());
+//
+//			if(myWords.get(j).compareTo(myWords.get(j+1)) > 0)
+//			{
+//				String temp = myWords.get(j);
+//				myWords.set(j, myWords.get(j+1));
+//				myWords.set(j+1, temp);
+//				System.out.println("Must swap: myWords.get(j).compareTo(myWords.get(j+1)) > 0");
+//			}
+//			else 
+//			{
+//				j++;
+//				System.out.println("In order: myWords.get(i).compareTo(myWords.get(j+1)) <= 0");
+//			}
+//		}
+//
+//		System.out.println("myWords.get(j) :: " + myWords.get(j) + "\t myWords.get(j+1) :: " + myWords.get(j+1));
+//		System.out.println("myWords.get(j).compareTo(myWords.get(j+1)) :: "+myWords.get(j).compareTo(myWords.get(j+1)));				
+//		System.out.println("Current myWords list :: " + myWords + "\n");
+//	}
+//	
+//}

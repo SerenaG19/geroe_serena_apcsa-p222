@@ -14,7 +14,7 @@ public class Word implements Comparable<Word>
 	}
 		
 	public int compareTo( Word rhs )
-	{	
+	{
 		if(word.length() < rhs.toString().length()) return -1; //because want ascending order
 		else if(word.length() > rhs.toString().length()) return 1;
 		else
