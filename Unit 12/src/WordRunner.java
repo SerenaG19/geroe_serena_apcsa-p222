@@ -22,33 +22,51 @@ public class WordRunner
 		int size = file.nextInt();
 		file.nextLine();
 		
-		ArrayList<String>myWords = new ArrayList();
+		ArrayList<String>myWords = new ArrayList<String>();
 		
-		String first = "";
-		String second = "";
+		//load words into list
 		for(int i = 0; i < size; i++)
 		{
-			for(int j = 0; j < (size+1)/2; j++) // bc loading two words at once
+			String load = file.next();
+			myWords.add(load);
+		}
+		
+		//put list into order
+		for(int i = 0; i < size-1; i++)
+		{
+			for(int j = 0; j < size-1; j++)
 			{
-				first = file.next();
-				file.nextLine();
-				second = file.next();
-				file.nextLine();
-			
-				if(first.compareTo(second) < 0 || first.compareTo(second) == 0)
+				
+				System.out.println("\ni :: "+i+";\tj :: "+j);
+				
+				
+				if(myWords.get(i).length() > myWords.get(i+1).length())
 				{
-					myWords.add(Math.abs(size - j),first);
-					myWords.add(Math.abs(size - j+1),second);
+					String temp = myWords.get(i);
+					myWords.set(i, myWords.get(i+1));
+					myWords.set(i+1, temp);
+					System.out.println("myWords.get(i).length() > myWords.get(i+1).length()");
+				}
+				
+				else if(myWords.get(i).length() < myWords.get(i+1).length())
+				{
+					i++;
+					System.out.println("myWords.get(i).length() < myWords.get(i+1).length()");
+
 				}
 				else
 				{
-					myWords.add(Math.abs(,second);
-					myWords.add(Math.abs(size - j+1),first);
+					if(myWords.get(i).compareTo(myWords.get(i+1)) > 0)
+					{
+						String temp = myWords.get(i);
+						myWords.set(i, myWords.get(i+1));
+						myWords.set(i+1, temp);
+					}
+					else i++;
 				}
-			
-				System.out.println("\nj :: "+j);
-				System.out.println("First :: " + first + "\t Second :: " + second);
-				System.out.println("first.compareTo(second) :: "+first.compareTo(second));				
+		
+				System.out.println("myWords.get(i) :: " + myWords.get(i) + "\t myWords.get(i+1) :: " + myWords.get(i+1));
+				System.out.println("myWords.get(i).compareTo(myWords.get(i+1)) :: "+myWords.get(i).compareTo(myWords.get(i+1)));				
 				System.out.println("Current myWords list :: " + myWords + "\n");
 			}
 			
@@ -61,31 +79,3 @@ public class WordRunner
 
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-////Comparable[] myWords = new Comparable[size];
-//
-//ArrayList<Comparable>myWords = new ArrayList<Comparable>();
-//
-//for(int i = 0; i < size; i++)
-//{
-////	myWords[i] = file.next();
-//	myWords.add(file.next());
-//	file.nextLine();
-//}
-//
-////Arrays.sort(myWords);
-////System.out.println(Arrays.toString(myWords));
-//
-//
-//Collections.sort(myWords);
-//System.out.println(myWords);
