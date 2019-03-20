@@ -1,3 +1,5 @@
+package activity9;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -54,6 +56,7 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		return false;
 	}
 
 	/**
@@ -67,6 +70,7 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		return false;
 	}
 
 	/**
@@ -79,6 +83,7 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		return false;
 	}
 
 	/**
@@ -91,5 +96,6 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		return false;
 	}
 }

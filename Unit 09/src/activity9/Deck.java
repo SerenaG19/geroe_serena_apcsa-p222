@@ -25,7 +25,7 @@ public class Deck {
 	private int size;
 	
 
-	private Card[] cards;
+	private activity9.Card[] cards;
 	/**
 	 * Creates a new <code>Deck</code> instance.<BR>
 	 * It pairs each element of ranks with each element of suits,
@@ -45,7 +45,7 @@ public class Deck {
 		//add new card object to the array
 		//later on, call shuffle method in Act 4
 		
-		cards = new Card[suits.length*ranks.length];
+		cards = new activity9.Card[suits.length*ranks.length];
 		
 		for(int i = 0; i < cards.length; i=i)
 		{
@@ -53,7 +53,7 @@ public class Deck {
 			{
 				for (int k = 0; k < suits.length; k++)
 				{
-					cards[i] = new Card(ranks[j], suits[k], values[j]);
+					cards[i] = new activity9.Card(ranks[j], suits[k], values[j]);
 					size++;
 					i++;
 				}
@@ -92,7 +92,7 @@ public class Deck {
 		//this should work for just arrays for now, will be asked later to make it work with array lists
 		//use the efficient selectionShuffle
 		
-		Card[] shuffled = new Card[cards.length];
+		activity9.Card[] shuffled = new activity9.Card[cards.length];
 		int r;
 		
 		for(int i = cards.length-1; i >= 0; i--)
@@ -110,7 +110,7 @@ public class Deck {
 	 * @return the card just dealt, or null if all the cards have been
 	 *         previously dealt.
 	 */
-	public Card deal() {
+	public activity9.Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		//check if deck is empty
 		//decrement deck size (pull a card off top one at a time)
