@@ -110,7 +110,7 @@ public class Deck {
 	 * @return the card just dealt, or null if all the cards have been
 	 *         previously dealt.
 	 */
-	public Card deal() {
+	public activity7.Card deal() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		//check if deck is empty
 		//decrement deck size (pull a card off top one at a time)
