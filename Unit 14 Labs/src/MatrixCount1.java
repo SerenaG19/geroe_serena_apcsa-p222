@@ -16,6 +16,29 @@ public class MatrixCount1
     public static int count( int val  )
     {
 		//add code
-		return 0;
+		//add code
+		int cnt = 0;
+		for(int[] row : m)
+		{
+			for(int num : row)
+			{
+				if(num == val) cnt++;
+			}
+		}
+		return cnt;
+    }
+    
+    public static String printM()
+    {
+    	String output = "Matrix values\n";
+		for(int[] row : m)
+		{
+			for(int num : row)
+			{
+				output+=num+"  ";
+			}
+			output+="\n";
+		}
+		return output;
     }
 }
