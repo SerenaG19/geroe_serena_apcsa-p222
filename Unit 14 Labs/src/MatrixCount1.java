@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Serena Geroe
 
 import java.util.*;
 import java.io.*; 
@@ -15,7 +15,6 @@ public class MatrixCount1
 
     public static int count( int val  )
     {
-		//add code
 		//add code
 		int cnt = 0;
 		for(int[] row : m)

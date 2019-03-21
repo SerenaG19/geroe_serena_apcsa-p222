@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Serena Geroe
 
 public class Grid
 {
@@ -11,16 +14,18 @@ public class Grid
 	{
 		grid = new String[rows][cols];
 		int r; // random index		
-		for(int i = rows-1; i >= 0; i--)
+		for(int i = 0; i < rows; i++)
 		{
 //			System.out.println("\ni :: "+i);
 	
-			for(int j = cols-1; j >= 0; j--)
+			for(int j = 0; j < cols; j++)
 			{
-//				System.out.println("j :: "+j);
+//				System.out.println("j :: "+j);				
+
+				r = (int) (Math.random() * (vals.length));
 				
-				r = (int) (Math.random() * (j));
 //				System.out.println("r :: " +r);
+				
 				grid[i][j] = vals[r];
 			}
 		}
@@ -29,32 +34,53 @@ public class Grid
 	//find out which of the vals occurs the most
 	public String findMax(String[] vals)
 	{
-		int max = 0;
-		int cnt = 0;
-		int ind = 0;
-		String mostFreqStr = vals[0];
+		ArrayList<String> myWords = new ArrayList<String>();
+		ArrayList<String> maxWords = new ArrayList<String>();		
 		
-		for(String[] row : grid)
+		String maxWrd = grid[0][0];
+		int maxCnt = 0;
+		
+		for(String[] rows : grid)
 		{
-			for(String word : row)
+			for(String word : rows)
 			{
-				for(String innerWrd : row)
+				if(!myWords.contains(word)) myWords.add(word);
+			
+				if(countVals(word) > maxCnt)
 				{
-					cnt = 0;
-					
-					if(innerWrd.equals(vals[ind]))
-					{
-						cnt++;
-					}
+					maxWrd = word;
+					maxCnt = countVals(word);
+					maxWords.add(word);
 				}
-				System.out.println(vals[ind] + " occurs "+cnt +" times.");
+				else if(countVals(word) == maxCnt && !maxWords.contains(word)  && maxWords.get(0) != grid[0][0])
+				{
+					maxWrd += " and " + word;
+					maxWords.add(word);
+				}
+				System.out.println("maxWords :: " + maxWords);
+				System.out.println("myWords :: " + myWords);	
 
-				if(cnt > max) max = cnt;
-				mostFreqStr = vals[ind];
-				if(ind != vals.length-2) ind++;
 			}
+				
 		}
-		return mostFreqStr + " occurs the most.\n\n";
+		
+		for(String myWrd : myWords)
+			System.out.println("countvals :: " + myWrd + " occurs "+countVals(myWrd) +" times.");
+
+			
+		if(maxWords.size() == 1)
+		{
+			maxWrd += " occur the most.\n\n";
+			System.out.println("Multiple max words!");
+		}
+		else 
+		{
+			maxWrd += " occurs the most.\n\n";
+			System.out.println("One max word!");
+
+		}
+		
+		return maxWrd;
 	}
 
 	//returns a count of how many times val occurs in the matrix
@@ -74,7 +100,7 @@ public class Grid
 	//display the grid
 	public String toString()
 	{
-	  	String output = "";
+	  	String output = "\n";
     	for(String[] row : grid)
 		{
 			for(String word: row)
