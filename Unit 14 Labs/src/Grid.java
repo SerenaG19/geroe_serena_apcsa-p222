@@ -37,8 +37,8 @@ public class Grid
 		ArrayList<String> myWords = new ArrayList<String>();
 		ArrayList<String> maxWords = new ArrayList<String>();		
 		
-		String maxWrd = grid[0][0];
-		int maxCnt = 0;
+		String maxWrd = "";
+		int maxCnt = -1;
 		
 		for(String[] rows : grid)
 		{
@@ -51,36 +51,29 @@ public class Grid
 					maxWrd = word;
 					maxCnt = countVals(word);
 					maxWords.add(word);
+					
+//					System.out.println("maxWords :: " + maxWords);
+
 				}
-				else if(countVals(word) == maxCnt && !maxWords.contains(word)  && maxWords.get(0) != grid[0][0])
+				else if(countVals(word) == maxCnt && !maxWords.contains(word))
 				{
 					maxWrd += " and " + word;
 					maxWords.add(word);
 				}
-				System.out.println("maxWords :: " + maxWords);
-				System.out.println("myWords :: " + myWords);	
+//				System.out.println("myWords :: " + myWords);	
 
 			}
 				
 		}
 		
-		for(String myWrd : myWords)
-			System.out.println("countvals :: " + myWrd + " occurs "+countVals(myWrd) +" times.");
+//		for(String myWrd : myWords)
+//			System.out.println("countvals :: " + myWrd + " occurs "+countVals(myWrd) +" times.");
 
 			
-		if(maxWords.size() == 1)
-		{
-			maxWrd += " occur the most.\n\n";
-			System.out.println("Multiple max words!");
-		}
-		else 
-		{
-			maxWrd += " occurs the most.\n\n";
-			System.out.println("One max word!");
-
-		}
-		
+		if(maxWrd.contains("and")) maxWrd+= " occur the most.";
+		else maxWrd+= " occurs the most.";
 		return maxWrd;
+		
 	}
 
 	//returns a count of how many times val occurs in the matrix
