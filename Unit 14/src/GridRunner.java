@@ -11,6 +11,10 @@ public class GridRunner
 {
 	public static void main( String args[] ) throws IOException
 	{
-
+		String[] loadMe = new String[] {"a","e","i","o"};
+		Grid nittyGriddy = new Grid(5,5,loadMe);
+		
+//		System.out.println(nittyGriddy);
+		System.out.println(nittyGriddy.findMax(loadMe) + nittyGriddy);
 	}
 }
