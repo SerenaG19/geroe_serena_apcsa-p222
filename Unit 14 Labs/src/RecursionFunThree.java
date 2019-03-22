@@ -1,8 +1,8 @@
 //© A+ Computer Science  -  www.apluscompsci.com
-//Name - 
-//Date -
-//Class -
-//Lab  -
+//Name - Serena Geroe
+//Date - 03/21/19
+//Class - APCSA
+//Lab  - Lucky Threes
 
 import static java.lang.System.*;
 
@@ -20,6 +20,24 @@ public class RecursionFunThree
 	 */
 	public static int luckyThrees( long number )
 	{
+		if(number >= 1000) // because first digit does not matter
+		{
+			System.out.println(number/10);
+
+			System.out.println("number >= 1000");
+			if(number/10 == 3)
+			{
+				System.out.println("number/10 == 3");
+				return 1 + luckyThrees(number/10);
+			}
+			else
+			{
+				System.out.println("number/10 != 3");
+				return 0 + luckyThrees(number/10);
+
+			}
+		}
+			
 		return 0;
 	}
 }
