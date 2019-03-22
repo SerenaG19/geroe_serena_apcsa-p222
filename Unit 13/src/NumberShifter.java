@@ -10,8 +10,8 @@ import static java.lang.System.*;
 
 public class NumberShifter
 {
-		static int[] ray;
-		static String rayStr;
+		private static int[] ray;
+		private static String rayStr;
 	
 	//make the random array from nums 1-10
 	public static int[] makeLucky7Array( int size)
