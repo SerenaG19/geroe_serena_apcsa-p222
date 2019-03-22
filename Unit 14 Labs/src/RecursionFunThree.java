@@ -20,19 +20,34 @@ public class RecursionFunThree
 	 */
 	public static int luckyThrees( long number )
 	{
-		if(number >= 1000) // because first digit does not matter
+		boolean firstTm = true;
+		
+		if(number > 0) 
 		{
-			System.out.println(number/10);
-
-			System.out.println("number >= 1000");
-			if(number/10 == 3)
+//			System.out.println(number);
+//			System.out.println((number/10) % 10);
+			
+			if(firstTm = true)
 			{
-				System.out.println("number/10 == 3");
+				firstTm = false;
+
+				if(number % 10 == 3 && number > 10)
+					return 1 + luckyThrees(number/10);
+				else
+					return 0 + luckyThrees(number/10);
+			}
+//			System.out.println("number > 0");
+			
+			else if(!firstTm && (number/10) % 10 == 3)
+			{
+//				System.out.println("number/10 == 3");
+				
 				return 1 + luckyThrees(number/10);
 			}
-			else
+			else if(!firstTm && (number/10) % 10 != 3)
 			{
-				System.out.println("number/10 != 3");
+//				System.out.println("number/10 != 3");
+				
 				return 0 + luckyThrees(number/10);
 
 			}
