@@ -15,6 +15,7 @@ public class NumberShifterRunner
 		//add test cases
 
 		System.out.println( NumberShifter.shiftEm(  NumberShifter.makeLucky7Array(20) ) );
+		
 	}
 }
 
