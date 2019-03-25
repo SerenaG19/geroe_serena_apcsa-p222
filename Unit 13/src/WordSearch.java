@@ -45,7 +45,8 @@ public class WordSearch
     {
 		String checkMe = "";
 		if(m[r].length - w.length() <= 0) return false;
-		for(int i = c; i < m[r].length - w.length(); i++)
+//		for(int i = c; i < m[r].length - w.length(); i++)
+		for(int i = c; i < m[r].length; i++)
 		{
 			for(int j = 0; j < w.length(); j++)
 			{
