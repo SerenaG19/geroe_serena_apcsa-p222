@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Serena Geroe
 
 import java.util.Arrays;
 import java.util.Scanner;
@@ -19,6 +19,9 @@ public class WordSortTwoRunner
 		{
 			String sentence = file.nextLine();
 			//instantiate a new WordSort
+			WordSortTwo test = new WordSortTwo(sentence);
+			test.sort();
+			System.out.println( test );
 		}
 	}
 }
