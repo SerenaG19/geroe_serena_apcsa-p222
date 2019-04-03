@@ -10,7 +10,7 @@ public class WordSearch
     private String[][] m;
 
     public WordSearch( int size, String str )
-    {
+    {   	
     	int row = 0;
     	for(int h = 0; h < size; h++)
     	{
@@ -24,18 +24,18 @@ public class WordSearch
 
     public boolean isFound( String word )
     {
-//    	for(String[] row : m)
-//    	{
-//    		for(String wrd : row)
-//    		{
-//    			if(wrd.equals(word)) return true;
-//    		}
-//    	}
-//    	return false;
+    	for(int r = 0; r < m.length; r++)
+    		for(int c = 0; c < m[r].length; c++)
+    			if( checkRight(word,r,c) || checkLeft(word,r,c) ||checkUp(word,r,c) ||
+    				checkDown(word,r,c) || checkDiagUpRight(word,r,c) || checkDiagUpLeft(word,r,c) ||
+    				checkDiagDownLeft(word,r,c) || checkDiagDownRight(word,r,c) )
+						return true;
+  
+    	return false;
     }
 
     /*
-     * This checking method is faulty. Instead, check if first letters are
+     * This checking method may be faulty. Instead, you could try to check if first letters are
      * the same, then the next, until you reach the end of the String.
      */
     
@@ -43,11 +43,11 @@ public class WordSearch
     
 	public boolean checkRight(String w, int r, int c)
     {
-		String checkMe = "";
-		if(m[r].length - w.length() <= 0) return false;
-//		for(int i = c; i < m[r].length - w.length(); i++)
+		String checkMe;
+		if(w.length() > m[r].length-c) return false;
 		for(int i = c; i < m[r].length; i++)
 		{
+			checkMe = "";
 			for(int j = 0; j < w.length(); j++)
 			{
 				checkMe += m[r][j];
@@ -60,9 +60,11 @@ public class WordSearch
 
 	public boolean checkLeft(String w, int r, int c)
 	{
-		String checkMe = "";
+		String checkMe;
+		if(w.length() > m[r].length-c) return false;
 		for(int i = c; i > 0; i--)
 		{
+			checkMe = "";
 			for(int j = c; j < w.length(); j--)
 			{
 				if(j < 0) return false;
@@ -76,20 +78,31 @@ public class WordSearch
 
 	public boolean checkUp(String w, int r, int c)
 	{
-		String checkMe = "";
+		String checkMe;
+		if(w.length() > m.length-r) return false;
 		for(int i = r; i > 0; i--)	//within each row,
 		{
-			checkMe += m[i][c];
-			if(checkMe.equals(w)) return true;
+			checkMe = "";
+			for(int j = r; j < w.length(); j--)
+			{
+				if(j < 0) return false;
+				checkMe += m[j][c];
+				if(checkMe.equals(w)) return true;
+			}
+			
 		}
 		return false;
 	}
 
 	public boolean checkDown(String w, int r, int c)
     {
-		String checkMe = "";
+		String checkMe;
+		if(w.length() > m.length-r) return false;
 		for(int i = r; i < m.length; i++)	//within each row,
 		{
+			checkMe = "";
+			
+			for(int j = r; j < w.length(); j++)
 			checkMe += m[i][c];
 			if(checkMe.equals(w)) return true;
 		}
@@ -125,6 +138,6 @@ public class WordSearch
 
     public String toString()
     {
- 		return "";
+    	return "";
     }
 }

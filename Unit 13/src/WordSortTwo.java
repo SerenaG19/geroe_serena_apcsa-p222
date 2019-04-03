@@ -12,6 +12,11 @@ public class WordSortTwo
 
 	public WordSortTwo(String sentence)
 	{
+		for(int i = 0; i < wordRay.length; i++)
+		{
+			if()
+		}
+			wordRay[i] = 
 	}
 
 	public void sort()
