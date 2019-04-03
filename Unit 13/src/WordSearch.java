@@ -29,22 +29,16 @@ public class WordSearch
     			if( checkRight(word,r,c) || checkLeft(word,r,c) ||checkUp(word,r,c) ||
     				checkDown(word,r,c) || checkDiagUpRight(word,r,c) || checkDiagUpLeft(word,r,c) ||
     				checkDiagDownLeft(word,r,c) || checkDiagDownRight(word,r,c) )
-						return true;
+    			{
+    				return true;
+    			}
   
     	return false;
     }
 
-    /*
-     * This checking method may be faulty. Instead, you could try to check if first letters are
-     * the same, then the next, until you reach the end of the String.
-     */
-    
-    
-    
 	public boolean checkRight(String w, int r, int c)
     {
 		String checkMe;
-		if(w.length() > m[r].length-c) return false;
 		for(int i = c; i < m[r].length; i++)
 		{
 			checkMe = "";
@@ -61,7 +55,6 @@ public class WordSearch
 	public boolean checkLeft(String w, int r, int c)
 	{
 		String checkMe;
-		if(w.length() > m[r].length-c) return false;
 		for(int i = c; i > 0; i--)
 		{
 			checkMe = "";
@@ -79,7 +72,6 @@ public class WordSearch
 	public boolean checkUp(String w, int r, int c)
 	{
 		String checkMe;
-		if(w.length() > m.length-r) return false;
 		for(int i = r; i > 0; i--)	//within each row,
 		{
 			checkMe = "";
@@ -97,13 +89,12 @@ public class WordSearch
 	public boolean checkDown(String w, int r, int c)
     {
 		String checkMe;
-		if(w.length() > m.length-r) return false;
 		for(int i = r; i < m.length; i++)	//within each row,
 		{
 			checkMe = "";
 			
 			for(int j = r; j < w.length(); j++)
-			checkMe += m[i][c];
+				checkMe += m[j][c];
 			if(checkMe.equals(w)) return true;
 		}
 		return false;
@@ -111,12 +102,13 @@ public class WordSearch
 
 	public boolean checkDiagUpRight(String w, int r, int c)
 	{
-		String checkMe = "";
-		for(int i = r; i > 0; i++)	//within each row,
+		String checkMe;
+		for(int i = r; i < m.length; i++)	//within each row,
 		{
-			if(c > m[i].length)return false; 
-			checkMe += m[i][c++];
-			if(checkMe.contains(w)) return true;
+			checkMe = "";
+			
+			
+
 		}
 		return false;
 	}
