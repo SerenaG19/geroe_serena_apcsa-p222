@@ -14,8 +14,16 @@ public class NumberShifterRunner
 	{
 		//add test cases
 
-		System.out.println( NumberShifter.shiftEm(  NumberShifter.makeLucky7Array(20) ) );
+		System.out.println( NumberShifter.shiftEm(  NumberShifter.makeLucky7Array(20) ) +"\n");
 		
+		System.out.println( NumberShifter.shiftEm(  NumberShifter.makeLucky7Array(3) ) +"\n");
+
+		System.out.println( NumberShifter.shiftEm(  NumberShifter.makeLucky7Array(37) ) +"\n");
+
+		System.out.println( NumberShifter.shiftEm(  NumberShifter.makeLucky7Array(19) ) +"\n");
+
+		System.out.println( NumberShifter.shiftEm(  NumberShifter.makeLucky7Array(24) ) );
+
 	}
 }
 
