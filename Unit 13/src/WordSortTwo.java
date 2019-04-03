@@ -12,25 +12,36 @@ public class WordSortTwo
 
 	public WordSortTwo(String sentence)
 	{
-		for(int i = 0; i < wordRay.length-1; i++)
+		int spaceInd = 0;
+		int ind = 0;
+		
+		for(int i = 0; i < sentence.length()-1; i++)
 		{
-			if
+			if(sentence.substring(ind).indexOf(" ") == 0)
+				
 		}
-			wordRay[i] = 
+		
 	}
 
 	public void sort()
 	{
-//		for(int i = 0; i < wordRay.length-1; i++)
-//		{
-//			if(wordRay[i].compareTo(wordRay[i+1]) > 0)
-//		}
-//			wordRay[i] = 
+		for(int i = 0; i < wordRay.length-1; i++)
+		{
+			if(wordRay[i].compareTo(wordRay[i+1]) > 0)
+			{
+				String temp = wordRay[i];
+				wordRay[i] = wordRay[i+1];
+				wordRay[i+1] = temp;
+			}
+		}
+
 	}
 
 	public String toString()
 	{
 		String output="";
+		for (int i = 0; i < wordRay.length; i++)
+			output+= wordRay[i] + "\n";
 		return output+"\n\n";
 	}
 }
