@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Serena Geroe
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -12,7 +12,7 @@ public class Paddle extends Block
 
    public Paddle()
    {
-		super(10,10);
+	  super(10,10);
       speed =5;
    }
 
