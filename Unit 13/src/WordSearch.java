@@ -11,13 +11,14 @@ public class WordSearch
 
     public WordSearch( int size, String str )
     {   	
-    	int row = 0;
+    	m = new String[size][size];
+    	int ind = 0;
     	for(int h = 0; h < size; h++)
     	{
-    		if(h == size) row++;
     		for(int i = 0; i < size; i++)
     		{
-    			m[row][i] = str;
+    			m[h][i] = str.substring(ind,ind+1);
+    			ind++;
     		}
     	}
     }
@@ -38,95 +39,102 @@ public class WordSearch
 
 	public boolean checkRight(String w, int r, int c)
     {
-		String checkMe;
+		String checkMe="";
 		for(int i = c; i < m[r].length; i++)
 		{
-			checkMe = "";
-			for(int j = 0; j < w.length(); j++)
-			{
-				checkMe += m[r][j];
-			}
-			if(checkMe.equals(w)) return true;
-				
+			checkMe += m[r][i];
 		}
-		return false;
+		return checkMe.indexOf(w) != -1;
+
 	}
 
 	public boolean checkLeft(String w, int r, int c)
 	{
-		String checkMe;
-		for(int i = c; i > 0; i--)
+		String checkMe= "";
+		for(int i = c; i >= 0; i--)
 		{
-			checkMe = "";
-			for(int j = c; j < w.length(); j--)
-			{
-				if(j < 0) return false;
-				checkMe += m[r][j];
-			}
-			if(checkMe.equals(w)) return true;
-				
+			checkMe += m[r][i];
 		}
-		return false;
+		return checkMe.indexOf(w) != -1;
+
 	}
 
 	public boolean checkUp(String w, int r, int c)
 	{
-		String checkMe;
-		for(int i = r; i > 0; i--)	//within each row,
+		String checkMe= "";
+		for(int i = r; i >= 0; i--)	//within each row,
 		{
-			checkMe = "";
-			for(int j = r; j < w.length(); j--)
-			{
-				if(j < 0) return false;
-				checkMe += m[j][c];
-				if(checkMe.equals(w)) return true;
-			}
-			
+			checkMe += m[i][c];
 		}
-		return false;
+		return checkMe.indexOf(w) != -1;
+
 	}
 
 	public boolean checkDown(String w, int r, int c)
     {
-		String checkMe;
+		String checkMe= "";
 		for(int i = r; i < m.length; i++)	//within each row,
 		{
-			checkMe = "";
-			
-			for(int j = r; j < w.length(); j++)
-				checkMe += m[j][c];
-			if(checkMe.equals(w)) return true;
+			checkMe += m[i][c];
 		}
-		return false;
+		return checkMe.indexOf(w) != -1;
 	}
 
 	public boolean checkDiagUpRight(String w, int r, int c)
 	{
-		String checkMe;
-		for(int i = r; i < m.length; i++)	//within each row,
+		String checkMe = "";
+		int x = c; // columns
+		for(int i = r; i >= Math.max(0,r - w.length()); i--)	//within each row,
 		{
-			checkMe = "";
-			
-			
-
+			checkMe += m[i][x];
+			x++;
+			if(checkMe.indexOf(w) != -1) return true;
+			if(x >= m[i].length) return false;
 		}
-		return false;
+		return checkMe.indexOf(w) != -1;
+
 	}
 
 	public boolean checkDiagUpLeft(String w, int r, int c)
 	{
-		return false;
+		String checkMe = "";
+		int x = c; // columns
+		for(int i = r; i >= Math.max(0,r - w.length()); i--)	//within each row,
+		{
+			checkMe += m[i][x];
+			x--;
+			if(checkMe.indexOf(w) != -1) return true;
+			if(x < 0) return false;
+		}
+		return checkMe.indexOf(w) != -1;
 	}
 
 	public boolean checkDiagDownLeft(String w, int r, int c)
    {
-		return false;
+		String checkMe = "";
+		int x = c; // columns
+		for(int i = r; i < m.length; i++)	//within each row,
+		{
+			checkMe += m[i][x];
+			x--;
+			if(checkMe.indexOf(w) != -1) return true;
+			if(x < 0) return false;
+		}
+		return checkMe.indexOf(w) != -1;
 	}
 
 	public boolean checkDiagDownRight(String w, int r, int c)
 	{
-		return false;
-	}
+		String checkMe = "";
+		int x = c; // columns
+		for(int i = r; i < m.length; i++)	//within each row,
+		{
+			checkMe += m[i][x];
+			x++;
+			if(checkMe.indexOf(w) != -1) return true;
+			if(x >= m[i].length) return false;
+		}
+		return checkMe.indexOf(w) != -1;	}
 
     public String toString()
     {
