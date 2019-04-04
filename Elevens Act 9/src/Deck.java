@@ -58,6 +58,7 @@ public class Deck {
 				}
 			}
 		}
+		size = cards.length;
 		shuffle();		
 	}
 
@@ -102,6 +103,9 @@ public class Deck {
 		}
 		
 		for(int q = 0; q < cards.length; q++) cards[q] = shuffled[q];
+		
+		size = cards.length;
+
 	}
 
 	/**
