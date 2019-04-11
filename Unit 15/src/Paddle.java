@@ -101,6 +101,8 @@ public class Paddle extends Block
    //add a toString() method
    public String toString()
    {
-	   return speed+super.getX()+", "+super.getY()+", "+super.getWidth()+", "+super.getHeight()+", "+super.getColor();
+	   return speed+super.getX()+", "
+			+super.getY()+", "+super.getWidth()+", "+
+			 super.getHeight()+", "+super.getColor();
    }
 }
