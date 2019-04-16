@@ -70,8 +70,31 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			ball.setYSpeed(0);
 		}
 
+		graphToBack.setColor(Color.WHITE);
+		graphToBack.fillRect(440,520,80,80);
+		graphToBack.fillRect(640,520,100,100);
+		graphToBack.fillRect(140,520,100,100);
+
+		
+		graphToBack.setColor(Color.red);
+		
+		graphToBack.drawString("rightScore = "+rightScore, 400, 540);
+		graphToBack.drawString("leftScore = "+leftScore, 400, 540);
+		
+		graphToBack.drawString("hitRightPaddle = "+hitRightPaddle, 600, 540);
+		graphToBack.drawString("hitLeftPaddle = "+hitLeftPaddle, 100, 540);
+		
 		
 		//see if the ball hits the top or bottom wall 
+		if(!(ball.getY()>=20 && ball.getY()<=450))
+		{
+			ball.setYSpeed(-ball.getYSpeed());
+			if(PONG_LAB_ASSESSMENT && ball.getY()<20 && hitLeftPaddle)
+			{
+				hitLeftPaddle = false;
+				leftScore++;
+			}
+		}
 
 
 

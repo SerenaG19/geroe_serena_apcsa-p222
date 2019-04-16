@@ -13,26 +13,31 @@ public class Ball extends Block
 	public Ball()
 	{
 		super(200,200);
-		xSpeed = 3;
-		ySpeed = 1;
+		setSpeed(3,1);
 	}
 
 	//add the other Ball constructors
 	public Ball(int x, int y)
 	{
-		super(200,200);
-		xSpeed = x;
-		ySpeed = y;
+		super(x,y);
+		setSpeed(3,1);
 	}
 	
-	public Ball(int xSp, int ySp, int xP, int yP)
+	public Ball(int x, int y, int width, int height)
 	{
-		super(xP,yP);
-		xSpeed = xSp;
-		ySpeed = ySp;
+		this(x,y);
+		super.setWidth(width);
+	
 	}
 	   
    //add the set methods
+	public void setSpeed(int x, int y)
+	{
+		xSpeed = x;
+		ySpeed = y;
+	}
+		
+	
 	public void setX(int x)
 	{
 		xSpeed = x;

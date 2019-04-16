@@ -93,7 +93,8 @@ public class Block implements Locatable
 
    public void draw(Graphics window, Color col)
    {
-
+	   window.setColor(col);
+	   window.fillRect(getX(), getY(), getWidth(), getHeight());
 
    }
    
