@@ -8,10 +8,14 @@
  */
 public class PictureTester
 {
+	
+	//PATH:     C:\Users\geroes3431\Downloads\images
+	
+	
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\beach.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
@@ -20,7 +24,7 @@ public class PictureTester
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("caterpillar.jpg");
+    Picture caterpillar = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\caterpillar.jpg");
     caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
@@ -29,7 +33,7 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("temple.jpg");
+    Picture temple = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\temple.jpg");
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -46,7 +50,7 @@ public class PictureTester
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("swan.jpg");
+    Picture swan = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\swan.jpg");
     swan.edgeDetection(10);
     swan.explore();
   }
