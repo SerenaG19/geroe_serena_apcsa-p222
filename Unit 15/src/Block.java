@@ -16,7 +16,8 @@ public class Block implements Locatable
 
 	public Block()
 	{
-		xPos=yPos=width=height=0;		
+		xPos=yPos=width=height=0;
+		color = Color.BLACK;
 	}
 	
 	//add other Block constructors - x , y , width, height, color
@@ -55,8 +56,8 @@ public class Block implements Locatable
    //add the other set methods
    public void setPos(int x, int y)
    {
-	   xPos = x;
-	   yPos = y;
+	   setX(x);
+	   setY(y);
    }
 	
    public void setX(int x)
@@ -102,7 +103,7 @@ public class Block implements Locatable
 	{
 		Block other = (Block) obj;
 		return getX() == other.getX() && getY() == other.getY() &&
-				getWidth() == other.getWidth() && getHeight() == other.getHeight() &&
+				getWidth() == other.getWidth() && getHeight() == other.getHeight() && 
 				getColor().equals(other.getColor());
 	}   
 
