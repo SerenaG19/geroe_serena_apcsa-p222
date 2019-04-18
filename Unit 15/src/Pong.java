@@ -20,6 +20,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	private Paddle rightPaddle;
 	private boolean[] keys;
 	private BufferedImage back;
+	private int rightScore;
+	private int leftScore;
 
 
 	public Pong()
@@ -29,6 +31,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		leftPaddle = new Paddle();
 		rightPaddle = new Paddle();
 		keys = new boolean[4];
+		rightScore = 0;
+		leftScore = 0;
 
     
     	setBackground(Color.WHITE);
@@ -47,12 +51,12 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//set up the double buffering to make the game animation nice and smooth
 		Graphics2D twoDGraph = (Graphics2D)window;
 
-		//take a snap shop of the current screen and same it as an image
+		//take a snap shop of the current screen and save it as an image
 		//that is the exact same width and height as the current screen
 		if(back==null)
 		   back = (BufferedImage)(createImage(getWidth(),getHeight()));
 
-		//create a graphics reference to the back ground image
+		//create a graphics reference to the background image
 		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
 
@@ -93,11 +97,24 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				leftScore++;
 			}
 		}
-
-
-
+		
 
 		//see if the ball hits the left paddle
+		public void hitLeftPaddle()
+		{
+			if(ball.getX() <= leftPaddle.getWidth() + Math.abs(ball.getXSpeed()) 
+			&& ball.getY() >= leftPaddle.getY()
+			&& ball.getY() <= leftPaddle.getY()+leftPaddle.getHeight()
+			|| ball.getY() + ball.getHeight() >= leftPaddle.getY()
+			&& ball.getY() + ball.getHeight() < leftPaddle.getY() + leftPaddle.getHeight()
+			)
+			{
+				if(ball.getX() <= leftPaddle.getX() + leftPaddle.getWidth()-Math.abs(ball.getXSpeed()))
+					ball.setYSpeed(-ball.getYSpeed());
+				else
+					ball.setXSpeed(-ball.getXSpeed());
+			}
+		}
 		
 		
 		
