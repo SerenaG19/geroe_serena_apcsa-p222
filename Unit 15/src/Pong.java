@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Serena Geroe
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -25,10 +25,9 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	public Pong()
 	{
 		//set up all variables related to the game
-
-
-
-
+		ball = new Ball();
+		leftPaddle = new Paddle();
+		rightPaddle = new Paddle();
 		keys = new boolean[4];
 
     
@@ -56,7 +55,6 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//create a graphics reference to the back ground image
 		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
-
 
 		ball.moveAndDraw(graphToBack);
 		leftPaddle.draw(graphToBack);
