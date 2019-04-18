@@ -17,7 +17,7 @@ public class Paddle extends Block
    }
 
 
-   //add the other Paddle constructors -- ORDER OF PARAMS?
+   //add the other Paddle constructors
    public Paddle(int s)
    {
 	   super(10,10);
@@ -73,13 +73,22 @@ public class Paddle extends Block
 
    public void moveUpAndDraw(Graphics window)
    {
+	   draw(window,Color.WHITE);
+	   
+	   setY(getY()-speed);
+	   
+	   draw(window, Color.black);
 
 
    }
 
    public void moveDownAndDraw(Graphics window)
    {
+	    draw(window,Color.white);
 
+	    setY(getY()+speed);
+	    
+	    draw(window, Color.black);
 
    }
 
@@ -101,8 +110,7 @@ public class Paddle extends Block
    //add a toString() method
    public String toString()
    {
-	   return speed+super.getX()+", "
-			+super.getY()+", "+super.getWidth()+", "+
-			 super.getHeight()+", "+super.getColor();
+		return super.toString() + " " + getSpeed();
+
    }
 }
