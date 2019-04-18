@@ -17,6 +17,14 @@ public class Ball extends Block
 	}
 
 	//add the other Ball constructors
+	
+	public Ball(Color col)
+	{
+		super(200,200);
+		setSpeed(3,1);
+	}
+	
+	
 	public Ball(int x, int y) //x and y correlating to xPos and yPos
 	{
 		super(x,y);
