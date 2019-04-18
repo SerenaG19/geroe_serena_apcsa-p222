@@ -9,7 +9,7 @@
 public class PictureTester
 {
 	
-	//PATH:     C:\Users\geroes3431\Downloads\images
+	//School computer path:     C:\Users\geroes3431\Downloads\images
 	
 	
   /** Method to test zeroBlue */
