@@ -58,12 +58,12 @@ public class Ball extends Block
 	}
 		
 	
-	public void setX(int x)
+	public void setXSpeed(int x)
 	{
 		xSpeed = x;
 	}
 	
-	public void setY(int y)
+	public void setYSpeed(int y)
 	{
 		ySpeed = y;
 	}
@@ -95,12 +95,12 @@ public class Ball extends Block
 	}   
 
    //add the get methods
-	public int getX()
+	public int getXSpeed()
 	{
 		return xSpeed;
 	}
 	
-	public int getY()
+	public int getYSpeed()
 	{
 		return ySpeed;
 	}
@@ -109,6 +109,6 @@ public class Ball extends Block
    //add a toString() method
 	public String toString()
 	{
-		return super.toString() + " " + getX() + " " + getY();
+		return super.toString() + " " + getXSpeed() + " " + getYSpeed();
 	}
 }
