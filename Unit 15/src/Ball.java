@@ -36,19 +36,28 @@ public class Ball extends Block
 		super.setHeight(height);
 	}
 	
-	public Ball(int x, int y, int width, int height, int xSp)
+	
+	Ball(int x, int y, int w, int h, Color col)
+	{		
+		this(x,y,w,h);
+		super.setColor(col);
+	}
+	
+
+	
+	public Ball(int x, int y, int width, int height, Color col, int xSp)
 	{
-		this(x,y,width,height);
+		this(x,y,width,height,col);
 		setX(xSp);
 
 	}
 	   
-	public Ball(int x, int y, int width, int height, int xSp, int ySp)
+	public Ball(int x, int y, int width, int height, Color col, int xSp, int ySp)
 	{
-		this(x,y,width,height,xSp);
+		this(x,y,width,height,col, xSp);
 		setY(ySp);
-
 	}
+	
 	
    //add the set methods
 	public void setSpeed(int x, int y)
