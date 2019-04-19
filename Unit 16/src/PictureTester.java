@@ -10,6 +10,7 @@ public class PictureTester
 {
 	
 	//School computer path:     C:\Users\geroes3431\Downloads\images
+	//Laptop path: C:\Users\Serena\Desktop\geroe_serena_apcsa-p222\Unit 16\src\images\\
 	
 	
   /** Method to test zeroBlue */
