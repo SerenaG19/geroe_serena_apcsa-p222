@@ -135,22 +135,22 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		
 		//see if the paddles need to be moved
 		
-		    if(keyIsPressed('W') == true)
+		    if(keys[0] == true)
 		    {
-		      leftPaddle.moveUpAndDraw(window);
+		      leftPaddle.moveUpAndDraw(graphToBack);
 		    }
-		    if(keyIsPressed('Z') == true)
+		    if(keys[1] == true)
 		    {
-		      leftPaddle.moveDownAndDraw(window);
+		      leftPaddle.moveDownAndDraw(graphToBack);
 		    }
 		    
-		    if(keyIsPressed('I') == true)
+		    if(keys[2] == true)
 		    {
-		      rightPaddle.moveUpAndDraw(window);
+		      rightPaddle.moveUpAndDraw(graphToBack);
 		    }
-		    if(keyIsPressed('M') == true)
+		    if(keys[3] == true)
 		    {
-		      rightPaddle.moveDownAndDraw(window);
+		      rightPaddle.moveDownAndDraw(graphToBack);
 		    }
 
 
