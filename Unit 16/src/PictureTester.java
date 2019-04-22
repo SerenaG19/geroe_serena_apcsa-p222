@@ -16,17 +16,33 @@ public class PictureTester
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\beach.jpg");
-    beach.explore();
-    beach.zeroBlue();
-    beach.explore();
+//  Picture beach = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\beach.jpg");
+//    Picture beach = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
+//	beach.explore();
+//    beach.zeroBlue();
+//    beach.explore();
+    
+	  
+//	 //Testing another pic for exercise 1, pg. 6
+//	Picture caterpillar = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\caterpillar.jpg");
+//    caterpillar.explore();
+//    caterpillar.zeroBlue();
+//    caterpillar.explore();
+    
+    
+////    testing a new pic for exercise 2, pg. 6
+//	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+//	pug.explore();
+//	pug.zeroBlue();
+//	pug.explore();
   }
   
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-    Picture caterpillar = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\caterpillar.jpg");
-    caterpillar.explore();
+//  Picture caterpillar = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\caterpillar.jpg");
+	Picture caterpillar = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\caterpillar.jpg");
+	caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
   }
