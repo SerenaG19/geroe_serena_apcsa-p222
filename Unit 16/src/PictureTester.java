@@ -46,6 +46,51 @@ public class PictureTester
 	pug.explore();  
   }
   
+  /** Method to test keepOnlyRed */
+  public static void testKeepOnlyRed()
+  {
+	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	pug.explore();
+	pug.keepOnlyRed();
+	pug.explore();  
+  }
+  
+  /** Method to test keepOnlyGreen */
+  public static void testKeepOnlyGreen()
+  {
+	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	pug.explore();
+	pug.keepOnlyGreen();
+	pug.explore();  
+  }
+
+  /** Method to test negate*/
+  public static void testNegate()
+  {
+	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	pug.explore();
+	pug.negate();
+	pug.explore();  
+  }
+  
+  /** Method to test grayscale*/
+  public static void testGrayscale()
+  {
+	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	pug.explore();
+	pug.grayscale();
+	pug.explore();  
+  }  
+  
+  /** Method to test test FixUnderwater*/
+  public static void testFixUnderwater()
+  {
+	Picture water = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\water.jpg");
+	water.explore();
+	water.fixUnderwater();
+	water.explore();  
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -88,13 +133,14 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-    testKeepOnlyBlue();
-    //testKeepOnlyRed();
-    //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
-    //testFixUnderwater();
+	
+//    testZeroBlue();
+//    testKeepOnlyBlue();
+//    testKeepOnlyRed();
+//    testKeepOnlyGreen();
+//    testNegate();
+//    testGrayscale();
+    testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();

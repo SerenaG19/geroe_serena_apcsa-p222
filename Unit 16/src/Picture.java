@@ -118,6 +118,44 @@ public class Picture extends SimplePicture
   }
   
   /**
+   * Method to keep only the red values, 
+   * that is, it will set the blue and green values 
+   * to zero.
+   */
+  
+  public void keepOnlyRed()
+  {
+	Pixel[][] pixels = this.getPixels2D();
+	for (Pixel[] rowArray : pixels)
+    {
+	  for (Pixel pixelObj : rowArray)
+      {
+	    pixelObj.setBlue(0);
+	    pixelObj.setGreen(0);
+      }
+    }
+  }
+  
+  /**
+   * Method to keep only the green values, 
+   * that is, it will set the red and blue values 
+   * to zero.
+   */
+  
+  public void keepOnlyGreen()
+  {
+	Pixel[][] pixels = this.getPixels2D();
+	for (Pixel[] rowArray : pixels)
+    {
+	  for (Pixel pixelObj : rowArray)
+      {
+	    pixelObj.setRed(0);
+	    pixelObj.setBlue(0);
+      }
+    }
+  }  
+  
+  /**
    *  Method to set the red value to 255 minus
    *  the current red value, the green value 
    *  to 255 minus the current green value
@@ -136,6 +174,50 @@ public class Picture extends SimplePicture
 	    pixelObj.setGreen(255-pixelObj.getGreen());
 	  }
 	}
+  }
+  
+  /**
+   * Method to turn the picture into shades of 
+   * gray. Set the red, green, and blue values 
+   * to the average of the current red, green,
+   *  and blue values (add all three values and
+   *  divide by 3)
+   */
+  public void grayscale()
+  {
+	Pixel[][] pixels = this.getPixels2D();
+	for (Pixel[] rowArray : pixels)
+    {
+	  for (Pixel pixelObj : rowArray)
+	  {
+		int avg = ( pixelObj.getRed() + pixelObj.getGreen()
+		 + pixelObj.getBlue() )/3; 
+	    pixelObj.setRed(avg);
+	    pixelObj.setBlue(avg);
+	    pixelObj.setGreen(avg);
+	  }
+	}
+  }
+  
+  /**
+   * Method to modify the pixel colors 
+   * to make the fish easier to see.
+   */
+  
+  public void fixUnderwater()
+  {
+	Pixel[][] pixels = this.getPixels2D();
+	for (Pixel[] rowArray : pixels)
+    {
+	  for (Pixel pixelObj : rowArray)
+      {  
+		if(pixelObj.getRed() <=20 && pixelObj.getGreen()>155)
+		{
+			pixelObj.setGreen(0);
+			pixelObj.setRed(0);
+		}
+      }
+    }
   }
   
   /** Method that mirrors the picture around a 
