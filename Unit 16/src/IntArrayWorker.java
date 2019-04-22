@@ -3,6 +3,44 @@ public class IntArrayWorker
   /** two dimensional matrix */
   private int[][] matrix = null;
   
+  /**
+   * Method to find count of an int
+   * @returns the count of the number of times a
+   *  passed integer value is found in the matrix.
+   */
+  public int getCount(int n)
+  {
+	  int cnt = 0;
+	  for(int[] row : matrix)
+		  for(int num : row)
+			  if(num == n)
+				  cnt++;
+	  return cnt;
+  }
+  
+  /**
+   * @returns the largest value in the matrix
+   */
+  public int getLargest()
+  {
+	  int max = matrix[0][0];
+	  for(int[] row : matrix)
+		  for(int num : row)
+			  if(num > max)
+				  max = num;
+	  return max;
+  }
+  /** @return the total of all integers in a
+   *  specified column
+   */
+  public int getColTotal(int col)
+  {
+	  int sum = 0;
+	  for(int[] row : matrix)
+		  sum += row[col];
+	  return sum;
+  }
+  
   /** set the matrix to the passed one
     * @param theMatrix the one to use
     */
