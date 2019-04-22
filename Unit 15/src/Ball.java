@@ -33,37 +33,38 @@ public class Ball extends Block
 	
 	public Ball(int x, int y, int width)
 	{
-		this(x,y);
-		super.setWidth(width);
-	
+		super(x,y,width);
+		setSpeed(3,1);
 	}
 	
 	public Ball(int x, int y, int width, int height)
 	{
-		this(x,y,width);
-		super.setHeight(height);
+		super(x,y,width,height);
+		setSpeed(3,1);
 	}
 	
 	
 	Ball(int x, int y, int w, int h, Color col)
 	{		
-		this(x,y,w,h);
-		super.setColor(col);
+		super(x,y,w,h,col);
+		setSpeed(3,1);
 	}
 	
 
 	
 	public Ball(int x, int y, int width, int height, Color col, int xSp)
 	{
-		this(x,y,width,height,col);
+		super(x,y,width,height,col);
 		setX(xSp);
 
 	}
 	   
 	public Ball(int x, int y, int width, int height, Color col, int xSp, int ySp)
 	{
-		this(x,y,width,height,col, xSp);
-		setY(ySp);
+		super(x,y,width,height,col);
+		setSpeed(xSp,ySp);
+		System.out.println("Constructing the ball");
+		System.out.println(getXSpeed() + " , " + getYSpeed());
 	}
 	
 	
