@@ -98,6 +98,25 @@ public class Picture extends SimplePicture
     }
   }
   
+  /**
+   * Method to will keep only the blue values, 
+   * that is, it will set the red and green values 
+   * to zero.
+   */
+  
+  public void keepOnlyBlue()
+  {
+	Pixel[][] pixels = this.getPixels2D();
+	for (Pixel[] rowArray : pixels)
+    {
+	  for (Pixel pixelObj : rowArray)
+      {
+	    pixelObj.setRed(0);
+	    pixelObj.setGreen(0);
+      }
+    }
+  }
+  
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */

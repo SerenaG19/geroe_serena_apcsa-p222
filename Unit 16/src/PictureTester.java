@@ -9,7 +9,7 @@
 public class PictureTester
 {
 	
-	//School computer path:     C:\Users\geroes3431\Downloads\images
+	//School computer path: C:\Users\geroes3431\Downloads\images
 	//Laptop path: C:\Users\Serena\Desktop\geroe_serena_apcsa-p222\Unit 16\src\images\\
 	
 	
@@ -35,6 +35,15 @@ public class PictureTester
 //	pug.explore();
 //	pug.zeroBlue();
 //	pug.explore();
+  }
+  
+  /** Method to test keepOnlyBlue */
+  public static void testKeepOnlyBlue()
+  {
+	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	pug.explore();
+	pug.keepOnlyBlue();
+	pug.explore();  
   }
   
   /** Method to test mirrorVertical */
@@ -80,7 +89,7 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     testZeroBlue();
-    //testKeepOnlyBlue();
+    testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();
