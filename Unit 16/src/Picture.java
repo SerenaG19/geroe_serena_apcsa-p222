@@ -345,13 +345,38 @@ public class Picture extends SimplePicture
       // loop from 13 to just before the mirror point
       for (int col = 13; col < mirrorPoint; col++)
       {
-        
+        count++;
         leftPixel = pixels[row][col];      
         rightPixel = pixels[row]                       
                          [mirrorPoint - col + mirrorPoint];
         rightPixel.setColor(leftPixel.getColor());
       }
     }
+    System.out.println("count :: "+count);
+  }
+  
+  /**
+   * Method to mirror the arms on the snowman 
+   * (“snowman.jpg”) to make a snowman with 4 arms
+   */
+  public void mirrorArms() // Row 155 - 195
+  {
+	int mirrorPoint = 195; //row;
+	Pixel bottomPixel = null;
+	Pixel topPixel = null;
+	Pixel[][] pixels = this.getPixels2D();
+	    
+	// loop from 155 to just before the mirror point
+	for (int row = 165; row < mirrorPoint; row++)
+	{
+	  // loop through columns
+	  for (int col = 0; col < pixels[0].length; col++)
+	  {
+	    topPixel = pixels[row][col];      
+	    bottomPixel = pixels[mirrorPoint - row + mirrorPoint] [col];
+	    bottomPixel.setColor(topPixel.getColor());
+	  }
+	}
   }
   
   /** copy from the passed fromPic to the

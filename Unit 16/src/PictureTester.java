@@ -131,7 +131,8 @@ public class PictureTester
   /** Method to test mirrorDiagonal */
   public static void testMirrorDiagonal()
   {
-	Picture beach = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
+//	Picture beach = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
+	Picture beach = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\beach.jpg");
 	beach.explore();
 	beach.mirrorDiagonal();
 	beach.explore();
@@ -144,6 +145,15 @@ public class PictureTester
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
+  }
+  
+  /** Method to test mirrorArms */
+  public static void testMirrorArms()
+  {
+    Picture snowman = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\snowman.jpg");
+    snowman.explore();
+    snowman.mirrorArms();
+    snowman.explore();
   }
   
   /** Method to test the collage method */
@@ -181,11 +191,11 @@ public class PictureTester
 //    testMirrorVerticalRightToLeft();
 //	  testMirrorHorizontal();
 //	  testMirrorHorizontalBotToTop();
-//	    testMirrorDiagonal();
+//	  testMirrorDiagonal();
+//	  testMirrorTemple();
+//	    testMirrorArms();
 
 	  
-//	  testMirrorTemple();
-//    testMirrorArms();
     //testMirrorGull();
     //testCollage();
     //testCopy();

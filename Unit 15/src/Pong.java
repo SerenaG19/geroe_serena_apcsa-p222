@@ -86,8 +86,8 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		   		while(true)
 		   		{
 		   		   Thread.currentThread().sleep(8);
-		            repaint();
-		         }
+		           repaint();
+		        }
 		      }catch(Exception e)
 		      {}
 		   	
@@ -105,7 +105,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 
      	//Position over score
-		graphToBack.setColor(Color.ORANGE);
+		graphToBack.setColor(Color.WHITE);
 		graphToBack.fillRect(10,590,80,500);
 		graphToBack.fillRect(700,590,100, 500);
 		
