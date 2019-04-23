@@ -261,7 +261,7 @@ public class Picture extends SimplePicture
     }
   }
   
-  /**--------------FIX THIS--------------------------------
+  /**
    * Method to mirror a picture around a mirror placed
    * horizontally at the middle of the height of the picture
    */
@@ -276,7 +276,55 @@ public class Picture extends SimplePicture
 	  for(int col = 0; col < pixels[0].length; col++)
 	  {
 	    topPixel = pixels[row][col];
-	    bottomPixel = pixels[row-height-1][col];
+	    bottomPixel = pixels[height-row-1][col];
+	    bottomPixel.setColor(topPixel.getColor());
+	  }
+	}
+  }
+  
+  /**
+   * Method to mirror the picture around a mirror
+   * placed horizontally from bottom to top.
+   */
+  public void mirrorHorizontalBotToTop()
+  {
+	Pixel[][] pixels = this.getPixels2D();
+	Pixel topPixel = null;
+	Pixel bottomPixel = null;
+	int height = pixels.length;
+	for (int row = 0; row < height/2; row++)
+	{
+	  for(int col = 0; col < pixels[0].length; col++)
+	  {
+	    topPixel = pixels[row][col];
+	    bottomPixel = pixels[height-row-1][col];
+	    topPixel.setColor(bottomPixel.getColor());
+	  }
+	}
+  }
+  
+  /**
+   * Method to mirror just a square part of the picture 
+   * from bottom left to top right around a mirror 
+   * placed on the diagonal line (the diagonal line 
+   * is the one where the row index equals the column index)
+   */
+  public void mirrorDiagonal()
+  {
+	Pixel[][] pixels = this.getPixels2D();
+	Pixel topPixel = null;
+	Pixel bottomPixel = null;
+	int maxLen; //bc don't want index to go out of bounds
+	
+	if(pixels.length < pixels[0].length) maxLen = pixels.length;
+	else maxLen = pixels[0].length;
+	
+	for (int row = 0; row < maxLen; row++)
+	{
+	  for(int col = 0; col < maxLen; col++)
+	  {
+	    topPixel = pixels[row][col];
+	    bottomPixel = pixels[col][row];
 	    bottomPixel.setColor(topPixel.getColor());
 	  }
 	}

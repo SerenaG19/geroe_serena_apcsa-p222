@@ -113,11 +113,29 @@ public class PictureTester
   /** Method to test mirrorHorizontal */
   public static void testMirrorHorizontal()
   {
-	Picture caterpillar = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\caterpillar.jpg");
-	caterpillar.explore();
-	caterpillar.mirrorHorizontal();
-    caterpillar.explore();
+	Picture moto = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\redMotorcycle.jpg");
+	moto.explore();
+	moto.mirrorHorizontal();
+	moto.explore();
   }
+  
+  /** Method to test mirrorHorizontalBotToTop */
+  public static void testMirrorHorizontalBotToTop()
+  {
+	Picture moto = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\redMotorcycle.jpg");
+	moto.explore();
+	moto.mirrorHorizontalBotToTop();
+	moto.explore();
+  }
+
+  /** Method to test mirrorDiagonal */
+  public static void testMirrorDiagonal()
+  {
+	Picture beach = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
+	beach.explore();
+	beach.mirrorDiagonal();
+	beach.explore();
+  }  
   
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
@@ -161,11 +179,14 @@ public class PictureTester
 //    testFixUnderwater();
 //    testMirrorVertical();
 //    testMirrorVerticalRightToLeft();
-    testMirrorHorizontal();
-//  testMirrorTemple();
+//	  testMirrorHorizontal();
+//	  testMirrorHorizontalBotToTop();
+	    testMirrorDiagonal();
+
+	  
+//	  testMirrorTemple();
 //    testMirrorArms();
     //testMirrorGull();
-    //testMirrorDiagonal();
     //testCollage();
     //testCopy();
     //testEdgeDetection();
