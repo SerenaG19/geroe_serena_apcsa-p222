@@ -141,7 +141,7 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\temple.jpg");
+    Picture temple = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\temple.jpg");
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -156,12 +156,31 @@ public class PictureTester
     snowman.explore();
   }
   
+  
+  /** Method to test mirrorGull */
+  public static void testMirrorGull()
+  {
+    Picture gull= new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\seagull.jpg");
+    gull.explore();
+    gull.mirrorGull();
+    gull.explore();
+  }
+  
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("640x480.jpg");
+    Picture canvas = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\640x480.jpg");
     canvas.createCollage();
     canvas.explore();
+  }
+  
+  /** Method to test copy */
+  public static void testCopy()
+  {
+    Picture gull= new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\seagull.jpg");
+    gull.explore();
+    gull.copy();
+    gull.explore();
   }
   
   /** Method to test edgeDetection */
@@ -193,12 +212,12 @@ public class PictureTester
 //	  testMirrorHorizontalBotToTop();
 //	  testMirrorDiagonal();
 //	  testMirrorTemple();
-//	    testMirrorArms();
+//	  testMirrorArms();
+//	  testMirrorGull();
+//	  testCollage();
+	  testCopy();
 
-	  
-    //testMirrorGull();
-    //testCollage();
-    //testCopy();
+
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();

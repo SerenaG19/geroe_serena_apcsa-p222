@@ -379,6 +379,31 @@ public class Picture extends SimplePicture
 	}
   }
   
+  
+  /**
+   * Method to mirror the seagull (“seagull.jpg”) to the right so
+   * that there are two seagulls on the beach near each other
+   */
+  public void mirrorGull() // Row 230 -> 330, Col 230 -> 350,
+  {
+	int mirrorPoint = 350; //col
+	Pixel leftPixel = null;
+	Pixel rightPixel = null;
+	Pixel[][] pixels = this.getPixels2D();
+	    
+	// loop through rows
+	for (int row = 230; row < 330; row++)
+	{
+	  // loop from 230 to just before the mirror point
+	  for (int col = 230; col < mirrorPoint; col++)
+	  {
+	    leftPixel = pixels[row][col];      
+	    rightPixel = pixels[row] [mirrorPoint - col + mirrorPoint];
+	    rightPixel.setColor(leftPixel.getColor());
+	  }
+	}
+  }
+  
   /** copy from the passed fromPic to the
     * specified startRow and startCol in the
     * current picture
@@ -413,8 +438,8 @@ public class Picture extends SimplePicture
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
-    Picture flower1 = new Picture("flower1.jpg");
-    Picture flower2 = new Picture("flower2.jpg");
+    Picture flower1 = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\flower1.jpg");
+    Picture flower2 = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\flower2.jpg");
     this.copy(flower1,0,0);
     this.copy(flower2,100,0);
     this.copy(flower1,200,0);
@@ -424,9 +449,18 @@ public class Picture extends SimplePicture
     this.copy(flower1,400,0);
     this.copy(flower2,500,0);
     this.mirrorVertical();
-    this.write("collage.jpg");
+    this.write("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\imagescollage.jpg");
   }
   
+  /** Method to create a second copy method that adds 
+   * parameters to allow you to copy just part of the
+   * fromPic. It adds parameters that specify the start 
+   * row, end row, start column, and end column to copy from
+  */
+  public void copy()
+  {
+	  System.out.println("Hello World");
+  }
   
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
