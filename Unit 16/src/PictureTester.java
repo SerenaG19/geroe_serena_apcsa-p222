@@ -178,9 +178,11 @@ public class PictureTester
   public static void testCopy()
   {
     Picture gull= new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\seagull.jpg");
+    Picture temple = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\temple.jpg");
+    temple.explore();
     gull.explore();
-    gull.copy();
-    gull.explore();
+    temple.copy(gull,230,330,230,350);
+    temple.explore();
   }
   
   /** Method to test edgeDetection */
@@ -214,10 +216,9 @@ public class PictureTester
 //	  testMirrorTemple();
 //	  testMirrorArms();
 //	  testMirrorGull();
-//	  testCollage();
-	  testCopy();
-
-
+//	  testCopy();
+	  testCollage();
+	  
     //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
