@@ -150,7 +150,7 @@ public class PictureTester
   /** Method to test mirrorArms */
   public static void testMirrorArms()
   {
-    Picture snowman = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\snowman.jpg");
+    Picture snowman = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\snowman.jpg");
     snowman.explore();
     snowman.mirrorArms();
     snowman.explore();
@@ -185,10 +185,22 @@ public class PictureTester
     temple.explore();
   }
   
+  /** Method to test myCollage */
+  public static void testMyCollage()
+  {
+	    Picture myCanvas = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\640x480.jpg");
+	    myCanvas.myCollage();
+	    myCanvas.explore();
+  }
+  
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
-    Picture swan = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\swan.jpg");
+	  //FOR SCHOOL COMP
+//    Picture swan = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\swan.jpg");
+    
+    //FOR LAPTOP
+    Picture swan = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\swan.jpg");
     swan.edgeDetection(10);
     swan.explore();
   }
@@ -217,9 +229,11 @@ public class PictureTester
 //	  testMirrorArms();
 //	  testMirrorGull();
 //	  testCopy();
-	  testCollage();
+//	  testCollage();
+//	  testMyCollage();
+	    testEdgeDetection();
+
 	  
-    //testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();

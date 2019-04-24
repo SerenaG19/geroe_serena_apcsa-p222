@@ -481,6 +481,38 @@ public class Picture extends SimplePicture
     this.write("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\imagescollage.jpg");
   }
   
+  /** Method to create an image that has at least 
+   * three pictures (can be the same picture) copied
+   * three times with three different picture 
+   * manipulations and at least one mirroring
+   */
+  public void myCollage()
+  {
+	  	//FOR LAPTOP
+	    Picture gull= new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\seagull.jpg");
+	    Picture flower2 = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\flower2.jpg");
+	    Picture snowman = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\snowman.jpg");
+	   
+	    this.copy(flower2,0,0);
+	    this.copy(gull,230,330,230,350);
+	    this.copy(snowman,75,162,160,347);
+	    
+	    Picture snowmanNoBlue = new Picture(snowman);
+	    snowmanNoBlue.zeroBlue();
+	    this.copy(snowmanNoBlue,200,0);
+	    
+	    Picture negateFlower = new Picture(flower2);
+	    negateFlower.negate();
+	    this.copy(negateFlower,400, 0);
+	    
+	    Picture greenGull = new Picture(gull);
+	    greenGull.keepOnlyGreen();
+	    this.copy(greenGull,230,330,230,350);
+	    
+	    this.mirrorVertical();
+	    this.write("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\imagesMyCollage.jpg");  
+  }
+  
   /** Method to show large changes in color 
     * @param edgeDist the distance for finding edges
     */
@@ -488,21 +520,39 @@ public class Picture extends SimplePicture
   {
     Pixel leftPixel = null;
     Pixel rightPixel = null;
+    Pixel topPixel = null;
+    Pixel bottomPixel = null;
+    
     Pixel[][] pixels = this.getPixels2D();
     Color rightColor = null;
-    for (int row = 0; row < pixels.length; row++)
+    Color topColor = null;
+    Color bottomColor = null;
+    for (int row = 0; row < pixels.length-1; row++)
     {
       for (int col = 0; 
            col < pixels[0].length-1; col++)
       {
         leftPixel = pixels[row][col];
         rightPixel = pixels[row][col+1];
+        topPixel = pixels[row][col];
+        bottomPixel = pixels[row+1][col];
+        
         rightColor = rightPixel.getColor();
+        bottomColor = bottomPixel.getColor();
+        
         if (leftPixel.colorDistance(rightColor) > 
+            edgeDist || 
+            topPixel.colorDistance(bottomColor) >
             edgeDist)
-          leftPixel.setColor(Color.BLACK);
+        
+        { 
+        	leftPixel.setColor(Color.BLACK);
+        }
+
         else
+        {
           leftPixel.setColor(Color.WHITE);
+        }
       }
     }
   }
