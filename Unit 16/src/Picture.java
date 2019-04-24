@@ -467,8 +467,14 @@ public class Picture extends SimplePicture
   /** Method to create a collage of several pictures */
   public void createCollage()
   {
-    Picture flower1 = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\flower1.jpg");
-    Picture flower2 = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\flower2.jpg");
+	//laptop
+//    Picture flower1 = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\flower1.jpg");
+//    Picture flower2 = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\flower2.jpg");
+	  
+	//school
+	 Picture flower1 = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\flower1.jpg");
+	 Picture flower2 = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\flower2.jpg");
+	 
     this.copy(flower1,0,0);
     this.copy(flower2,100,0);
     this.copy(flower1,200,0);
@@ -478,7 +484,12 @@ public class Picture extends SimplePicture
     this.copy(flower1,400,0);
     this.copy(flower2,500,0);
     this.mirrorVertical();
-    this.write("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\imagescollage.jpg");
+    
+    //laptop
+//    this.write("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\imagescollage.jpg");
+    
+    //school
+    this.write("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\imagescollage.jpg");
   }
   
   /** Method to create an image that has at least 
@@ -489,10 +500,15 @@ public class Picture extends SimplePicture
   public void myCollage()
   {
 	  	//FOR LAPTOP
-	    Picture gull= new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\seagull.jpg");
-	    Picture flower2 = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\flower2.jpg");
-	    Picture snowman = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\snowman.jpg");
+//	    Picture gull= new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\seagull.jpg");
+//	    Picture flower2 = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\flower2.jpg");
+//	    Picture snowman = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\snowman.jpg");
 	   
+//	    For School
+	    Picture gull = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\seagull.jpg");
+	    Picture flower2 = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\flower2.jpg");
+	    Picture snowman = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\snowman.jpg");
+	    
 	    this.copy(flower2,0,0);
 	    this.copy(gull,230,330,230,350);
 	    this.copy(snowman,75,162,160,347);
@@ -510,7 +526,12 @@ public class Picture extends SimplePicture
 	    this.copy(greenGull,230,330,230,350);
 	    
 	    this.mirrorVertical();
-	    this.write("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\imagesMyCollage.jpg");  
+	    
+	    //Laptop
+//	    this.write("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\imagesMyCollage.jpg");
+	    
+	    //School
+	    this.write("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\imagesMyCollage.jpg");
   }
   
   /** Method to show large changes in color 

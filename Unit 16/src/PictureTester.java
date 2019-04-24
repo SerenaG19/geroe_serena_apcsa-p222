@@ -16,11 +16,15 @@ public class PictureTester
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-//  Picture beach = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\beach.jpg");
+	//School
+	Picture beach = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
+	
+	//Laptop
 //    Picture beach = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
-//	beach.explore();
-//    beach.zeroBlue();
-//    beach.explore();
+    
+	beach.explore();
+    beach.zeroBlue();
+    beach.explore();
     
 	  
 //	 //Testing another pic for exercise 1, pg. 6
@@ -40,7 +44,13 @@ public class PictureTester
   /** Method to test keepOnlyBlue */
   public static void testKeepOnlyBlue()
   {
-	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	//School
+	Picture pug = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	//H:\APCSA Units\geroe_serena_apcsa-p222\Unit 16\src\images
+	
+	//Laptop
+//	Picture pug = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\pugonabike.jpg");
+	
 	pug.explore();
 	pug.keepOnlyBlue();
 	pug.explore();  
@@ -49,7 +59,11 @@ public class PictureTester
   /** Method to test keepOnlyRed */
   public static void testKeepOnlyRed()
   {
-	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	//Laptop
+//	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	  
+	  //School
+	Picture pug = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
 	pug.explore();
 	pug.keepOnlyRed();
 	pug.explore();  
@@ -58,7 +72,12 @@ public class PictureTester
   /** Method to test keepOnlyGreen */
   public static void testKeepOnlyGreen()
   {
-	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	//Laptop
+//	  Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	  
+	//School
+	Picture pug = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+
 	pug.explore();
 	pug.keepOnlyGreen();
 	pug.explore();  
@@ -67,7 +86,13 @@ public class PictureTester
   /** Method to test negate*/
   public static void testNegate()
   {
-	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	 //Laptop
+//	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	  
+	//School
+	  
+	Picture pug = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+
 	pug.explore();
 	pug.negate();
 	pug.explore();  
@@ -76,7 +101,13 @@ public class PictureTester
   /** Method to test grayscale*/
   public static void testGrayscale()
   {
-	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	//Laptop
+//	Picture pug = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+	
+	//School
+	Picture pug = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\pugonabike.jpg");
+  
+	
 	pug.explore();
 	pug.grayscale();
 	pug.explore();  
@@ -85,7 +116,13 @@ public class PictureTester
   /** Method to test test FixUnderwater*/
   public static void testFixUnderwater()
   {
-	Picture water = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\water.jpg");
+	  //Laptop
+//	Picture water = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\water.jpg");
+	
+	//School
+	Picture water = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\water.jpg");
+
+	
 	water.explore();
 	water.fixUnderwater();
 	water.explore();  
@@ -94,8 +131,12 @@ public class PictureTester
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
-//  Picture caterpillar = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\caterpillar.jpg");
-	Picture caterpillar = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\caterpillar.jpg");
+	 //School 
+	 Picture caterpillar = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\caterpillar.jpg");
+	  
+	//Laptop
+//	Picture caterpillar = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\caterpillar.jpg");
+	 
 	caterpillar.explore();
     caterpillar.mirrorVertical();
     caterpillar.explore();
@@ -104,7 +145,12 @@ public class PictureTester
   /** Method to test mirrorVerticalRightToLeft */
   public static void testMirrorVerticalRightToLeft()
   {
-	Picture caterpillar = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\caterpillar.jpg");
+	//Laptop
+//	Picture caterpillar = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\caterpillar.jpg");
+	
+	//School
+	Picture caterpillar = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\caterpillar.jpg");
+
 	caterpillar.explore();
 	caterpillar.mirrorVerticalRightToLeft();
     caterpillar.explore();
@@ -113,7 +159,12 @@ public class PictureTester
   /** Method to test mirrorHorizontal */
   public static void testMirrorHorizontal()
   {
-	Picture moto = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\redMotorcycle.jpg");
+	//Laptop
+//	Picture moto = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\redMotorcycle.jpg");
+	  
+	//School
+	Picture moto = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\redMotorcycle.jpg");
+	
 	moto.explore();
 	moto.mirrorHorizontal();
 	moto.explore();
@@ -122,7 +173,12 @@ public class PictureTester
   /** Method to test mirrorHorizontalBotToTop */
   public static void testMirrorHorizontalBotToTop()
   {
-	Picture moto = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\redMotorcycle.jpg");
+	//Laptop
+//	Picture moto = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\redMotorcycle.jpg");
+	
+	//School
+	Picture moto = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\redMotorcycle.jpg");
+
 	moto.explore();
 	moto.mirrorHorizontalBotToTop();
 	moto.explore();
@@ -132,7 +188,14 @@ public class PictureTester
   public static void testMirrorDiagonal()
   {
 //	Picture beach = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
-	Picture beach = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\beach.jpg");
+	  
+	//Laptop
+//	Picture beach = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\beach.jpg");
+	
+	//School
+	Picture beach = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
+
+	
 	beach.explore();
 	beach.mirrorDiagonal();
 	beach.explore();
@@ -141,7 +204,12 @@ public class PictureTester
   /** Method to test mirrorTemple */
   public static void testMirrorTemple()
   {
-    Picture temple = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\temple.jpg");
+	//Laptop
+//    Picture temple = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\temple.jpg");
+    
+    //School
+	Picture temple = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\temple.jpg");
+
     temple.explore();
     temple.mirrorTemple();
     temple.explore();
@@ -150,7 +218,13 @@ public class PictureTester
   /** Method to test mirrorArms */
   public static void testMirrorArms()
   {
-    Picture snowman = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\snowman.jpg");
+	//Laptop
+//    Picture snowman = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\snowman.jpg");
+	  
+	//School
+	Picture snowman = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\snowman.jpg");
+
+	 
     snowman.explore();
     snowman.mirrorArms();
     snowman.explore();
@@ -160,7 +234,12 @@ public class PictureTester
   /** Method to test mirrorGull */
   public static void testMirrorGull()
   {
-    Picture gull= new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\seagull.jpg");
+	//Laptop
+//    Picture gull= new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\seagull.jpg");
+    
+    //School
+	Picture gull = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\seagull.jpg");
+
     gull.explore();
     gull.mirrorGull();
     gull.explore();
@@ -169,7 +248,8 @@ public class PictureTester
   /** Method to test the collage method */
   public static void testCollage()
   {
-    Picture canvas = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\640x480.jpg");
+	//School
+    Picture canvas = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\640x480.jpg");
     canvas.createCollage();
     canvas.explore();
   }
@@ -177,8 +257,15 @@ public class PictureTester
   /** Method to test copy */
   public static void testCopy()
   {
-    Picture gull= new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\seagull.jpg");
-    Picture temple = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\temple.jpg");
+//	Laptop
+//    Picture gull= new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\seagull.jpg");
+//    Picture temple = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\temple.jpg");
+    
+//  School
+	Picture gull = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\seagull.jpg");
+	Picture temple = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\temple.jpg");
+
+    
     temple.explore();
     gull.explore();
     temple.copy(gull,230,330,230,350);
@@ -188,7 +275,12 @@ public class PictureTester
   /** Method to test myCollage */
   public static void testMyCollage()
   {
-	    Picture myCanvas = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\640x480.jpg");
+	  //laptop
+//	    Picture myCanvas = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\640x480.jpg");
+	    
+	    //School
+		Picture myCanvas = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\640x480.jpg");
+		
 	    myCanvas.myCollage();
 	    myCanvas.explore();
   }
@@ -200,7 +292,7 @@ public class PictureTester
 //    Picture swan = new Picture("C:\\Users\\geroes3431\\Downloads\\images\\swan.jpg");
     
     //FOR LAPTOP
-    Picture swan = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\swan.jpg");
+    Picture swan = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\swan.jpg");
     swan.edgeDetection(10);
     swan.explore();
   }
@@ -213,25 +305,25 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
 	
-//    testZeroBlue();
-//    testKeepOnlyBlue();
-//    testKeepOnlyRed();
-//    testKeepOnlyGreen();
-//    testNegate();
-//    testGrayscale();
-//    testFixUnderwater();
-//    testMirrorVertical();
-//    testMirrorVerticalRightToLeft();
-//	  testMirrorHorizontal();
-//	  testMirrorHorizontalBotToTop();
-//	  testMirrorDiagonal();
-//	  testMirrorTemple();
-//	  testMirrorArms();
-//	  testMirrorGull();
-//	  testCopy();
-//	  testCollage();
-//	  testMyCollage();
-	    testEdgeDetection();
+    testZeroBlue();
+    testKeepOnlyBlue();
+    testKeepOnlyRed();
+    testKeepOnlyGreen();
+    testNegate();
+    testGrayscale();
+    testFixUnderwater();
+    testMirrorVertical();
+    testMirrorVerticalRightToLeft();
+	  testMirrorHorizontal();
+	  testMirrorHorizontalBotToTop();
+	  testMirrorDiagonal();
+	  testMirrorTemple();
+	  testMirrorArms();
+	  testMirrorGull();
+	  testCopy();
+	  testCollage();
+	  testMyCollage();
+	  testEdgeDetection();
 
 	  
     //testEdgeDetection2();
