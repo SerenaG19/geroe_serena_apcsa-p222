@@ -84,7 +84,7 @@ public class Paddle extends Block
 	   setY(getY()-speed);
 	   
 	   draw(window, Color.orange);
-	   System.out.print("Detected moveUp");
+//	   System.out.print("Detected moveUp");
 
    }
 
