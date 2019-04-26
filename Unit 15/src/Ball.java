@@ -63,8 +63,8 @@ public class Ball extends Block
 	{
 		super(x,y,width,height,col);
 		setSpeed(xSp,ySp);
-		System.out.println("Constructing the ball");
-		System.out.println(getXSpeed() + " , " + getYSpeed());
+//		System.out.println("Constructing the ball");
+//		System.out.println(getXSpeed() + " , " + getYSpeed());
 	}
 	
 	
