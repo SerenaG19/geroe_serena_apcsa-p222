@@ -297,19 +297,40 @@ public class PictureTester
     swan.explore();
   }
   
+  public static void testSharpen(int x, int y, int w, int h)
+  {
+       Picture moon = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\moon-surface.jpg");
+       moon.explore();
+       moon.sharpen(x,y,w,h);
+       moon.explore();
+  }
+
+  
+  
+  
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
   {
+	System.out.println("Serena Geroe, P.2, 4/26/19, Computer 12"); //until 10:40
+	testSharpen(50,50,500,400); 
+
+	
+	
+	
+	
+	
+	
+	
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
 	
 //    testZeroBlue();
 //    testKeepOnlyBlue();
-    testKeepOnlyRed();
+//    testKeepOnlyRed();
 //    testKeepOnlyGreen();
-    testNegate();
+//    testNegate();
 //    testGrayscale();
 //    testFixUnderwater();
 //    testMirrorVertical();
@@ -318,7 +339,7 @@ public class PictureTester
 //	  testMirrorHorizontalBotToTop();
 //	  testMirrorDiagonal();
 //	  testMirrorTemple();
-	  testMirrorArms();
+//	  testMirrorArms();
 //	  testMirrorGull();
 //	  testCopy();
 //	  testCollage();

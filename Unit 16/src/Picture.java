@@ -98,6 +98,56 @@ public class Picture extends SimplePicture
     }
   }
   
+  //Sharpen
+  public void sharpen(int x,int y,int w,int h)
+  {
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel upLeftPix = null;
+		Pixel thisPixel = null;
+		
+//		int[] upLftCols = new int[pixels.length]; If time: use matrices instead of repeating code
+//		int[] thisColos= new int[pixels.length];		
+
+		for (int row = 1; row < pixels.length; row++)
+		{
+		  for(int col = 1; col < pixels[0].length; col++)
+		  {
+		    thisPixel = pixels[row][col];  
+		    upLeftPix = pixels[row-1][col-1];
+		    
+//		    add one-half of the difference between the current 
+//		    pixel and pixel located immediately above and to the
+//		    left of the current pixel
+//		    System.out.println(thisPixel.getColor());
+		    
+		    
+		    
+		    int upLeftRed = upLeftPix.getRed();
+		    int thisRed = thisPixel.getRed();
+		    int tryRed = thisPixel.getRed() + (int) (0.5 * (Math.abs(upLeftRed - thisRed ) ) );
+		    if(tryRed >255) thisPixel.setRed(255);
+		    else if(tryRed < 0) thisPixel.setRed(0);
+		    else thisPixel.setRed(tryRed);
+
+		    int upLeftGre = upLeftPix.getGreen();
+		    int thisGre = thisPixel.getGreen();
+		    int tryGre = thisPixel.getGreen() + (int) (0.5 * Math.abs((upLeftGre - thisGre)) );
+		    if(tryGre >255) thisPixel.setGreen(255);
+		    else if(tryGre < 0) thisPixel.setGreen(0);
+		    else thisPixel.setGreen(tryGre);
+		    
+		    int thisBlu = thisPixel.getBlue();
+		    int upLeftBlu = upLeftPix.getBlue();
+		    int tryBlu = thisPixel.getBlue() + (int) (0.5 * Math.abs((upLeftBlu - thisBlu )) );
+		    if(tryBlu >255) thisPixel.setBlue(255);
+		    else if(tryBlu < 0) thisPixel.setBlue(0);
+		    else thisPixel.setBlue(tryBlu);
+
+		  }
+		}
+  }
+  
+  
   /**
    * Method to keep only the blue values, 
    * that is, it will set the red and green values 
