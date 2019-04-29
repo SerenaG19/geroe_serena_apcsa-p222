@@ -15,6 +15,28 @@ import java.awt.event.ActionListener;
 
 public class Pong extends Canvas implements KeyListener, Runnable
 {
+	/*
+	 * Pong Lab Extension
+	 * Implement a "4-way" break-out game, with the following requirements:
+	 * 1. The game must contain at least 2 layers of tiles on the top, bottom, left and right side of the screen.
+	 * 2. The paddle must be of size 40x40 (square) and be able to move up, down, left and right. 
+	 * 3. The ball must be of size 10x10 and must be able to bounce off each of the sides of the paddle.
+	 * 4. The game must contain at least 2 levels.
+	 */
+	
+	
+	//Adding stuff for lab extension
+	private Block upIn;
+	private Block upOut;
+	private Block downIn;
+	private Block downOut;
+	private Block rightIn;
+	private Block rightOut;
+	private Block leftIn;
+	private Block leftOut;
+	//---------------------------------
+	
+	
 	private Ball ball;
 	private Paddle leftPaddle;
 	private Paddle rightPaddle;
@@ -30,14 +52,21 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		ball = new Ball(200,200,10,10,Color.blue,2,1);
 //		System.out.println("From Pong.java :: "+ball.getXSpeed() + " , " + ball.getYSpeed());
 		
-		leftPaddle = new Paddle(20,200,10,40,Color.orange,2);
+		leftPaddle = new Paddle(40,200,40,40,Color.orange,2);
 
-		rightPaddle = new Paddle(750,200,10,40,Color.orange,3);
+		rightPaddle = new Paddle(710,200,40,40,Color.orange,3);
 		
 		keys = new boolean[4];
 		rightScore = 0;
 		leftScore = 0;
-		hitRightPaddle = hitLeftPaddle = false;
+//		hitRightPaddle = hitLeftPaddle = false;
+		
+		//Adding more stuff for lab extension
+		upIn = new Block(15,750,385,10,Color.PINK);
+		
+
+		//---------------------------------
+
 
     
     	setBackground(Color.WHITE);
@@ -65,13 +94,17 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
 
-		graphToBack.setColor(Color.red);
+		graphToBack.setColor(Color.RED);
 		
 		
 		ball.moveAndDraw(graphToBack);
 		leftPaddle.draw(graphToBack);
 		rightPaddle.draw(graphToBack);
-
+		
+		//more stuff for lab extension
+		upIn.draw(graphToBack);
+		//---------------------------------
+		
 
 		//see if ball hits left wall or right wall
 		if(!(ball.getX()>=10 && ball.getX()<=780))
