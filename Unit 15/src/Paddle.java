@@ -87,7 +87,6 @@ public class Paddle extends Block
 //	   System.out.print("Detected moveUp");
 
    }
-
    public void moveDownAndDraw(Graphics window)
    {
 	    draw(window,Color.white);
@@ -96,6 +95,24 @@ public class Paddle extends Block
 	    
 	    draw(window, Color.orange);
 
+   }
+   
+   public void moveRightAndDraw(Graphics window)
+   {
+	   draw(window,Color.WHITE);
+	   
+	   setX(getX()+speed);
+	   
+	   draw(window,Color.orange);
+   }
+   
+   public void moveLeftAndDraw(Graphics window)
+   {
+	   draw(window,Color.WHITE);
+	   
+	   setX(getX()-speed);
+	   
+	   draw(window,Color.orange);
    }
 
    //add get methods
