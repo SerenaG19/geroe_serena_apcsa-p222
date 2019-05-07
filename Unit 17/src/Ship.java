@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Serena Geroe
 
 import java.io.File;
 import java.net.URL;
@@ -29,14 +29,16 @@ public class Ship extends MovingThing
 	   //add code here
 	}
 
-	public Ship(int x, int y, int w, int h, int s)
+	public Ship(int x, int y, int w, int h, int s)//check out this exception handling - try printing stuff here
 	{
 		super(x, y, w, h);
 		speed=s;
 		try
-		{
+		{	//This probably won't work
 			URL url = getClass().getResource("/images/ship.jpg");
 			image = ImageIO.read(url);
+			//Use this:
+//			image = ImageIO.read(new File("/path"));
 		}
 		catch(Exception e)
 		{
