@@ -33,8 +33,9 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	 *  - Code second level
 	 */
 	
-	//Adding stuff for lab extension
-	private ArrayList<Block>bricks;
+	//Level One
+	private boolean levelOne = true;
+	private ArrayList<Block>bricks1;
 	private Block upIn;
 	private Block upOut;
 	private Block downIn;
@@ -45,28 +46,56 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	private Block leftOut;
 	//---------------------------------
 	
+	//Level Two
+	private boolean levelTwo = false;
+	private ArrayList<Block>bricks2;
+	private Block upIn2;
+	private Block upOut2;
+	private Block downIn2;
+	private Block downOut2;
+	private Block rightIn2;
+	private Block rightOut2;
+	private Block leftIn2;
+	private Block leftOut2;
+	//---------------------------------
 	
 	private Ball ball;
 	private Paddle paddle;
 	private boolean[] keys;
 	private BufferedImage back;
-	private boolean hitpaddle, hitLeftPaddle;
 
 	public Pong()
 	{
+		//set up game vars
 		ball = new Ball(200,200,10,10,Color.blue,2,2);
 		paddle = new Paddle(690,200,40,40,Color.orange,2);	
 		keys = new boolean[4];
-		bricks = new ArrayList<Block>();
-		bricks.add(upIn = new Block(15,10,720,10,Color.PINK));
-		bricks.add(upOut = new Block(15,30,720,10,Color.PINK));
-		bricks.add(downIn = new Block(15,480,720,10,Color.GREEN));
-		bricks.add(downOut = new Block(15,500,720,10,Color.GREEN));
-		bricks.add(rightIn = new Block(740,50,10,420,Color.CYAN));
-		bricks.add(rightOut = new Block(760,50,10,420,Color.CYAN));
-		bricks.add(leftIn = new Block(30,50,10,420,Color.MAGENTA));
-		bricks.add(leftOut = new Block(10,50,10,420,Color.MAGENTA));
+		bricks1 = new ArrayList<Block>();
+		//-------------------------------------------------
 
+		
+		//Level One bricks1
+		bricks1.add(upIn = new Block(15,10,720,10,Color.PINK));
+		bricks1.add(upOut = new Block(15,30,720,10,Color.PINK));
+		bricks1.add(downIn = new Block(15,480,720,10,Color.GREEN));
+		bricks1.add(downOut = new Block(15,500,720,10,Color.GREEN));
+		bricks1.add(rightIn = new Block(740,50,10,420,Color.CYAN));
+		bricks1.add(rightOut = new Block(760,50,10,420,Color.CYAN));
+		bricks1.add(leftIn = new Block(30,50,10,420,Color.MAGENTA));
+		bricks1.add(leftOut = new Block(10,50,10,420,Color.MAGENTA));
+		//-------------------------------------------------------------
+		//FIX THIS
+		//Level Two bricks2
+		bricks2.add(upIn2 = new Block(15,10,720,10,Color.GREEN));
+		bricks2.add(upOut2 = new Block(15,30,720,10,Color.GREEN));
+		bricks2.add(downIn2 = new Block(15,480,720,10,Color.PINK));
+		bricks2.add(downOut2 = new Block(15,500,720,10,Color.PINK));
+		bricks2.add(rightIn2 = new Block(740,50,10,420,Color.MAGENTA));
+		bricks2.add(rightOut2 = new Block(760,50,10,420,Color.MAGENTA));
+		bricks2.add(leftIn2 = new Block(30,50,10,420,Color.CYAN));
+		bricks2.add(leftOut2 = new Block(10,50,10,420,Color.CYAN));
+		//-------------------------------------------------------------
+		
     	setBackground(Color.WHITE);
 		setVisible(true);
 		
@@ -78,6 +107,14 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	   paint(window);
    }
 
+   public void deleteBlock(Block b)
+   {
+//	   b.setHeight(0);
+//	   b.setWidth(0);
+//	   b.setPos(150, 150);
+//	   b.setColor(Color.PINK);
+   }
+   
    public void paint(Graphics window)
    {
 		//set up the double buffering to make the game animation nice and smooth
@@ -90,10 +127,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 		//create a graphics reference to the background image
 		//we will draw all changes on the background image
-		Graphics graphToBack = back.createGraphics();
-
-		graphToBack.setColor(Color.RED);
-		
+		Graphics graphToBack = back.createGraphics();		
 		ball.moveAndDraw(graphToBack);
 		paddle.draw(graphToBack);
 
@@ -102,83 +136,105 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		graphToBack.fillRect(10,530,100,10);
 		graphToBack.fillRect(700,530,100,10);
 		
-		graphToBack.setColor(Color.red);
 		
+		if(levelOne)
+		{
+			for(Block b: bricks1)
+			{
+				b.draw(graphToBack);
+			}
+		}
+		
+		if(levelTwo)
+			System.out.println("LEVEL TWO!!!");
+		
+		if(!levelOne && !levelTwo)
+			System.out.println("DONE!!!");
+
+		
+		
+//		Wall collisions
 //		----------------------------------------------------------------------------------------------------------------
-		//Wall collisions
-		
-		//see if ball hits left wall or right wall
+		//left or right wall
 		if(!(ball.getX()>=-50 && ball.getX()<=760))
 		{
 //			System.out.println("Hit a right or left wall");
 			ball.setXSpeed(-ball.getXSpeed());
-
-//			ball.setXSpeed(0);
-//			ball.setYSpeed(0);
-//		   	try
-//		   	{
-//		   		Thread.currentThread().sleep(950);
-////		        repaint();
-//		        
-//		    }catch(Exception e)
-//		      {}
-//		   		System.out.println("Hit a wall");
-//
-//		   		ball.draw(graphToBack,Color.WHITE);
-//		   		ball.setX((int)(Math.random()*50)+400);
-//		   		ball.setY((int)(Math.random()*50)+300);
-//		   		int thing = (int) (Math.random()*2);
-//		   		if(thing == 0)
-//		   		{
-//		   			ball.setSpeed(2, 1);
-//		   		}
-//		   		else ball.setSpeed(-2,1);
-		}//end check for left or right wall collision
-				
-		//see if the ball hits the top or bottom wall 
+		}	
+		//top or bottom wall 
 		if(!(ball.getY()>=0 && ball.getY()<=520))
 		{
 //			System.out.println("Hit a top or bottom wall");
 			ball.setYSpeed(-ball.getYSpeed());
-		}//end check for top or bottom wall collision
-		
+		}
 		//end wall collisions
+//		------------------------------------------------------------------------------------------------------------
+		
+		
+		
+//		Block collisions
 //		----------------------------------------------------------------------------------------------------------------
-
-//		----------------------------------------------------------------------------------------------------------------
-		//Block collisions
-		for(Block brk : bricks) 
-		{
-			brk.draw(graphToBack);
-			if((ball.getX() == brk.getX() + brk.getWidth() + Math.abs(ball.getXSpeed())) 
-				&& (ball.getY() > brk.getY()	//previously >=, now >
-				&& ball.getY() < brk.getY()+brk.getHeight()	//previously <=, now <
-				|| ball.getY() + ball.getHeight() > brk.getY()		//previously >=, now >
-				&& ball.getY() + ball.getHeight() < brk.getY() + brk.getHeight() //previously <=, now <
-				))
+		for(Block brk : bricks1) 
+		{			
+			System.out.println(bricks1.size());
+			
+			//see if the ball hits the block from the right	
+			if( (ball.getX() == brk.getX() + brk.getWidth() + Math.abs(ball.getXSpeed())) 
+				&& ((brk.getY() < ball.getY()) && ball.getY() < brk.getY() + brk.getHeight() - ball.getYSpeed())
+			  )
 			{
-				if(ball.getX() < brk.getX() + brk.getWidth()-Math.abs(ball.getXSpeed()))	//previously <=, now <
-				{
-					System.out.println("HIT BRICK!");
-					ball.setYSpeed(-ball.getYSpeed());
-				}
-				else if(ball.getY() < brk.getY() + brk.getHeight()-Math.abs(ball.getYSpeed()))
-				{
-					System.out.println("HIT BRICK!");
-					ball.setXSpeed(-ball.getXSpeed());
-				}
-				brk.setColor(Color.WHITE);
-//				brk.setHeight(0);
-//				brk.setWidth(0);
+//				System.out.println("BALL HITS BLOCK FROM RIGHT");
+				ball.setXSpeed(-ball.getXSpeed());
+				deleteBlock(brk);
+				bricks1.remove(brk);
+			}		
+			
+			//see if the ball hits the block from the left	
+			if( (ball.getX() == brk.getX() - Math.abs(ball.getXSpeed())) 
+				&& ((brk.getY() < ball.getY()) && ball.getY() < brk.getY() + brk.getHeight() - ball.getYSpeed())
+			  )
+			{
+//				System.out.println("BALL HITS BLOCK FROM LEFT");
+				ball.setXSpeed(-ball.getXSpeed());
+				deleteBlock(brk);
+				bricks1.remove(brk);
+			}
+			
+			//see if the ball hits the block from the top	
+			if( (ball.getY() == brk.getY() - Math.abs(ball.getYSpeed())) 
+					&& ((brk.getX() < ball.getX()) && ball.getX() < brk.getX() + brk.getWidth() - ball.getXSpeed())
+			  )
+			{
+//				System.out.println("BALL HITS BLOCK FROM TOP");
+				ball.setYSpeed(-ball.getYSpeed());
+				deleteBlock(brk);
+				bricks1.remove(brk);
+			}
+			
+			//see if the ball hits the block from the bottom	
+			if( (ball.getY() == brk.getY() + brk.getHeight() + Math.abs(ball.getYSpeed())) 
+					&& ((brk.getX() < ball.getX()) && ball.getX() < brk.getX() + brk.getWidth() - ball.getXSpeed())
+			  )
+			{
+//				System.out.println("BALL HITS BLOCK FROM TOP");
+				ball.setYSpeed(-ball.getYSpeed());
+				deleteBlock(brk);
+				bricks1.remove(brk);
+			}
+			if(bricks1.size() == 0)
+			{
+				levelOne = false;
+				levelTwo = true;
 			}
 		}
-				
+		
 		//end block collisions
 //		----------------------------------------------------------------------------------------------------------------
 
-//		----------------------------------------------------------------------------------------------------------------
-		//Paddle collisions
 		
+		
+//		Paddle collisions
+//		----------------------------------------------------------------------------------------------------------------		
 		//see if the ball hits the paddle from the right	
 		if( (ball.getX() == paddle.getX() + paddle.getWidth() + Math.abs(ball.getXSpeed())) 
 			&& ((paddle.getY() < ball.getY()) && ball.getY() < paddle.getY() + paddle.getHeight() - ball.getYSpeed())
@@ -214,8 +270,9 @@ public class Pong extends Canvas implements KeyListener, Runnable
 //				System.out.println("BALL HITS PADDLE FROM TOP");
 				ball.setYSpeed(-ball.getYSpeed());
 			}	
-	
+//		end Paddle collisions
 //		----------------------------------------------------------------------------------------------------------------
+	
 		//see if the paddles need to be moved
 		    if(keys[0] == true)
 		    {
@@ -295,5 +352,35 @@ public class Pong extends Canvas implements KeyListener, Runnable
    			ball.setSpeed(2, 1);
    		}
    		else ball.setSpeed(-2,1);
-  }	
+  
+   		//Make ball restart in random place
+//		---------------------------------------------------------
+//		if(!(ball.getX()>=-50 && ball.getX()<=760))
+//		{
+//			System.out.println("Hit a right or left wall");
+//
+//			ball.setXSpeed(0);
+//			ball.setYSpeed(0);
+//		   	try
+//		   	{
+//		   		Thread.currentThread().sleep(950);
+////		        repaint();
+//		        
+//		    }catch(Exception e)
+//		      {}
+//		   		System.out.println("Hit a wall");
+//
+//		   		ball.draw(graphToBack,Color.WHITE);
+//		   		ball.setX((int)(Math.random()*50)+400);
+//		   		ball.setY((int)(Math.random()*50)+300);
+//		   		int thing = (int) (Math.random()*2);
+//		   		if(thing == 0)
+//		   		{
+//		   			ball.setSpeed(2, 1);
+//		   		}
+//		   		else ball.setSpeed(-2,1);
+//		}//end check for left or right wall collision
+//   		---------------------------------------------------------
+   		
+   }	
 }

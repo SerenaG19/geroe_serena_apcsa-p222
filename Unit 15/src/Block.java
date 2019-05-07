@@ -96,7 +96,6 @@ public class Block implements Locatable
    {
 	   window.setColor(col);
 	   window.fillRect(getX(), getY(), getWidth(), getHeight());
-
    }
    
 	public boolean equals(Object obj)
