@@ -29,12 +29,7 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	/* Activity Log
 	 * 5/6
 	 * To Do
-	 *  - get paddle to start in center of screen, bottom
-	 *  - make right blocks appear
-	 *  - fix boundaries of play or block placement so all blocks are reachable (all outer blocks)
-	 *  - fix multi-directional collision with paddle
-	 *      - right side totally weird
-	 *      -top and bottom must be added
+	 *  - Fix block collisions to mimic paddle collisions
 	 *  - Code second level
 	 */
 	
@@ -59,33 +54,24 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 	public Pong()
 	{
-		//set up all variables related to the game
-		ball = new Ball(200,200,10,10,Color.blue,2,1);
-//		System.out.println("From Pong.java :: "+ball.getXSpeed() + " , " + ball.getYSpeed());
-
-		paddle = new Paddle(690,200,40,40,Color.orange,3);
-		
+		ball = new Ball(200,200,10,10,Color.blue,2,2);
+		paddle = new Paddle(690,200,40,40,Color.orange,2);	
 		keys = new boolean[4];
-
-		
-		//Adding more stuff for lab extension
 		bricks = new ArrayList<Block>();
-		bricks.add(upIn = new Block(15,10,750,10,Color.PINK));
-		bricks.add(upOut = new Block(15,30,750,10,Color.PINK));
-		bricks.add(downIn = new Block(15,480,750,10,Color.GREEN));
-		bricks.add(downOut = new Block(15,500,750,10,Color.GREEN));
-		bricks.add(rightIn = new Block(740,50,10,420,Color.cyan));
-		bricks.add(rightOut = new Block(760,50,10,420,Color.cyan));
+		bricks.add(upIn = new Block(15,10,720,10,Color.PINK));
+		bricks.add(upOut = new Block(15,30,720,10,Color.PINK));
+		bricks.add(downIn = new Block(15,480,720,10,Color.GREEN));
+		bricks.add(downOut = new Block(15,500,720,10,Color.GREEN));
+		bricks.add(rightIn = new Block(740,50,10,420,Color.CYAN));
+		bricks.add(rightOut = new Block(760,50,10,420,Color.CYAN));
 		bricks.add(leftIn = new Block(30,50,10,420,Color.MAGENTA));
 		bricks.add(leftOut = new Block(10,50,10,420,Color.MAGENTA));
-		//---------------------------------
-
 
     	setBackground(Color.WHITE);
 		setVisible(true);
 		
 		new Thread(this).start();
-		addKeyListener(this);		//starts the key thread to log key strokes
+		addKeyListener(this);//starts the key thread to log key strokes
 	}
 	
    public void update(Graphics window){
@@ -108,140 +94,128 @@ public class Pong extends Canvas implements KeyListener, Runnable
 
 		graphToBack.setColor(Color.RED);
 		
-		
 		ball.moveAndDraw(graphToBack);
-//		leftPaddle.draw(graphToBack);
 		paddle.draw(graphToBack);
-		
-		//more stuff for lab extension
-		rightIn.draw(graphToBack);
 
-		for(Block brk : bricks) 
-		{
-			brk.draw(graphToBack);
-			if((ball.getX() <= brk.getX() + brk.getWidth() + Math.abs(ball.getXSpeed())) 
-				&& (ball.getY() >= brk.getY()
-				&& ball.getY() <= brk.getY()+brk.getHeight()
-				|| ball.getY() + ball.getHeight() >= brk.getY()
-				&& ball.getY() + ball.getHeight() <= brk.getY() + brk.getHeight()
-				))
-			{
-				if(ball.getX() <= brk.getX() + brk.getWidth()-Math.abs(ball.getXSpeed()))
-					ball.setYSpeed(-ball.getYSpeed());
-				else ball.setXSpeed(-ball.getXSpeed());
-				brk.setColor(Color.WHITE);
-			}
-		}
-		//---------------------------------
-		
-
-		//see if ball hits left wall or right wall
-		if(!(ball.getX()>=10 && ball.getX()<=780))//FIX THIS!
-		{
-			ball.setXSpeed(0);
-			ball.setYSpeed(0);
-//			if(ball.getX() > 780) leftScore++;
-//			if(ball.getX() < 10) rightScore++;
-			
-		   	try
-		   	{
-		   		Thread.currentThread().sleep(950);
-//		        repaint();
-		        
-		    }catch(Exception e)
-		      {}
-//		   		System.out.println("Hit a wall");
-
-		   		ball.draw(graphToBack,Color.WHITE);
-		   		ball.setX((int)(Math.random()*50)+400);
-		   		ball.setY((int)(Math.random()*50)+300);
-		   		int thing = (int) (Math.random()*2);
-		   		if(thing == 0)
-		   		{
-		   			ball.setSpeed(2, 1);
-		   		}
-		   		else ball.setSpeed(-2,1);
-//		   		System.out.println("Reset the ball, speed :: " + ball.getXSpeed() + " " + ball.getYSpeed());
-		}	
-		
-		
-	
-		
      	//Position over score
 		graphToBack.setColor(Color.WHITE);
 		graphToBack.fillRect(10,530,100,10);
 		graphToBack.fillRect(700,530,100,10);
 		
-		graphToBack.setColor(Color.red);		
+		graphToBack.setColor(Color.red);
 		
-		//see if the ball hits the top or bottom wall 
-		if(!(ball.getY()>=20 && ball.getY()<=500))
+//		----------------------------------------------------------------------------------------------------------------
+		//Wall collisions
+		
+		//see if ball hits left wall or right wall
+		if(!(ball.getX()>=-50 && ball.getX()<=760))
 		{
+//			System.out.println("Hit a right or left wall");
+			ball.setXSpeed(-ball.getXSpeed());
+
+//			ball.setXSpeed(0);
+//			ball.setYSpeed(0);
+//		   	try
+//		   	{
+//		   		Thread.currentThread().sleep(950);
+////		        repaint();
+//		        
+//		    }catch(Exception e)
+//		      {}
+//		   		System.out.println("Hit a wall");
+//
+//		   		ball.draw(graphToBack,Color.WHITE);
+//		   		ball.setX((int)(Math.random()*50)+400);
+//		   		ball.setY((int)(Math.random()*50)+300);
+//		   		int thing = (int) (Math.random()*2);
+//		   		if(thing == 0)
+//		   		{
+//		   			ball.setSpeed(2, 1);
+//		   		}
+//		   		else ball.setSpeed(-2,1);
+		}//end check for left or right wall collision
+				
+		//see if the ball hits the top or bottom wall 
+		if(!(ball.getY()>=0 && ball.getY()<=520))
+		{
+//			System.out.println("Hit a top or bottom wall");
 			ball.setYSpeed(-ball.getYSpeed());
+		}//end check for top or bottom wall collision
+		
+		//end wall collisions
+//		----------------------------------------------------------------------------------------------------------------
+
+//		----------------------------------------------------------------------------------------------------------------
+		//Block collisions
+		for(Block brk : bricks) 
+		{
+			brk.draw(graphToBack);
+			if((ball.getX() == brk.getX() + brk.getWidth() + Math.abs(ball.getXSpeed())) 
+				&& (ball.getY() > brk.getY()	//previously >=, now >
+				&& ball.getY() < brk.getY()+brk.getHeight()	//previously <=, now <
+				|| ball.getY() + ball.getHeight() > brk.getY()		//previously >=, now >
+				&& ball.getY() + ball.getHeight() < brk.getY() + brk.getHeight() //previously <=, now <
+				))
+			{
+				if(ball.getX() < brk.getX() + brk.getWidth()-Math.abs(ball.getXSpeed()))	//previously <=, now <
+				{
+					System.out.println("HIT BRICK!");
+					ball.setYSpeed(-ball.getYSpeed());
+				}
+				else if(ball.getY() < brk.getY() + brk.getHeight()-Math.abs(ball.getYSpeed()))
+				{
+					System.out.println("HIT BRICK!");
+					ball.setXSpeed(-ball.getXSpeed());
+				}
+				brk.setColor(Color.WHITE);
+//				brk.setHeight(0);
+//				brk.setWidth(0);
+			}
+		}
+				
+		//end block collisions
+//		----------------------------------------------------------------------------------------------------------------
+
+//		----------------------------------------------------------------------------------------------------------------
+		//Paddle collisions
+		
+		//see if the ball hits the paddle from the right	
+		if( (ball.getX() == paddle.getX() + paddle.getWidth() + Math.abs(ball.getXSpeed())) 
+			&& ((paddle.getY() < ball.getY()) && ball.getY() < paddle.getY() + paddle.getHeight() - ball.getYSpeed())
+		  )
+		{
+//			System.out.println("BALL HITS PADDLE FROM RIGHT");
+			ball.setXSpeed(-ball.getXSpeed());
+		}
+
+		//see if the ball hits the paddle from the left	
+		if( (ball.getX() == paddle.getX() - Math.abs(ball.getXSpeed())) 
+			&& ((paddle.getY() < ball.getY()) && ball.getY() < paddle.getY() + paddle.getHeight() - ball.getYSpeed())
+		  )
+		{
+//			System.out.println("BALL HITS PADDLE FROM LEFT");
+			ball.setXSpeed(-ball.getXSpeed());
 		}
 		
-//		//see if the ball hits the left paddle
-//			if((ball.getX() <= leftPaddle.getX() + leftPaddle.getWidth() + Math.abs(ball.getXSpeed())) 
-//			&& (ball.getY() >= leftPaddle.getY()
-//			&& ball.getY() <= leftPaddle.getY()+leftPaddle.getHeight()
-//			|| ball.getY() + ball.getHeight() >= leftPaddle.getY()
-//			&& ball.getY() + ball.getHeight() <= leftPaddle.getY() + leftPaddle.getHeight()
-//			))
-//			{
-//				hitLeftPaddle = true;
-//				if(ball.getX() <= leftPaddle.getX() + leftPaddle.getWidth()-Math.abs(ball.getXSpeed()))
-//					ball.setYSpeed(-ball.getYSpeed());
-//				else
-//					ball.setXSpeed(-ball.getXSpeed());
-//			}
-////		
-//		//see if the ball hits the paddle from the left	
-			if((ball.getX() >= paddle.getX()) && //ball is touching paddle from left side
-		    ((paddle.getY() <= ball.getY()) && //ball is below or flush with paddle
-		    (ball.getY() <= paddle.getY() + paddle.getHeight()) //flush vertically with paddle
-		   	))
+		//see if the ball hits the paddle from the top	
+		if( (ball.getY() == paddle.getY() - Math.abs(ball.getYSpeed())) 
+				&& ((paddle.getX() < ball.getX()) && ball.getX() < paddle.getX() + paddle.getWidth() - ball.getXSpeed())
+			  )
 			{
-				System.out.println("PADDLE ON THE LEFT");
-//				ball.setXSpeed(-ball.getXSpeed());
-
-////				hitpaddle = true;
-//				if(ball.getX() <= 50 + 40-Math.abs(ball.getXSpeed())) System.out.println("Thing");
-////					ball.setYSpeed(-ball.getYSpeed());
-////				if(ball.getX() <= leftPaddle.getX() + leftPaddle.getWidth()-Math.abs(ball.getXSpeed()))
-////					ball.setYSpeed(-ball.getYSpeed());
-//				else
-//					ball.setXSpeed(-ball.getXSpeed());
+//				System.out.println("BALL HITS PADDLE FROM TOP");
+				ball.setYSpeed(-ball.getYSpeed());
 			}
-			
-//			//see if the ball hits the paddle from the right	
-				if( (ball.getX() < paddle.getX()) && //ball is touching paddle from right side
-			    ( ball.getX() <= paddle.getX()+paddle.getWidth()
-			    &&
-			    (paddle.getY() <= ball.getY()) && //ball is below or flush with paddle
-			    (ball.getY() <= paddle.getY() + paddle.getHeight()) //flush vertically with paddle
-			   	)
-			    )
-				{ 
-					System.out.println("PADDLE ON THE RIGHT");
-//					ball.setXSpeed(-ball.getXSpeed());
-				}
-			
-			
-			
-//			//ball hits left side of paddle
-//			if(ball.getX() <= paddle.getX() && (ball.getY() <= paddle.getWidth() + paddle.getY()))
-//				ball.setXSpeed(-ball.getXSpeed());
-//			//ball hits right side of paddle
-//			if(ball.getX() >= paddle.getX() && (ball.getY() <= paddle.getWidth() + paddle.getY()))
-//				ball.setXSpeed(-ball.getXSpeed());//				hitpaddle = true;
-//
-////			if(ball.getX() <= leftPaddle.getX() + leftPaddle.getWidth()-Math.abs(ball.getXSpeed()))
-////				ball.setYSpeed(-ball.getYSpeed());
-////			else
-////				ball.setXSpeed(-ball.getXSpeed());
 
-			
-		
+		//see if the ball hits the paddle from the bottom	
+		if( (ball.getY() == paddle.getY() + paddle.getHeight() + Math.abs(ball.getYSpeed())) 
+				&& ((paddle.getX() < ball.getX()) && ball.getX() < paddle.getX() + paddle.getWidth() - ball.getXSpeed())
+			  )
+			{
+//				System.out.println("BALL HITS PADDLE FROM TOP");
+				ball.setYSpeed(-ball.getYSpeed());
+			}	
+	
+//		----------------------------------------------------------------------------------------------------------------
 		//see if the paddles need to be moved
 		    if(keys[0] == true)
 		    {
