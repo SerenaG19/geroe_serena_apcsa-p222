@@ -1,8 +1,8 @@
 //© A+ Computer Science  -  www.apluscompsci.com
-//Name -
-//Date -
-//Class -
-//Lab  -
+//Name - Serena Geroe
+//Date - 05/09/19
+//Class - APCSA
+//Lab  - Starfighter
 
 public interface Locatable
 {

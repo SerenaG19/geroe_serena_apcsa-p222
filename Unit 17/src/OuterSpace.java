@@ -1,6 +1,6 @@
 //(c) A+ Computer Science
 //www.apluscompsci.com
-//Name -
+//Name - Serena Geroe
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -20,9 +20,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Alien alienOne;
 	private Alien alienTwo;
 
+	//testing for one ammo
+	private Ammo ammo;
+	
+	
 	/* uncomment once you are ready for this part
 	 *
-   private AlienHorde horde;
+    private AlienHorde horde;
 	private Bullets shots;
 	*/
 
@@ -37,6 +41,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		//instantiate other instance variables
 		//Ship, Alien
+		ship = new Ship(100,100,50,50,3);
+		alienOne = new Alien(50,50,50,50,2);
+		alienTwo = new Alien(100,50,50,50,2);
+		
+		ammo = new Ammo(ship.getX(),ship.getY(),3);
+		
 
 		this.addKeyListener(this);
 		new Thread(this).start();
@@ -44,10 +54,10 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		setVisible(true);
 	}
 
-   public void update(Graphics window)
-   {
+    public void update(Graphics window)
+    {
 	   paint(window);
-   }
+    }
 
 	public void paint( Graphics window )
 	{
@@ -62,15 +72,45 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		//create a graphics reference to the back ground image
 		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
-
+		
+		//do this first!
 		graphToBack.setColor(Color.BLUE);
-		graphToBack.drawString("StarFighter ", 25, 50 );
+		graphToBack.drawString("StarFighter ",25,50);
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
+		
+		//then add graphics
+		ship.draw(graphToBack);
+//		System.out.println(ship);
+		
+		alienOne.draw(graphToBack);
+		alienTwo.draw(graphToBack);
 
+		
 		if(keys[0] == true)
 		{
 			ship.move("LEFT");
+//			System.out.println("left detected");
+		}
+		if(keys[1] == true)
+		{
+			ship.move("RIGHT");
+//			System.out.println("right detected");
+		}
+		if(keys[2] == true)
+		{
+			ship.move("UP");
+//			System.out.println("up detected");
+		}
+		if(keys[3] == true)
+		{
+			ship.move("DOWN");
+//			System.out.println("down detected");
+		}
+		if(keys[4] == true)
+		{
+			ammo.draw(graphToBack);
+//			System.out.println("ammo detected");
 		}
 
 		//add code to move Ship, Alien, etc.

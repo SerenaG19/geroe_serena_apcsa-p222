@@ -2,46 +2,49 @@
 //www.apluscompsci.com
 //Name - Serena Geroe
 
+import java.io.File;
+import java.net.URL;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
-import java.io.File;
 import javax.imageio.ImageIO;
 
-public class Ammo extends MovingThing
+public class Alien extends MovingThing
 {
 	private int speed;
-	//adding this
 	private Image image;
 
-	public Ammo()
+	public Alien()
 	{
-		this(0,0,0);
+		this(0,0,30,30,0);
 	}
 
-	public Ammo(int x, int y)
+	public Alien(int x, int y)
 	{
-		setPos(x,y);
+		super(x, y);
 	}
 
-	public Ammo(int x, int y, int s)
+	public Alien(int x, int y, int s)
 	{
 		this(x,y);
 		setSpeed(s);
-		
+	}
+
+	public Alien(int x, int y, int w, int h, int s)
+	{
+		super(x, y, w,h);
+		setSpeed(s);
 		try
 		{
-//			This probably won't work
-//			URL url = getClass().getResource("/images/ship.jpg");
+//			URL url = getClass().getResource("/images/alien.jpg");
 //			image = ImageIO.read(url);
-			image = ImageIO.read(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 17\\src\\ammo.jpg"));
+			image = ImageIO.read(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 17\\src\\alien.jpg"));
 		}
 		catch(Exception e)
 		{
 			//feel free to do something here
-			System.out.println("Issue with ammo image");
+			System.out.println("Issue with alien image");
 		}
-		
 	}
 
 	public void setSpeed(int s)
@@ -51,19 +54,18 @@ public class Ammo extends MovingThing
 
 	public int getSpeed()
 	{
-	   return speed;
+		return speed;
+	}
+
+   public void move(String direction)
+	{
+	   setX(getX()+getSpeed());
+	   setY(getY()+getSpeed());
 	}
 
 	public void draw( Graphics window )
 	{
 		window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
-	}
-	
-	
-	public void move( String direction )
-	{
-		//add code to draw the ammo,FIX THIS?
-		setY(getY()-speed);
 	}
 
 	public String toString()

@@ -21,54 +21,67 @@ public class Ship extends MovingThing
 
 	public Ship(int x, int y)
 	{
-	   //add code here
+	   super(x,y);
+	   speed = 10;
+	   //image?
 	}
 
 	public Ship(int x, int y, int s)
 	{
-	   //add code here
+	   super(x,y);
+	   setSpeed(s);
+	   //image?
 	}
 
 	public Ship(int x, int y, int w, int h, int s)//check out this exception handling - try printing stuff here
 	{
 		super(x, y, w, h);
 		speed=s;
+
 		try
-		{	//This probably won't work
-			URL url = getClass().getResource("/images/ship.jpg");
-			image = ImageIO.read(url);
-			//Use this:
-//			image = ImageIO.read(new File("/path"));
+		{
+//			This probably won't work
+//			URL url = getClass().getResource("/images/ship.jpg");
+//			image = ImageIO.read(url);
+			image = ImageIO.read(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 17\\src\\ship.jpg"));
 		}
 		catch(Exception e)
 		{
 			//feel free to do something here
+			System.out.println("Issue with ship image");
 		}
 	}
 
 
 	public void setSpeed(int s)
 	{
-	   //add more code
+	   speed = s;
 	}
 
 	public int getSpeed()
 	{
-	   return 0;
+	   return speed;
 	}
 
 	public void move(String direction)
 	{
-		//add code here
+		if(direction.equals("LEFT"))
+			setX(getX()-speed);
+		if(direction.equals("RIGHT"))
+			setX(getX()+speed);
+		if(direction.equals("UP"))
+			setY(getY()-speed);
+		if(direction.equals("DOWN"))
+			setY(getY()+speed);
 	}
 
 	public void draw( Graphics window )
 	{
-   	window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
+		window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
 	}
 
 	public String toString()
 	{
-		return super.toString() + getSpeed();
+		return super.toString() +" " + getSpeed();
 	}
 }
