@@ -43,7 +43,12 @@ public class Ship extends MovingThing
 //			This probably won't work
 //			URL url = getClass().getResource("/images/ship.jpg");
 //			image = ImageIO.read(url);
-			image = ImageIO.read(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 17\\src\\ship.jpg"));
+			//FOR SCHOOL
+//			image = ImageIO.read(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 17\\src\\ship.jpg"));
+		
+			//FOR HOME
+			image = ImageIO.read(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 17\\src\\ship.jpg"));
+
 		}
 		catch(Exception e)
 		{

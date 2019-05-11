@@ -38,7 +38,11 @@ public class Alien extends MovingThing
 		{
 //			URL url = getClass().getResource("/images/alien.jpg");
 //			image = ImageIO.read(url);
-			image = ImageIO.read(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 17\\src\\alien.jpg"));
+			//FOR SCHOOL
+//			image = ImageIO.read(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 17\\src\\alien.jpg"));
+			
+			//FOR HOME
+			image = ImageIO.read(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 17\\src\\alien.jpg"));
 		}
 		catch(Exception e)
 		{
@@ -70,6 +74,6 @@ public class Alien extends MovingThing
 
 	public String toString()
 	{
-		return "";
+		return super.toString() +" " + getSpeed();
 	}
 }

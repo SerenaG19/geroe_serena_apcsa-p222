@@ -34,7 +34,12 @@ public class Ammo extends MovingThing
 //			This probably won't work
 //			URL url = getClass().getResource("/images/ship.jpg");
 //			image = ImageIO.read(url);
-			image = ImageIO.read(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 17\\src\\ammo.jpg"));
+			//FOR SCHOOL
+//			image = ImageIO.read(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 17\\src\\ammo.jpg"));
+			
+			//FOR HOME
+			image = ImageIO.read(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 17\\src\\ammo.jpg"));
+
 		}
 		catch(Exception e)
 		{
@@ -68,6 +73,6 @@ public class Ammo extends MovingThing
 
 	public String toString()
 	{
-		return "";
+		return super.toString() +" " + getSpeed();
 	}
 }
