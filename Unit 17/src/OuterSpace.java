@@ -57,13 +57,11 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
     public void update(Graphics window)
     {
 	   paint(window);
-	   ammo.setPos(ship.getX()+20,ship.getY());
-//	   if(keys[4]==true)
-//		   ammo.draw(window);
     }
 
 	public void paint( Graphics window )
 	{
+
 		//set up the double buffering to make the game animation nice and smooth
 		Graphics2D twoDGraph = (Graphics2D)window;
 
@@ -92,27 +90,35 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		
 		if(keys[0] == true)
 		{
-			ship.move("LEFT");
+//			if(ship.getX() > 10)
+				ship.move("LEFT");
 //			System.out.println("left detected");
 		}
 		if(keys[1] == true)
 		{
-			ship.move("RIGHT");
+//			if(ship.getX() < 690)
+				ship.move("RIGHT");
 //			System.out.println("right detected");
 		}
 		if(keys[2] == true)
 		{
-			ship.move("UP");
+//			if(ship.getY() < 490)
+				ship.move("UP");
 //			System.out.println("up detected");
 		}
 		if(keys[3] == true)
 		{
+//			if(ship.getY() > 15)
 			ship.move("DOWN");
 //			System.out.println("down detected");
 		}
 		if(keys[4] == true)
 		{
+			ammo.setPos(ship.getX()+20,ship.getY());
 			ammo.draw(graphToBack);
+			while(ammo.getY() > 0)
+				ammo.move("UP");
+			System.out.println(ammo);
 //			System.out.println("ammo detected");
 		}
 
@@ -120,15 +126,15 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
-		if( (ammo.getX() == alienOne.getX() + alienOne.getWidth() + Math.abs(ammo.getSpeed())) 
-				&& ((alienOne.getY() <= ammo.getY()) && ammo.getY() <= alienOne.getY() + alienOne.getHeight() - ammo.getSpeed())
-				  )
-				{
-//					System.out.println("AMMO HITS ALIEN FROM RIGHT");
-					alienOne.setSpeed(0);
-					graphToBack.setColor(Color.BLACK);
-					alienOne.draw(graphToBack);
-				}		
+//		if( (ammo.getX() == alienOne.getX() + alienOne.getWidth() + Math.abs(ammo.getSpeed())) 
+//				&& ((alienOne.getY() <= ammo.getY()) && ammo.getY() <= alienOne.getY() + alienOne.getHeight() - ammo.getSpeed())
+//				  )
+//				{
+////					System.out.println("AMMO HITS ALIEN FROM RIGHT");
+//					alienOne.setSpeed(0);
+//					graphToBack.setColor(Color.BLACK);
+//					alienOne.draw(graphToBack);
+//				}		
 
 
 		twoDGraph.drawImage(back, null, 0, 0);

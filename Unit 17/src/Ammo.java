@@ -28,25 +28,25 @@ public class Ammo extends MovingThing
 	{
 		this(x,y);
 		setSpeed(s);
-		
-		try
-		{
+//		
+//		try
+//		{
 //			This probably won't work
 //			URL url = getClass().getResource("/images/ship.jpg");
 //			image = ImageIO.read(url);
-			//FOR SCHOOL
+//			FOR SCHOOL
 //			image = ImageIO.read(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 17\\src\\ammo.jpg"));
-			
-			//FOR HOME
-			image = ImageIO.read(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 17\\src\\ammo.jpg"));
-
-		}
-		catch(Exception e)
-		{
-			//feel free to do something here
-			System.out.println("Issue with ammo image");
-		}
-		
+//			
+//			FOR HOME
+//			image = ImageIO.read(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 17\\src\\ammo.jpg"));
+//
+//		}
+//		catch(Exception e)
+//		{
+//			feel free to do something here
+//			System.out.println("Issue with ammo image");
+//		}
+//		
 	}
 
 	public void setSpeed(int s)
@@ -61,14 +61,22 @@ public class Ammo extends MovingThing
 
 	public void draw( Graphics window )
 	{
-		window.drawImage(image,getX(),getY(),getWidth(),getHeight(),null);
-	}
+		window.setColor(Color.yellow);
+        window.fillRect(getX(), getY(), 10, 10); //add code to draw the ammo
+    }
 	
 	
 	public void move( String direction )
 	{
 		//add code to draw the ammo,FIX THIS?
-		setY(getY()-speed);
+		if(direction.equals("LEFT"))
+			setX(getX()-speed);
+		if(direction.equals("RIGHT"))
+			setX(getX()+speed);
+		if(direction.equals("UP"))
+			setY(getY()-speed);
+		if(direction.equals("DOWN"))
+			setY(getY()+speed);
 	}
 
 	public String toString()
