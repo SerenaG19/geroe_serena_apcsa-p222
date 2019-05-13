@@ -12,11 +12,11 @@ public class Ammo extends MovingThing
 {
 	private int speed;
 	//adding this
-	private Image image;
-
+	private Color col;
+	
 	public Ammo()
 	{
-		this(0,0,0);
+		this(0,0);
 	}
 
 	public Ammo(int x, int y)
@@ -24,10 +24,11 @@ public class Ammo extends MovingThing
 		setPos(x,y);
 	}
 
-	public Ammo(int x, int y, int s)
+	public Ammo(int x, int y, int s, Color c)
 	{
 		this(x,y);
 		setSpeed(s);
+		col = c;
 //		
 //		try
 //		{
@@ -53,22 +54,28 @@ public class Ammo extends MovingThing
 	{
 		speed = s;
 	}
+	
+	public void setColor(Color c)
+	{
+		col = c;
+	}
+
 
 	public int getSpeed()
 	{
 	   return speed;
 	}
 
-	public void draw( Graphics window )
+	public void draw( Graphics window)
 	{
-		window.setColor(Color.yellow);
+		window.setColor(col);
         window.fillRect(getX(), getY(), 10, 10); //add code to draw the ammo
     }
 	
 	
 	public void move( String direction )
 	{
-		//add code to draw the ammo,FIX THIS?
+		//add code to draw the ammo
 		if(direction.equals("LEFT"))
 			setX(getX()-speed);
 		if(direction.equals("RIGHT"))

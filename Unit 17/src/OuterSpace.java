@@ -45,7 +45,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		alienOne = new Alien(50,50,50,50,2);
 //		alienTwo = new Alien(100,50,50,50,2);
 		
-		ammo = new Ammo(ship.getX()+20,ship.getY(),3);
+//		ammo = new Ammo(ship.getX()+20,ship.getY(),3);
 		
 
 		this.addKeyListener(this);
@@ -114,27 +114,40 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		}
 		if(keys[4] == true)
 		{
-			ammo.setPos(ship.getX()+20,ship.getY());
+			ammo = new Ammo(ship.getX()+20,ship.getY(),1, Color.YELLOW);
 			ammo.draw(graphToBack);
-			while(ammo.getY() > 0)
-				ammo.move("UP");
-			System.out.println(ammo);
+			ammo.move("UP");
+			//fix this w array list and cleanemup
+			ammo.setColor(Color.BLACK);
+			ammo.draw(graphToBack);
+			ammo.setColor(Color.YELLOW);
+			ammo.draw(graphToBack);
+
+//			while(ammo.getY() > 0)
+//				//comment this out when done//just instantiate ammo
+				//dont move here --> do this in a for loop in background
+				//then move and draw
+//				//draw black over ammo//clean up after end
+//			{
+//				ammo.move("UP");
+//				ammo.draw(graphToBack);
+//				System.out.println(ammo);
+////			System.out.println("Working");
+//			}
+				
 //			System.out.println("ammo detected");
 		}
 
 		//add code to move Ship, Alien, etc.
 
 
-		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
-//		if( (ammo.getX() == alienOne.getX() + alienOne.getWidth() + Math.abs(ammo.getSpeed())) 
-//				&& ((alienOne.getY() <= ammo.getY()) && ammo.getY() <= alienOne.getY() + alienOne.getHeight() - ammo.getSpeed())
-//				  )
-//				{
-////					System.out.println("AMMO HITS ALIEN FROM RIGHT");
-//					alienOne.setSpeed(0);
-//					graphToBack.setColor(Color.BLACK);
-//					alienOne.draw(graphToBack);
-//				}		
+		//add in collision detection to see if Bullets hit the Aliens
+//		if( (ammo.getY() == alienOne.getY() + alienOne.getHeight() + Math.abs(ammo.getSpeed())) 
+//				&& ((alienOne.getX() <= ammo.getX()) && ammo.getX() <= alienOne.getX() + alienOne.getWidth() - ammo.getSpeed())
+//		  )
+//		{
+//			System.out.println("ammo HITS alien FROM bottom");
+//		}	
 
 
 		twoDGraph.drawImage(back, null, 0, 0);
