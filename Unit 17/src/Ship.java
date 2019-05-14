@@ -30,7 +30,6 @@ public class Ship extends MovingThing
 	{
 	   super(x,y);
 	   setSpeed(s);
-	   //image?
 	}
 
 	public Ship(int x, int y, int w, int h, int s)//check out this exception handling - try printing stuff here
@@ -44,10 +43,10 @@ public class Ship extends MovingThing
 //			URL url = getClass().getResource("/images/ship.jpg");
 //			image = ImageIO.read(url);
 			//FOR SCHOOL
-			image = ImageIO.read(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 17\\src\\ship.jpg"));
+//			image = ImageIO.read(new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 17\\src\\ship.jpg"));
 		
 			//FOR HOME
-//			image = ImageIO.read(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 17\\src\\ship.jpg"));
+			image = ImageIO.read(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 17\\src\\ship.jpg"));
 
 		}
 		catch(Exception e)

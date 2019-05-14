@@ -115,40 +115,29 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		horde.moveEmAll();
 		for(Alien al : horde.getList())
 		{
-			if(al.getX() > 580)
+			if(al.getX() > 580 || al.getX() < 20)
 			{
-				al.setY(getY()+55);
+				al.setY(al.getY()+50);
 				al.setSpeed(al.getSpeed()*-1);
 			}
-			else if(al.getX() < 20)
-			{
-				al.setY(getY()+55);
-				al.setSpeed(al.getSpeed()*-1);
-				
-				System.out.println("Should go down");
-			}
-//			if(al.getY() < 10)
-//			{
-//				al.setY(getY()+70);
-//				al.setSpeed(al.getSpeed()*-1);
-//			}
 		}
 		horde.removeDeadOnes(shots.getList());
 		
+//		System.out.println(shots);
 		shots.drawEmAll(graphToBack);
+		shots.moveEmAll();
+		shots.cleanEmUp();
 		for(Ammo blt : shots.getList())
 		{
 			if((blt.getY() == ship.getY() + ship.getHeight() + Math.abs(blt.getSpeed())) 
 			&& ((ship.getX() <= blt.getX()) && blt.getX() <= ship.getX() + ship.getWidth() - blt.getSpeed()))
 			{
-				ship.setSpeed(0);
+				ship.setPos(900,900);
+				graphToBack.setColor(Color.BLACK);
 				graphToBack.fillRect(ship.getX(),ship.getY(),ship.getWidth(),ship.getHeight());
 				System.out.println("GAME OVER");
 			}
-
 		}
-
-		//IF ALIENS HIT SHIP, DELETE SHIP
 
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
