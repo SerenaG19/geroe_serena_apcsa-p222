@@ -15,42 +15,33 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class OuterSpace extends Canvas implements KeyListener, Runnable
-{
+{	
 	private Ship ship;
-	private Alien alienOne;
-//	private Alien alienTwo;
-
-	//testing for one ammo
-	private Ammo ammo;
-	
-	
-	/* uncomment once you are ready for this part
-	 *
     private AlienHorde horde;
 	private Bullets shots;
-	*/
-
 	private boolean[] keys;
 	private BufferedImage back;
 
 	public OuterSpace()
 	{
 		setBackground(Color.black);
-
 		keys = new boolean[5];
+		ship = new Ship(370,450,50,50,3);
+		shots = new Bullets();
+		horde = new AlienHorde();
+		horde.add(new Alien(70,25,50,50,1));
+		horde.add(new Alien(140,25,50,50,1));
+		horde.add(new Alien(210,25,50,50,1));
+		horde.add(new Alien(280,25,50,50,1));
+		horde.add(new Alien(350,25,50,50,1));
+		horde.add(new Alien(420,25,50,50,1));
+		horde.add(new Alien(490,25,50,50,1));
+		horde.add(new Alien(560,25,50,50,1));
 
-		//instantiate other instance variables
-		//Ship, Alien
-		ship = new Ship(100,100,50,50,3);
-		alienOne = new Alien(50,50,50,50,2);
-//		alienTwo = new Alien(100,50,50,50,2);
+//		System.out.println(horde);
 		
-//		ammo = new Ammo(ship.getX()+20,ship.getY(),3);
-		
-
 		this.addKeyListener(this);
 		new Thread(this).start();
-
 		setVisible(true);
 	}
 
@@ -60,8 +51,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
     }
 
 	public void paint( Graphics window )
-	{
-
+	{		
 		//set up the double buffering to make the game animation nice and smooth
 		Graphics2D twoDGraph = (Graphics2D)window;
 
@@ -74,20 +64,22 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		//we will draw all changes on the background image
 		Graphics graphToBack = back.createGraphics();
 		
-		//do this first!
+//		label game--------------------------------
 		graphToBack.setColor(Color.BLUE);
 		graphToBack.drawString("StarFighter ",25,50);
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
+//		label game--------------------------------
 		
-		//then add graphics
+//		add graphics-----------------------------
 		ship.draw(graphToBack);
+		horde.drawEmAll(graphToBack);
 //		System.out.println(ship);
-		
-		alienOne.draw(graphToBack);
+//		alienOne.draw(graphToBack);
 //		alienTwo.draw(graphToBack);
+//		add graphics-----------------------------
 
-		
+//		set keys---------------------------------
 		if(keys[0] == true)
 		{
 //			if(ship.getX() > 10)
@@ -114,41 +106,49 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		}
 		if(keys[4] == true)
 		{
-			ammo = new Ammo(ship.getX()+20,ship.getY(),1, Color.YELLOW);
-			ammo.draw(graphToBack);
-			ammo.move("UP");
-			//fix this w array list and cleanemup
-			ammo.setColor(Color.BLACK);
-			ammo.draw(graphToBack);
-			ammo.setColor(Color.YELLOW);
-			ammo.draw(graphToBack);
-
-//			while(ammo.getY() > 0)
-//				//comment this out when done//just instantiate ammo
-				//dont move here --> do this in a for loop in background
-				//then move and draw
-//				//draw black over ammo//clean up after end
-//			{
-//				ammo.move("UP");
-//				ammo.draw(graphToBack);
-//				System.out.println(ammo);
-////			System.out.println("Working");
-//			}
-				
+			shots.add(new Ammo(ship.getX()+20,ship.getY(),1, Color.YELLOW));
 //			System.out.println("ammo detected");
 		}
+//		set keys---------------------------------
 
 		//add code to move Ship, Alien, etc.
+		horde.moveEmAll();
+		for(Alien al : horde.getList())
+		{
+			if(al.getX() > 580)
+			{
+				al.setY(getY()+55);
+				al.setSpeed(al.getSpeed()*-1);
+			}
+			else if(al.getX() < 20)
+			{
+				al.setY(getY()+55);
+				al.setSpeed(al.getSpeed()*-1);
+				
+				System.out.println("Should go down");
+			}
+//			if(al.getY() < 10)
+//			{
+//				al.setY(getY()+70);
+//				al.setSpeed(al.getSpeed()*-1);
+//			}
+		}
+		horde.removeDeadOnes(shots.getList());
+		
+		shots.drawEmAll(graphToBack);
+		for(Ammo blt : shots.getList())
+		{
+			if((blt.getY() == ship.getY() + ship.getHeight() + Math.abs(blt.getSpeed())) 
+			&& ((ship.getX() <= blt.getX()) && blt.getX() <= ship.getX() + ship.getWidth() - blt.getSpeed()))
+			{
+				ship.setSpeed(0);
+				graphToBack.fillRect(ship.getX(),ship.getY(),ship.getWidth(),ship.getHeight());
+				System.out.println("GAME OVER");
+			}
 
+		}
 
-		//add in collision detection to see if Bullets hit the Aliens
-//		if( (ammo.getY() == alienOne.getY() + alienOne.getHeight() + Math.abs(ammo.getSpeed())) 
-//				&& ((alienOne.getX() <= ammo.getX()) && ammo.getX() <= alienOne.getX() + alienOne.getWidth() - ammo.getSpeed())
-//		  )
-//		{
-//			System.out.println("ammo HITS alien FROM bottom");
-//		}	
-
+		//IF ALIENS HIT SHIP, DELETE SHIP
 
 		twoDGraph.drawImage(back, null, 0, 0);
 	}
