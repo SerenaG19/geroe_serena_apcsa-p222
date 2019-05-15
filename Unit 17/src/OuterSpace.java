@@ -21,6 +21,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Bullets shots;
 	private boolean[] keys;
 	private BufferedImage back;
+	private boolean hit;
 
 	public OuterSpace()
 	{
@@ -37,6 +38,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		horde.add(new Alien(420,25,50,50,1));
 		horde.add(new Alien(490,25,50,50,1));
 		horde.add(new Alien(560,25,50,50,1));
+		hit = false;
 
 //		System.out.println(horde);
 		
@@ -65,10 +67,13 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		Graphics graphToBack = back.createGraphics();
 		
 //		label game--------------------------------
-		graphToBack.setColor(Color.BLUE);
-		graphToBack.drawString("StarFighter ",25,50);
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
+		
+		graphToBack.setColor(Color.WHITE);
+		graphToBack.fillRect(370,35,60,25);
+		graphToBack.setColor(Color.BLUE);
+		graphToBack.drawString("StarFighter ",370,50);
 //		label game--------------------------------
 		
 //		add graphics-----------------------------
@@ -111,6 +116,18 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		}
 //		set keys---------------------------------
 
+		if(hit)
+		{
+			horde.stopEmAll();
+//			System.out.println("ship HITS alien FROM BOTTOM");
+			graphToBack.setColor(Color.WHITE);
+			graphToBack.fillRect(0,0,800,600);
+			graphToBack.setColor(Color.RED);
+			graphToBack.drawString("GAME OVER: ALIENS HIT SHIP!!!",340,70);
+			graphToBack.setColor(Color.WHITE);
+			graphToBack.fillRect(ship.getX(),ship.getY(),ship.getWidth(),ship.getHeight());
+		}
+		
 		//add code to move Ship, Alien, etc.
 		horde.moveEmAll();
 		for(Alien al : horde.getList())
@@ -120,6 +137,45 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 				al.setY(al.getY()+50);
 				al.setSpeed(al.getSpeed()*-1);
 			}
+			
+			if(al.getY() > 500)
+			{
+				graphToBack.setColor(Color.WHITE);
+				graphToBack.fillRect(340,55,190,25);
+				graphToBack.setColor(Color.RED);
+				graphToBack.drawString("GAME OVER: ALIENS ESCAPED!!!",340,70);
+			}
+			
+			//ship/alien collisions
+			if( 
+			//bottom		
+			((ship.getY() == al.getY() + al.getHeight() + Math.abs(ship.getSpeed())) 
+			&& ((al.getX() <= ship.getX()) && ship.getX() <= al.getX() + al.getWidth() - ship.getSpeed()))
+			||
+			//right
+			((ship.getX() == al.getX() + al.getWidth() + Math.abs(ship.getX())) 
+			&& ((al.getY() <= ship.getY()) && ship.getY() <= al.getY() + al.getHeight() - ship.getY()))
+			||
+			//left	
+			((ship.getX() == al.getX() - Math.abs(ship.getSpeed())) 
+			&& ((al.getY() <= ship.getY()) && ship.getY() <= al.getY() + al.getHeight() - ship.getSpeed()))
+			||
+			//top	
+			((ship.getY() == al.getY() - Math.abs(ship.getSpeed())) 
+			&& ((al.getX() < ship.getX()) && ship.getX() < al.getX() + al.getWidth() - ship.getSpeed()))	
+			)
+			{
+				hit = true;
+			}
+
+		}
+		if(horde.getList().size() == 0)
+		{
+			graphToBack.setColor(Color.WHITE);
+			graphToBack.fillRect(370,55,70,25);
+			graphToBack.setColor(Color.RED);
+			graphToBack.drawString("YOU WIN!!",370,70);
+			graphToBack.setColor(Color.BLACK);
 		}
 		horde.removeDeadOnes(shots.getList());
 		
@@ -127,17 +183,6 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		shots.drawEmAll(graphToBack);
 		shots.moveEmAll();
 		shots.cleanEmUp();
-		for(Ammo blt : shots.getList())
-		{
-			if((blt.getY() == ship.getY() + ship.getHeight() + Math.abs(blt.getSpeed())) 
-			&& ((ship.getX() <= blt.getX()) && blt.getX() <= ship.getX() + ship.getWidth() - blt.getSpeed()))
-			{
-				ship.setPos(900,900);
-				graphToBack.setColor(Color.BLACK);
-				graphToBack.fillRect(ship.getX(),ship.getY(),ship.getWidth(),ship.getHeight());
-				System.out.println("GAME OVER");
-			}
-		}
 
 		twoDGraph.drawImage(back, null, 0, 0);
 	}

@@ -38,8 +38,6 @@ public class Bullets
 		{
 			blt.setColor(Color.YELLOW);			
 			blt.move("UP");
-			blt.setColor(Color.BLACK);			
-			blt.move("UP");
 		}
 	}
 

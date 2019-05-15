@@ -43,6 +43,14 @@ public class AlienHorde
 			al.move("RIGHT");
 		}
 	}
+	
+	public void stopEmAll()
+	{
+		for(Alien al : aliens)
+		{			
+			al.setSpeed(0);
+		}
+	}
 
 	public void removeDeadOnes(List<Ammo> shots)
 	{
