@@ -102,61 +102,29 @@ public class Picture extends SimplePicture
 		Pixel[][] currPixels = this.getPixels2D();
 		Pixel currPixel = null;
 		Pixel messagePixel = null;
-		
-		//WHEN DONE: make into its own method and use in encode and decode?
-		char[][] literature = null;
-		ArrayList<Character>colLengths = new ArrayList<Character>();
-
-		//digit used to manipulate the blue values
-		int coder = 0;
-		//corresponding char value
-		char codeChr = 'a';
-		//number of lines in literature
-		int fileSize = 0;
-		//length of each line
-		int colSize = 0;
-		int lineNum = 0;
-		
 		try
 		{
-			Scanner file = new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat"));
-			//number of lines in literature
-			fileSize = file.nextInt();
-			//LOADING THE STRING 2D MATRIX
-//			for(int row = 0; row < fileSize; row++)
 			
-			
-			
-			//PRECONDITION: the file has enough lines to encode the message
-			//access first char of each line
-			while(file.hasNextLine())
-			{
-//				coder = ((int) file.nextLine().charAt(0)) % 10;
-				codeChr = file.nextLine().charAt(0);
-				coder = ((int) codeChr) % 10;
-				System.out.println("line " + lineNum++ + "; codeChr :: " + codeChr + "; coder :: " + coder);
-			}
-		}
-		catch (FileNotFoundException e)
+			CharMap map = new CharMap();
+			map.setMap(new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
+		} catch (FileNotFoundException e)
 		{
 			// TODO Auto-generated catch block
-			System.out.println("literature not found");
+			System.out.println("Literature not found");
 			e.printStackTrace();
 		}
 		
-
-		
 		//actual encoding
-		for(int row = 0; row < this.getHeight(); row++)
-		{
-		  for(int col = 0; col < this.getWidth(); col++)
-		  {
-			  if(messagePixel.colorDistance(Color.BLACK) < 50)
-			  {
-				  
-			  }
-		  }
-		}
+//		for(int row = 0; row < this.getHeight(); row++)
+//		{
+//		  for(int col = 0; col < this.getWidth(); col++)
+//		  {
+//			  if(messagePixel.colorDistance(Color.BLACK) < 50)
+//			  {
+//				  
+//			  }
+//		  }
+//		}
 //		System.out.println(count);
   }
   
