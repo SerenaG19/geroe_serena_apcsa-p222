@@ -341,12 +341,48 @@ public class PictureTester
 		beach.explore();  
   }
   
+  public static void encode()
+  {
+	  //Laptop
+		Picture beach = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
+	  //School
+//		Picture beach = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
+		
+	  //Laptop
+		Picture msg = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");
+	  //School
+//		Picture msg = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");
+		
+		msg.explore();
+		beach.explore();
+		beach.encode(msg);
+		beach.explore();  
+  }
+  
+  public static void decode()
+  {
+	  //Laptop
+		Picture beach = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
+	  //School
+//		Picture beach = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
+		
+	  //Laptop
+		Picture msg = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");
+	  //School
+//		Picture msg = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");
+		
+//		msg.explore();
+//		beach.explore();
+		beach.decode();
+		beach.explore();  
+  }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
   {
-	  
+	  encode();
+	  decode();
 	  
 	  
 	//Setting up cryptography lab

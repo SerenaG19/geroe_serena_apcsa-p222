@@ -2,6 +2,8 @@ import java.awt.*;
 import java.awt.font.*;
 import java.awt.geom.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.text.*;
 import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
@@ -86,6 +88,69 @@ public class Picture extends SimplePicture
   }
   
   //PICTURE LAB EXTENSION************************************************
+
+  //ATTEMPT #1
+  /** For every black pixel in the messagePict:
+  * Use the least significant digit of the first character of each line
+  * to change the Blue value by +- 10 units. on the corresponding pixel
+  * for encoded image
+  * @param messagePict the picture with a message
+  * @param literature the string file used to encode
+  */
+  public void encode(Picture messagePict)
+  {
+		Pixel[][] messagePixels = messagePict.getPixels2D();
+		Pixel[][] currPixels = this.getPixels2D();
+		Pixel currPixel = null;
+		Pixel messagePixel = null;
+		int count = 0;
+		try
+		{
+			Scanner file = new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\raven.dat"));
+		}
+		catch (FileNotFoundException e)
+		{
+			// TODO Auto-generated catch block
+			System.out.println("literature not found");
+			e.printStackTrace();
+		}
+		
+
+		for(int row = 0; row < this.getHeight(); row++)
+		{
+		  for(int col = 0; col < this.getWidth(); col++)
+		  {
+
+		  }
+		}
+//		System.out.println(count);
+  }
+  
+  /**
+  * Method to decode a message hidden in the
+  * blue value of the current picture
+  * @return the picture with the hidden message
+  */
+  public Picture decode()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	  int height = this.getHeight();
+	  int width = this.getWidth();
+	  Pixel currPixel = null;
+	  Pixel messagePixel = null;
+	  Picture messagePicture = new Picture(height,width);
+	  Pixel[][] messagePixels = messagePicture.getPixels2D();
+	  int count = 0;
+	  for (int row = 0; row < this.getHeight(); row++)
+	  {
+		  for (int col = 0; col < this.getWidth(); col++)
+		  {
+
+		  }
+	  }
+//	  System.out.println(count);
+	  return messagePicture;
+  }
   
   //MR. MAURO'S EXAMPLE CODE---------------------------------------------
   /** Hide a black and white message in the current
