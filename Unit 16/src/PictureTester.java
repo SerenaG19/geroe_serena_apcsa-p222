@@ -346,7 +346,7 @@ public class PictureTester
 	  //Laptop
 		Picture beach = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
 	  //School
-//		Picture beach = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
+//		Picture beach = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\be`ach.jpg");
 		
 	  //Laptop
 		Picture msg = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");

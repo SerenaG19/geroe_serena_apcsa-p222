@@ -104,10 +104,11 @@ public class Picture extends SimplePicture
 		Pixel messagePixel = null;
 		try
 		{
-			
 			CharMap map = new CharMap();
 			map.setMap(new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
-		} catch (FileNotFoundException e)
+			System.out.println(map);
+		} 
+		catch (FileNotFoundException e)
 		{
 			// TODO Auto-generated catch block
 			System.out.println("Literature not found");

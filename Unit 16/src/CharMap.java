@@ -7,29 +7,41 @@ import static java.lang.System.*;
 
 public class CharMap
 {
-	private ArrayList<Character>charMap;
+	private ArrayList<Coder>charMap;
 	
 	CharMap()
 	{
-		charMap = new ArrayList<Character>();
+		charMap = new ArrayList<Coder>();
 	}
-//	
-//	  /**
-//	   * Read in literature, convert to char[][].
-//	   * Includes only first chars of each word
-//	   * @param literature file
-//	   */
-//	public ArrayList<Character> setMap(Scanner file)
-//	{
+
+	public ArrayList<Coder> setMap(Scanner file)
+	{
 //		int fileSize = file.nextInt();
-////		System.out.println(fileSize);
-//		
-//		for(int i=0; i < fileSize; i++)
-//		{
-//			
-//		}
-//		
-//		return charMap;
-//	}
+//		System.out.println("fileSize :: " + fileSize);
+		
+		int x = 0;
+		//COORDINATE SYSTEM
+		//x:: word number within the line
+		//y :: line number
+		int y = 0;
+
+			do
+			{
+
+				charMap.add( new Coder(file.next(), x++,y) );
+
+			}while(file.hasNextLine());
+		return charMap;
+	}
 	
+	public String toString()
+	{
+		String output = "---------CHARMAP---------\n";
+		for(Coder printMe : charMap)
+		{
+			output += printMe + "\n";
+		}
+		output += "--------------------------";
+		return output;
+	}
 }

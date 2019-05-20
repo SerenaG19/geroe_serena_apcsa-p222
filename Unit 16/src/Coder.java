@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import static java.lang.System.*;
 /**
- * Coder objects 
+ * Coder objects s
  * @author Serena
  */
 
@@ -23,16 +23,11 @@ public class Coder
 		ind=lineNum=0;
 	}
 	
-	public void setCoder(String wrd, int index, int lN)
+	public Coder(String wrd, int index, int lN)
 	{
 		coder = wrd.charAt(0);
 		ind = index;
 		lineNum = lN;
-	}
-	
-	public char getCoder()
-	{
-		return coder;
 	}
 	
 	public String toString()
