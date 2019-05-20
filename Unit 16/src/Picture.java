@@ -95,7 +95,6 @@ public class Picture extends SimplePicture
   * to change the Blue value by +- 10 units. on the corresponding pixel
   * for encoded image
   * @param messagePict the picture with a message
-  * @param literature the string file used to encode
   */
   public void encode(Picture messagePict)
   {
@@ -103,10 +102,17 @@ public class Picture extends SimplePicture
 		Pixel[][] currPixels = this.getPixels2D();
 		Pixel currPixel = null;
 		Pixel messagePixel = null;
-		int count = 0;
+		int coder = 0;
 		try
 		{
-			Scanner file = new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\raven.dat"));
+			Scanner file = new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat"));
+			
+			//PRECONDITION: the file has enough lines to encode the message
+			//access first char of each line
+			while(file.hasNextLine())
+			{
+//				coder = //RESUME CODING HERE
+			}
 		}
 		catch (FileNotFoundException e)
 		{
@@ -116,11 +122,16 @@ public class Picture extends SimplePicture
 		}
 		
 
+		
+		//actual encoding
 		for(int row = 0; row < this.getHeight(); row++)
 		{
 		  for(int col = 0; col < this.getWidth(); col++)
 		  {
-
+			  if(messagePixel.colorDistance(Color.BLACK) < 50)
+			  {
+				  
+			  }
 		  }
 		}
 //		System.out.println(count);
