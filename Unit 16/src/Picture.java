@@ -91,7 +91,7 @@ public class Picture extends SimplePicture
 
   //ATTEMPT #1
   /** For every black pixel in the messagePict:
-  * Use the least significant digit of the first character of each line
+  * Use the least significant digit of the first character of each word
   * to change the Blue value by +- 10 units. on the corresponding pixel
   * for encoded image
   * @param messagePict the picture with a message
@@ -102,11 +102,20 @@ public class Picture extends SimplePicture
 		Pixel[][] currPixels = this.getPixels2D();
 		Pixel currPixel = null;
 		Pixel messagePixel = null;
+		int ind = 0;
+		CharMap map = null;
+		
+		int numToBChanged = 0;
+		
 		try
 		{
-			CharMap map = new CharMap();
-			map.setMap(new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
-			System.out.println(map);
+			map = new CharMap();
+			//laptop
+//			map.setMap(new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
+			
+			//school
+			map.setMap( new Scanner( new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
+//			System.out.println(map);
 		} 
 		catch (FileNotFoundException e)
 		{
@@ -116,17 +125,29 @@ public class Picture extends SimplePicture
 		}
 		
 		//actual encoding
-//		for(int row = 0; row < this.getHeight(); row++)
-//		{
-//		  for(int col = 0; col < this.getWidth(); col++)
-//		  {
-//			  if(messagePixel.colorDistance(Color.BLACK) < 50)
-//			  {
-//				  
-//			  }
-//		  }
-//		}
-//		System.out.println(count);
+		for(int row = 0; row < this.getHeight(); row++)
+		{
+		  for(int col = 0; col < this.getWidth(); col++)
+		  {
+			  currPixel = currPixels[row][col];
+			  messagePixel = messagePixels[row][col];
+
+			  if(messagePixel.colorDistance(Color.BLACK) < 50)
+			  {
+				  if(ind >= map.size())
+				  {
+					  ind = 0;
+				  }
+//				  System.out.println("before :: " + currPixel.getBlue() + " loc :: " + currPixel);
+				  currPixel.setBlue(currPixel.getBlue() + map.getCoder(ind++).getNum());
+//				  System.out.println("after :: " + currPixel.getBlue());
+
+				  //for testing purposes:
+//				  numToBChanged++;
+			  }
+		  }
+		}
+//		System.out.println("numToBChanged :: " + numToBChanged);
   }
   
   /**
@@ -148,7 +169,7 @@ public class Picture extends SimplePicture
 	  {
 		  for (int col = 0; col < this.getWidth(); col++)
 		  {
-
+			  
 		  }
 	  }
 //	  System.out.println(count);

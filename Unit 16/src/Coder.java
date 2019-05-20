@@ -15,24 +15,27 @@ public class Coder
 	private char coder;
 	//index in line
 	private int ind;
-	private int lineNum;
 	
 	Coder()
 	{
 		coder = 'a';
-		ind=lineNum=0;
+		ind=0;
 	}
 	
-	public Coder(String wrd, int index, int lN)
+	public Coder(String wrd, int index)
 	{
 		coder = wrd.charAt(0);
 		ind = index;
-		lineNum = lN;
+	}
+	
+	public int getNum()
+	{
+		return (int) coder % 10;
 	}
 	
 	public String toString()
 	{
-		return "coder:: " + coder + " ; (ind, lineNum) :: (" + ind +", " + lineNum + ")";
+		return "coder:: " + coder + " ; ind :: " + ind;
 	}
 	
 }

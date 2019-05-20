@@ -16,22 +16,28 @@ public class CharMap
 
 	public ArrayList<Coder> setMap(Scanner file)
 	{
-//		int fileSize = file.nextInt();
+		int fileSize = file.nextInt();
 //		System.out.println("fileSize :: " + fileSize);
 		
 		int x = 0;
 		//COORDINATE SYSTEM
-		//x:: word number within the line
-		//y :: line number
-		int y = 0;
+		//x:: word number within the file
 
 			do
 			{
-
-				charMap.add( new Coder(file.next(), x++,y) );
-
+				charMap.add( new Coder(file.next(), x++));
 			}while(file.hasNextLine());
 		return charMap;
+	}
+	
+	public Coder getCoder(int i)
+	{
+		return charMap.get(i);
+	}
+	
+	public int size()
+	{
+		return charMap.size();
 	}
 	
 	public String toString()
