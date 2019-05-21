@@ -321,6 +321,7 @@ public class PictureTester
 		beach.explore();
 		beach.testEncode(msg);
 		beach.explore();  
+
   }
   
   public static void testDecode()
@@ -341,17 +342,23 @@ public class PictureTester
 		beach.explore();  
   }
   
+  public static void testEncryption()
+  {
+		testEncode();
+		testDecode();
+  }
+  
   public static void encode()
   {
 	  //Laptop
-//		Picture beach = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
+		Picture beach = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
 	  //School
-		Picture beach = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
+//		Picture beach = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
 		
 	  //Laptop
-//		Picture msg = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");
+		Picture msg = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");
 	  //School
-		Picture msg = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");
+//		Picture msg = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");
 		
 		msg.explore();
 		beach.explore();
@@ -381,14 +388,14 @@ public class PictureTester
     * method in Java */
   public static void main(String[] args)
   {
-	  encode();
+//	  encode();
 //	  decode();
 	  
 	  
 	//Setting up cryptography lab
 //	testEncode();
-//	testDecode();
-
+	testDecode();
+//    testEncryption();
 	
 	  
 	  

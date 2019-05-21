@@ -91,7 +91,7 @@ public class Picture extends SimplePicture
 
   //ATTEMPT #1
   /** For every black pixel in the messagePict:
-  * Use the least significant digit of the first character of each word
+  * Use the least significant digit of the ASCII value of the first character of each word
   * to change the Blue value by +- 10 units. on the corresponding pixel
   * for encoded image
   * @param messagePict the picture with a message
@@ -111,15 +111,14 @@ public class Picture extends SimplePicture
 		{
 			map = new CharMap();
 			//laptop
-//			map.setMap(new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
+			map.setMap(new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
 			
 			//school
-			map.setMap( new Scanner( new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
+//			map.setMap( new Scanner( new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
 //			System.out.println(map);
 		} 
 		catch (FileNotFoundException e)
 		{
-			// TODO Auto-generated catch block
 			System.out.println("Literature not found");
 			e.printStackTrace();
 		}
@@ -138,9 +137,9 @@ public class Picture extends SimplePicture
 				  {
 					  ind = 0;
 				  }
-//				  System.out.println("before :: " + currPixel.getBlue() + " loc :: " + currPixel);
+				  System.out.println("before :: " + currPixel.getBlue() + " loc :: " + currPixel);
 				  currPixel.setBlue(currPixel.getBlue() + map.getCoder(ind++).getNum());
-//				  System.out.println("after :: " + currPixel.getBlue());
+				  System.out.println("after :: " + currPixel.getBlue());
 
 				  //for testing purposes:
 //				  numToBChanged++;
@@ -164,12 +163,35 @@ public class Picture extends SimplePicture
 	  Pixel messagePixel = null;
 	  Picture messagePicture = new Picture(height,width);
 	  Pixel[][] messagePixels = messagePicture.getPixels2D();
-	  int count = 0;
+	  CharMap map = null;
+	  
+		try
+		{
+			map = new CharMap();
+			//laptop
+			map.setMap(new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
+			
+			//school
+//			map.setMap( new Scanner( new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
+//			System.out.println(map);
+		} 
+		catch (FileNotFoundException e)
+		{
+			System.out.println("Literature not found");
+			e.printStackTrace();
+		}
+	  
+	  
 	  for (int row = 0; row < this.getHeight(); row++)
 	  {
 		  for (int col = 0; col < this.getWidth(); col++)
 		  {
-			  
+			  currPixel = pixels[row][col];
+			  messagePixel = messagePixels[row][col];
+//			  if (currPixel.getRed() % 2 == 1)
+//			  {
+//				  messagePixel.setColor(Color.BLACK);
+//			  }
 		  }
 	  }
 //	  System.out.println(count);
