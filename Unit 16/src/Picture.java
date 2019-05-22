@@ -146,11 +146,10 @@ public class Picture extends SimplePicture
 			  messagePixel = messagePixels[row][col];
 
 			  if(messagePixel.colorDistance(Color.BLACK) < 50)
-			  {	 System.out.println("if1");
+			  {
 
 				  if(ind == map.size())
 				  {
-					  System.out.println("if2");
 
 					  ind = 0;
 				  }
@@ -163,7 +162,6 @@ public class Picture extends SimplePicture
 				  
 				  System.out.println("after :: " + currPixel.getBlue());
 				  
-				  System.out.println("HERE");
 
 		
 
