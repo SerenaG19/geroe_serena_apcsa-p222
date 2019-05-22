@@ -372,8 +372,8 @@ public class PictureTester
 	  //School
 //		Picture msg = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");
 		
-		msg.explore();
-		beach.explore();
+//		msg.explore();
+//		beach.explore();
 		beach.decode();
 		beach.explore();  
   }
