@@ -139,16 +139,16 @@ public class Picture extends SimplePicture
 				  if((currPixel.getGreen() % 4 )!= (currPixel.getBlue() % 4))
 					  {
 						  if(currPixel.getBlue() < 255)
-							  currPixel.setBlue(currPixel.getBlue() + ((Math.abs(currPixel.getBlue() % 4) + (currPixel.getGreen() %4))));
-						  else if (currPixel.getBlue() > 0)
 							  currPixel.setBlue(currPixel.getBlue() + ((Math.abs(currPixel.getBlue() % 4) - (currPixel.getGreen() %4))));
+						  else if (currPixel.getBlue() > 0)
+							  currPixel.setBlue(currPixel.getBlue() - ((Math.abs(currPixel.getBlue() % 4) - (currPixel.getGreen() %4))));
 					  }
 				 if((currPixel.getGreen() % 4 )!= (currPixel.getRed() % 4))
 					  {
 						  if(currPixel.getRed() < 255)
-							  currPixel.setRed(currPixel.getRed() + ((Math.abs(currPixel.getRed() % 4) + (currPixel.getGreen() %4))));
-						  else if (currPixel.getRed() > 0)
 							  currPixel.setRed(currPixel.getRed() + ((Math.abs(currPixel.getRed() % 4) - (currPixel.getGreen() %4))));
+						  else if (currPixel.getRed() > 0)
+							  currPixel.setRed(currPixel.getRed() - ((Math.abs(currPixel.getRed() % 4) - (currPixel.getGreen() %4))));
 					  }
 			  }
 		  
