@@ -342,7 +342,7 @@ public class PictureTester
 		beach.explore();  
   }
   
-  public static void encode()
+  public static void encryption()
   {
 	  //Laptop
 		Picture beach = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
@@ -357,7 +357,9 @@ public class PictureTester
 		msg.explore();
 		beach.explore();
 		beach.encode(msg);
-		beach.explore();  
+//		beach.explore();  
+		beach.decode().explore();
+
   }
   
   public static void decode()
@@ -375,15 +377,16 @@ public class PictureTester
 //		msg.explore();
 //		beach.explore();
 		beach.decode();
-		beach.explore();  
+//		beach.explore();  
   }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
   {
-	  encode();
-	  decode();
+	  encryption();
+//	  encode();
+//	  decode();
 	  
 	  
 	//Setting up cryptography lab

@@ -103,25 +103,25 @@ public class Picture extends SimplePicture
 		Pixel currPixel = null;
 		Pixel messagePixel = null;
 		int ind = 0;
-		CharMap map = null;
+//		CharMap map = null;
 		
 		int numToBChanged = 0;
 		
-		try
-		{
-			map = new CharMap();
-			//laptop
-			map.setMap(new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
-			
-			//school
-//			map.setMap( new Scanner( new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
-//			System.out.println(map);
-		} 
-		catch (FileNotFoundException e)
-		{
-			System.out.println("Literature not found");
-			e.printStackTrace();
-		}
+//		try
+//		{
+//			map = new CharMap();
+//			//laptop
+//			map.setMap(new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
+//			
+//			//school
+////			map.setMap( new Scanner( new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
+////			System.out.println(map);
+//		} 
+//		catch (FileNotFoundException e)
+//		{
+//			System.out.println("Literature not found");
+//			e.printStackTrace();
+//		}
 		
 		//actual encoding
 		for(int row = 0; row < this.getHeight(); row++)
@@ -134,13 +134,29 @@ public class Picture extends SimplePicture
 			  //make all RBG values % 4 equivalent, relative to Green values
 			  if( ((currPixel.getGreen() % 4) != (currPixel.getBlue() % 4) ) || ((currPixel.getGreen() % 4) != ( currPixel.getRed())))
 			  {
-				  while((currPixel.getGreen() % 4 )!= (currPixel.getBlue() % 4))
-					  currPixel.setBlue(currPixel.getBlue() + 1);
-				  while((currPixel.getGreen() % 4 )!= (currPixel.getRed() % 4))
-					  currPixel.setRed(currPixel.getRed() + 1);
+//				  System.out.println("before ifs");
+
+				  if((currPixel.getGreen() % 4 )!= (currPixel.getBlue() % 4))
+					  {
+						  if(currPixel.getBlue() < 255)
+							  currPixel.setBlue(currPixel.getBlue() + (Math.abs(currPixel.getBlue() + currPixel.getGreen())));
+						  else if (currPixel.getBlue() > 0)
+							  currPixel.setBlue(currPixel.getBlue() + (Math.abs(currPixel.getBlue() - currPixel.getGreen())));
+					  }
+					  if((currPixel.getGreen() % 4 )!= (currPixel.getRed() % 4))
+					  {
+						  if(currPixel.getRed() < 255)
+							  currPixel.setRed(currPixel.getRed() + (Math.abs(currPixel.getRed() + currPixel.getGreen())));
+						  else if (currPixel.getRed() > 0)
+							  currPixel.setRed(currPixel.getRed() - (Math.abs(currPixel.getRed() + currPixel.getGreen())));
+					  }
 			  }
+		  
+//		  	  System.out.println("after ifs");
+
 //			  System.out.println("after green and red :: " + currPixel.getGreen() + " " + currPixel.getRed());
 //			  System.out.println("RBG :: " + currPixel.getRed() + " " + currPixel.getBlue() + " "  + currPixel.getGreen() +  "\n\n");
+//			  System.out.println("after while");
 
 			  
 			  messagePixel = messagePixels[row][col];
@@ -148,19 +164,26 @@ public class Picture extends SimplePicture
 			  if(messagePixel.colorDistance(Color.BLACK) < 50)
 			  {
 
-				  if(ind == map.size())
-				  {
+//				  if(ind == map.size())
+//				  {
+//
+//					  ind = 0;
+//				  }
+//				  System.out.println("before :: " + currPixel.getBlue() + " loc :: " + currPixel);
+//				  currPixel.setBlue(currPixel.getBlue() + map.getCoder(ind++).getNum());
+				
+//				  currPixel.setBlue(currPixel.getBlue() + (int) (Math.random() * 9));
 
-					  ind = 0;
-				  }
-				  System.out.println("before :: " + currPixel.getBlue() + " loc :: " + currPixel);
-				  currPixel.setBlue(currPixel.getBlue() + map.getCoder(ind++).getNum());
-				  
 				  //check that new Blue value % 4 is NOT equivalent to the previous Blue value
-				  if(currPixel.getBlue() % 4 == currPixel.getGreen() % 4)
-					  currPixel.setBlue(currPixel.getBlue() + 1);
+				  if((currPixel.getBlue() % 4) == (currPixel.getGreen() % 4))
+				  {
+						  if(currPixel.getBlue() < 255)
+							  currPixel.setBlue(currPixel.getBlue() + 1);
+						  else if (currPixel.getBlue() > 0)
+							  currPixel.setBlue(currPixel.getBlue() - 1);
+				  }
 				  
-				  System.out.println("after :: " + currPixel.getBlue());
+//				  System.out.println("after :: " + currPixel.getBlue());
 				  
 
 		
@@ -168,11 +191,27 @@ public class Picture extends SimplePicture
 				  //for testing purposes:
 //				  numToBChanged++;
 			  }
+			  
+//			  else if(messagePixel.colorDistance(Color.BLACK) > 50
+//					  && 
+//					  ((currPixel.getGreen() % 4 )== (currPixel.getRed() % 4)) 
+//					  &&
+//					  ((currPixel.getGreen() % 4 )== (currPixel.getBlue() % 4))
+//				  )
+//			  {
+//				  if(currPixel.getGreen() < 255)
+//					  currPixel.setGreen(currPixel.getGreen() + 1);
+//				  else if (currPixel.getGreen() > 0)
+//					  currPixel.setGreen(currPixel.getGreen() - 1);
+//			  }
+				  
 //			  System.out.println("RBG :: " + currPixel.getRed() + " " + currPixel.getBlue() + " "  + currPixel.getGreen() +  "\n\n");
 
 		  }
 		}
 //		System.out.println("numToBChanged :: " + numToBChanged);
+//		  System.out.println("finished encoding");
+
   }
   
   /**
@@ -220,8 +259,11 @@ public class Picture extends SimplePicture
 			  {
 					  messagePixel.setColor(Color.BLACK);
 			  }
+//			  else messagePixel.setColor(Color.WHITE);
 		  }
 	  }
+//	  System.out.println("finished decoding");
+
 	  return messagePicture;
   }
   
