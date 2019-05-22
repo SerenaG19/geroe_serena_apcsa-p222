@@ -129,21 +129,49 @@ public class Picture extends SimplePicture
 		  for(int col = 0; col < this.getWidth(); col++)
 		  {
 			  currPixel = currPixels[row][col];
+			  
+//			  System.out.println("before green and red :: " + currPixel.getGreen() + " " + currPixel.getRed());
+			  //make all RBG values % 4 equivalent, relative to Green values
+			  if( ((currPixel.getGreen() % 4) != (currPixel.getBlue() % 4) ) || ((currPixel.getGreen() % 4) != ( currPixel.getRed())))
+			  {
+				  while((currPixel.getGreen() % 4 )!= (currPixel.getBlue() % 4))
+					  currPixel.setBlue(currPixel.getBlue() + 1);
+				  while((currPixel.getGreen() % 4 )!= (currPixel.getRed() % 4))
+					  currPixel.setRed(currPixel.getRed() + 1);
+			  }
+//			  System.out.println("after green and red :: " + currPixel.getGreen() + " " + currPixel.getRed());
+//			  System.out.println("RBG :: " + currPixel.getRed() + " " + currPixel.getBlue() + " "  + currPixel.getGreen() +  "\n\n");
+
+			  
 			  messagePixel = messagePixels[row][col];
 
 			  if(messagePixel.colorDistance(Color.BLACK) < 50)
-			  {
-				  if(ind >= map.size())
+			  {	 System.out.println("if1");
+
+				  if(ind == map.size())
 				  {
+					  System.out.println("if2");
+
 					  ind = 0;
 				  }
 				  System.out.println("before :: " + currPixel.getBlue() + " loc :: " + currPixel);
 				  currPixel.setBlue(currPixel.getBlue() + map.getCoder(ind++).getNum());
+				  
+				  //check that new Blue value % 4 is NOT equivalent to the previous Blue value
+				  if(currPixel.getBlue() % 4 == currPixel.getGreen() % 4)
+					  currPixel.setBlue(currPixel.getBlue() + 1);
+				  
 				  System.out.println("after :: " + currPixel.getBlue());
+				  
+				  System.out.println("HERE");
+
+		
 
 				  //for testing purposes:
 //				  numToBChanged++;
 			  }
+//			  System.out.println("RBG :: " + currPixel.getRed() + " " + currPixel.getBlue() + " "  + currPixel.getGreen() +  "\n\n");
+
 		  }
 		}
 //		System.out.println("numToBChanged :: " + numToBChanged);
@@ -163,38 +191,39 @@ public class Picture extends SimplePicture
 	  Pixel messagePixel = null;
 	  Picture messagePicture = new Picture(height,width);
 	  Pixel[][] messagePixels = messagePicture.getPixels2D();
-	  CharMap map = null;
+//	  CharMap map = null;
+//	  
+//		try
+//		{
+//			map = new CharMap();
+//			//laptop
+//			map.setMap(new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
+//			
+//			//school
+////			map.setMap( new Scanner( new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
+////			System.out.println(map);
+//		} 
+//		catch (FileNotFoundException e)
+//		{
+//			System.out.println("Literature not found");
+//			e.printStackTrace();
+//		}
 	  
-		try
-		{
-			map = new CharMap();
-			//laptop
-			map.setMap(new Scanner(new File("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
-			
-			//school
-//			map.setMap( new Scanner( new File("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\words.dat")));
-//			System.out.println(map);
-		} 
-		catch (FileNotFoundException e)
-		{
-			System.out.println("Literature not found");
-			e.printStackTrace();
-		}
-	  
-	  
+	  //iterate through whole image
 	  for (int row = 0; row < this.getHeight(); row++)
 	  {
 		  for (int col = 0; col < this.getWidth(); col++)
 		  {
 			  currPixel = pixels[row][col];
 			  messagePixel = messagePixels[row][col];
-//			  if (currPixel.getRed() % 2 == 1)
-//			  {
-//				  messagePixel.setColor(Color.BLACK);
-//			  }
+
+			  //look for pixels with G and B values that are NOT equivalent when % 4 (relative to Green)
+			  if(currPixel.getGreen() % 4 != currPixel.getBlue() % 4)
+			  {
+					  messagePixel.setColor(Color.BLACK);
+			  }
 		  }
 	  }
-//	  System.out.println(count);
 	  return messagePicture;
   }
   

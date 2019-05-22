@@ -317,8 +317,8 @@ public class PictureTester
 	  //School
 //		Picture msg = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");
 		
-		msg.explore();
-		beach.explore();
+//		msg.explore();
+//		beach.explore();
 		beach.testEncode(msg);
 		beach.explore();  
 
@@ -340,12 +340,6 @@ public class PictureTester
 //		beach.explore();
 		beach.testDecode();
 		beach.explore();  
-  }
-  
-  public static void testEncryption()
-  {
-		testEncode();
-		testDecode();
   }
   
   public static void encode()
@@ -388,13 +382,13 @@ public class PictureTester
     * method in Java */
   public static void main(String[] args)
   {
-//	  encode();
-//	  decode();
+	  encode();
+	  decode();
 	  
 	  
 	//Setting up cryptography lab
 //	testEncode();
-	testDecode();
+//	testDecode();
 //    testEncryption();
 	
 	  
