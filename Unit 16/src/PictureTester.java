@@ -350,14 +350,16 @@ public class PictureTester
 //		Picture beach = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\beach.jpg");
 		
 	  //Laptop
-		Picture msg = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");
-	  //School
+		Picture msg = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\apple_icon.jpg");
+//		Picture msg = new Picture("C:\\Users\\Serena\\Desktop\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");
+
+		//School
 //		Picture msg = new Picture("H:\\APCSA Units\\geroe_serena_apcsa-p222\\Unit 16\\src\\images\\msg.jpg");
 		
 		msg.explore();
 		beach.explore();
 		beach.encode(msg);
-//		beach.explore();  
+		beach.explore();  
 		beach.decode().explore();
 
   }
